@@ -8,7 +8,7 @@
       <ToolsetName>MCS-51</ToolsetName>
       <TargetOption>
         <TargetCommonOption>
-          <Device>CY8C3246PVA-147</Device>
+          <Device>CY8C3246PVI-147</Device>
           <Vendor>Cypress</Vendor>
           <Cpu>"IRAM(0x00-0xFF) IROM(0x0-0xFFFF) CLOCK(50000000) MODDP2"</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -589,21 +589,6 @@
               <FilePath>.\Generated_Source\PSoC3\CLOCK_ENCODERS.h</FilePath>
             </File>
             <File>
-              <FileName>Signal_4_C.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC3\Signal_4_C.c</FilePath>
-            </File>
-            <File>
-              <FileName>Signal_4_C.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC3\Signal_4_C.h</FilePath>
-            </File>
-            <File>
-              <FileName>Signal_4_C_aliases.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC3\Signal_4_C_aliases.h</FilePath>
-            </File>
-            <File>
               <FileName>Signal_1_C.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Generated_Source\PSoC3\Signal_1_C.c</FilePath>
@@ -709,29 +694,9 @@
               <FilePath>.\Generated_Source\PSoC3\Signal_2_B_aliases.h</FilePath>
             </File>
             <File>
-              <FileName>Signal_4_B_aliases.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC3\Signal_4_B_aliases.h</FilePath>
-            </File>
-            <File>
               <FileName>Signal_3_B_aliases.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Generated_Source\PSoC3\Signal_3_B_aliases.h</FilePath>
-            </File>
-            <File>
-              <FileName>SHIFTREG_ENC_4.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC3\SHIFTREG_ENC_4.c</FilePath>
-            </File>
-            <File>
-              <FileName>SHIFTREG_ENC_4.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC3\SHIFTREG_ENC_4.h</FilePath>
-            </File>
-            <File>
-              <FileName>SHIFTREG_ENC_4_PM.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC3\SHIFTREG_ENC_4_PM.c</FilePath>
             </File>
             <File>
               <FileName>Signal_1_B_aliases.h</FileName>
@@ -802,21 +767,6 @@
               <FileName>Signal_2_A_aliases.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Generated_Source\PSoC3\Signal_2_A_aliases.h</FilePath>
-            </File>
-            <File>
-              <FileName>Signal_4_A.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC3\Signal_4_A.c</FilePath>
-            </File>
-            <File>
-              <FileName>Signal_4_A.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC3\Signal_4_A.h</FilePath>
-            </File>
-            <File>
-              <FileName>Signal_4_A_aliases.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC3\Signal_4_A_aliases.h</FilePath>
             </File>
             <File>
               <FileName>Signal_3_A.c</FileName>
@@ -974,16 +924,6 @@
               <FilePath>.\Generated_Source\PSoC3\ISR_ENCODER.h</FilePath>
             </File>
             <File>
-              <FileName>CLOCK_CONTROL_1.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC3\CLOCK_CONTROL_1.c</FilePath>
-            </File>
-            <File>
-              <FileName>CLOCK_CONTROL_1.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC3\CLOCK_CONTROL_1.h</FilePath>
-            </File>
-            <File>
               <FileName>UART_RS485_BOOT.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Generated_Source\PSoC3\UART_RS485_BOOT.c</FilePath>
@@ -997,16 +937,6 @@
               <FileName>Signal_2_B.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Generated_Source\PSoC3\Signal_2_B.h</FilePath>
-            </File>
-            <File>
-              <FileName>Signal_4_B.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC3\Signal_4_B.c</FilePath>
-            </File>
-            <File>
-              <FileName>Signal_4_B.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC3\Signal_4_B.h</FilePath>
             </File>
             <File>
               <FileName>Signal_3_B.c</FileName>
@@ -1148,6 +1078,126 @@
               <FileType>5</FileType>
               <FilePath>.\Generated_Source\PSoC3\MOTOR_ON_OFF.h</FilePath>
             </File>
+            <File>
+              <FileName>CLOCK_ENCODER_READ.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC3\CLOCK_ENCODER_READ.c</FilePath>
+            </File>
+            <File>
+              <FileName>CLOCK_ENCODER_READ.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC3\CLOCK_ENCODER_READ.h</FilePath>
+            </File>
+            <File>
+              <FileName>ISR_CALIBRATE.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC3\ISR_CALIBRATE.c</FilePath>
+            </File>
+            <File>
+              <FileName>ISR_CALIBRATE.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC3\ISR_CALIBRATE.h</FilePath>
+            </File>
+            <File>
+              <FileName>CALIB_TRIGG.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC3\CALIB_TRIGG.c</FilePath>
+            </File>
+            <File>
+              <FileName>CALIB_TRIGG.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC3\CALIB_TRIGG.h</FilePath>
+            </File>
+            <File>
+              <FileName>timer_clock.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC3\timer_clock.c</FilePath>
+            </File>
+            <File>
+              <FileName>timer_clock.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC3\timer_clock.h</FilePath>
+            </File>
+            <File>
+              <FileName>MY_TIMER.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC3\MY_TIMER.c</FilePath>
+            </File>
+            <File>
+              <FileName>MY_TIMER.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC3\MY_TIMER.h</FilePath>
+            </File>
+            <File>
+              <FileName>MY_TIMER_PM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC3\MY_TIMER_PM.c</FilePath>
+            </File>
+            <File>
+              <FileName>ISR_DELAY.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC3\ISR_DELAY.c</FilePath>
+            </File>
+            <File>
+              <FileName>ISR_DELAY.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC3\ISR_DELAY.h</FilePath>
+            </File>
+            <File>
+              <FileName>LED_REG.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC3\LED_REG.c</FilePath>
+            </File>
+            <File>
+              <FileName>LED_REG.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC3\LED_REG.h</FilePath>
+            </File>
+            <File>
+              <FileName>LED.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC3\LED.c</FilePath>
+            </File>
+            <File>
+              <FileName>LED.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC3\LED.h</FilePath>
+            </File>
+            <File>
+              <FileName>LED_aliases.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC3\LED_aliases.h</FilePath>
+            </File>
+            <File>
+              <FileName>EMG_1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC3\EMG_1.c</FilePath>
+            </File>
+            <File>
+              <FileName>EMG_1.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC3\EMG_1.h</FilePath>
+            </File>
+            <File>
+              <FileName>EMG_1_aliases.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC3\EMG_1_aliases.h</FilePath>
+            </File>
+            <File>
+              <FileName>EMG_2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC3\EMG_2.c</FilePath>
+            </File>
+            <File>
+              <FileName>EMG_2.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC3\EMG_2.h</FilePath>
+            </File>
+            <File>
+              <FileName>EMG_2_aliases.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC3\EMG_2_aliases.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
@@ -1158,7 +1208,7 @@
       <ToolsetName>MCS-51</ToolsetName>
       <TargetOption>
         <TargetCommonOption>
-          <Device>CY8C3246PVA-147</Device>
+          <Device>CY8C3246PVI-147</Device>
           <Vendor>Cypress</Vendor>
           <Cpu>"IRAM(0x00-0xFF) IROM(0x0-0xFFFF) CLOCK(50000000) MODDP2"</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -1739,21 +1789,6 @@
               <FilePath>.\Generated_Source\PSoC3\CLOCK_ENCODERS.h</FilePath>
             </File>
             <File>
-              <FileName>Signal_4_C.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC3\Signal_4_C.c</FilePath>
-            </File>
-            <File>
-              <FileName>Signal_4_C.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC3\Signal_4_C.h</FilePath>
-            </File>
-            <File>
-              <FileName>Signal_4_C_aliases.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC3\Signal_4_C_aliases.h</FilePath>
-            </File>
-            <File>
               <FileName>Signal_1_C.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Generated_Source\PSoC3\Signal_1_C.c</FilePath>
@@ -1859,29 +1894,9 @@
               <FilePath>.\Generated_Source\PSoC3\Signal_2_B_aliases.h</FilePath>
             </File>
             <File>
-              <FileName>Signal_4_B_aliases.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC3\Signal_4_B_aliases.h</FilePath>
-            </File>
-            <File>
               <FileName>Signal_3_B_aliases.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Generated_Source\PSoC3\Signal_3_B_aliases.h</FilePath>
-            </File>
-            <File>
-              <FileName>SHIFTREG_ENC_4.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC3\SHIFTREG_ENC_4.c</FilePath>
-            </File>
-            <File>
-              <FileName>SHIFTREG_ENC_4.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC3\SHIFTREG_ENC_4.h</FilePath>
-            </File>
-            <File>
-              <FileName>SHIFTREG_ENC_4_PM.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC3\SHIFTREG_ENC_4_PM.c</FilePath>
             </File>
             <File>
               <FileName>Signal_1_B_aliases.h</FileName>
@@ -1952,21 +1967,6 @@
               <FileName>Signal_2_A_aliases.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Generated_Source\PSoC3\Signal_2_A_aliases.h</FilePath>
-            </File>
-            <File>
-              <FileName>Signal_4_A.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC3\Signal_4_A.c</FilePath>
-            </File>
-            <File>
-              <FileName>Signal_4_A.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC3\Signal_4_A.h</FilePath>
-            </File>
-            <File>
-              <FileName>Signal_4_A_aliases.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC3\Signal_4_A_aliases.h</FilePath>
             </File>
             <File>
               <FileName>Signal_3_A.c</FileName>
@@ -2124,16 +2124,6 @@
               <FilePath>.\Generated_Source\PSoC3\ISR_ENCODER.h</FilePath>
             </File>
             <File>
-              <FileName>CLOCK_CONTROL_1.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC3\CLOCK_CONTROL_1.c</FilePath>
-            </File>
-            <File>
-              <FileName>CLOCK_CONTROL_1.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC3\CLOCK_CONTROL_1.h</FilePath>
-            </File>
-            <File>
               <FileName>UART_RS485_BOOT.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Generated_Source\PSoC3\UART_RS485_BOOT.c</FilePath>
@@ -2147,16 +2137,6 @@
               <FileName>Signal_2_B.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Generated_Source\PSoC3\Signal_2_B.h</FilePath>
-            </File>
-            <File>
-              <FileName>Signal_4_B.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC3\Signal_4_B.c</FilePath>
-            </File>
-            <File>
-              <FileName>Signal_4_B.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC3\Signal_4_B.h</FilePath>
             </File>
             <File>
               <FileName>Signal_3_B.c</FileName>
@@ -2297,6 +2277,126 @@
               <FileName>MOTOR_ON_OFF.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Generated_Source\PSoC3\MOTOR_ON_OFF.h</FilePath>
+            </File>
+            <File>
+              <FileName>CLOCK_ENCODER_READ.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC3\CLOCK_ENCODER_READ.c</FilePath>
+            </File>
+            <File>
+              <FileName>CLOCK_ENCODER_READ.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC3\CLOCK_ENCODER_READ.h</FilePath>
+            </File>
+            <File>
+              <FileName>ISR_CALIBRATE.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC3\ISR_CALIBRATE.c</FilePath>
+            </File>
+            <File>
+              <FileName>ISR_CALIBRATE.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC3\ISR_CALIBRATE.h</FilePath>
+            </File>
+            <File>
+              <FileName>CALIB_TRIGG.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC3\CALIB_TRIGG.c</FilePath>
+            </File>
+            <File>
+              <FileName>CALIB_TRIGG.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC3\CALIB_TRIGG.h</FilePath>
+            </File>
+            <File>
+              <FileName>timer_clock.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC3\timer_clock.c</FilePath>
+            </File>
+            <File>
+              <FileName>timer_clock.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC3\timer_clock.h</FilePath>
+            </File>
+            <File>
+              <FileName>MY_TIMER.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC3\MY_TIMER.c</FilePath>
+            </File>
+            <File>
+              <FileName>MY_TIMER.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC3\MY_TIMER.h</FilePath>
+            </File>
+            <File>
+              <FileName>MY_TIMER_PM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC3\MY_TIMER_PM.c</FilePath>
+            </File>
+            <File>
+              <FileName>ISR_DELAY.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC3\ISR_DELAY.c</FilePath>
+            </File>
+            <File>
+              <FileName>ISR_DELAY.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC3\ISR_DELAY.h</FilePath>
+            </File>
+            <File>
+              <FileName>LED_REG.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC3\LED_REG.c</FilePath>
+            </File>
+            <File>
+              <FileName>LED_REG.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC3\LED_REG.h</FilePath>
+            </File>
+            <File>
+              <FileName>LED.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC3\LED.c</FilePath>
+            </File>
+            <File>
+              <FileName>LED.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC3\LED.h</FilePath>
+            </File>
+            <File>
+              <FileName>LED_aliases.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC3\LED_aliases.h</FilePath>
+            </File>
+            <File>
+              <FileName>EMG_1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC3\EMG_1.c</FilePath>
+            </File>
+            <File>
+              <FileName>EMG_1.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC3\EMG_1.h</FilePath>
+            </File>
+            <File>
+              <FileName>EMG_1_aliases.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC3\EMG_1_aliases.h</FilePath>
+            </File>
+            <File>
+              <FileName>EMG_2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC3\EMG_2.c</FilePath>
+            </File>
+            <File>
+              <FileName>EMG_2.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC3\EMG_2.h</FilePath>
+            </File>
+            <File>
+              <FileName>EMG_2_aliases.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC3\EMG_2_aliases.h</FilePath>
             </File>
           </Files>
         </Group>

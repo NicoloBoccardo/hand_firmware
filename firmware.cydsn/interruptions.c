@@ -321,18 +321,20 @@ CY_ISR(ISR_MEASUREMENTS_ExInterrupt)
 	
 	ADC_StartConvert();
 
-	if (ADC_IsEndConversion(ADC_RETURN_STATUS)) {
+	if (ADC_IsEndConversion(ADC_WAIT_FOR_RESULT)) {
 
-		ind = AMUXSEQ_MOTORS_GetChannel();
 		value = (int32) ADC_GetResult16();
-		ADC_StopConvert();		
+		ind = AMUXSEQ_MOTORS_GetChannel();
+
+		ADC_StopConvert();
+
 		switch(ind){
 			// --- Input tension ---
 			case 0:
 				device.tension = (value - 1638) * device.tension_conv_factor;
-				if (device.tension < 0) { //until there is no valid input tension repeat this measurment
+				//until there is no valid input tension repeat this measurement
+				if (device.tension < 0) {
 					AMUXSEQ_MOTORS_Stop();
-					AMUXSEQ_MOTORS_Next();
 					counter = SAMPLES_FOR_MEAN;
 					mean_value_1 = 0;
 					mean_value_2 = 0;
@@ -372,6 +374,17 @@ CY_ISR(ISR_MEASUREMENTS_ExInterrupt)
 					g_meas.curr[1] = g_meas.curr[1] * sign_2;
 				}
             	break;
+
+            // --- EMG 1 ---
+            case 3:
+            	g_meas.emg[0] = (int32)((float)value * (5000.0 / 4096.0));
+            	break;
+
+            // --- EMG 2 ---
+            case 4:
+            	g_meas.emg[1] = (int32)((float)value * (5000.0 / 4096.0));
+            	break;
+
 		}
 		AMUXSEQ_MOTORS_Next();		
 	}
@@ -416,10 +429,6 @@ CY_ISR(ISR_ENCODER_ExInterrupt)
 			}
 			case 2: {
 				data_encoder[i] = SHIFTREG_ENC_3_ReadData();
-				break;
-			}
-			case 3: {
-				data_encoder[i] = SHIFTREG_ENC_4_ReadData();
 				break;
 			}
 		}

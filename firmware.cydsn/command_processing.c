@@ -149,6 +149,22 @@ void commProcess(void){
 			commWrite(packet_data, packet_lenght);
 		break;
 
+//=========================================================     CMD_GET_EMG
+
+        case CMD_GET_EMG:
+            //Packt: header + measure(int16) + CRC
+            packet_lenght = 6;
+            
+            packet_data[0] = CMD_GET_EMG;              
+            
+            *((int16 *) &packet_data[1]) = (int16) g_meas.emg[0];
+            *((int16 *) &packet_data[3]) = (int16) g_meas.emg[1];
+            
+            packet_data[5] = LCRChecksum (packet_data,packet_lenght - 1);
+
+            commWrite(packet_data, packet_lenght);
+        break;
+
 //====================================================     CMD_GET_CURR_AND_MEAS
 
         case CMD_GET_CURR_AND_MEAS:
@@ -281,7 +297,7 @@ void commProcess(void){
 //===========================================================     CMD_BOOTLOADER
         case CMD_BOOTLOADER:
             sendAcknowledgment();
-            Bootloadable_Load();
+            // Bootloadable_Load();
             break;
 
 //============================================================     CMD_CALIBRATE

@@ -26,10 +26,11 @@
 //                                                                        DEVICE
 //==============================================================================
 
-#define VERSION         "QBMMP v2.1.0"
+#define VERSION         "THE v1.0.0"
 
 #define NUM_OF_MOTORS   2
 #define NUM_OF_SENSORS  3
+#define NUM_OF_EMGS     2
 
 //==============================================================================
 //                                                                       CONTROL
@@ -85,6 +86,8 @@ struct st_meas {
     int32 curr[NUM_OF_MOTORS];		// motor currents
 
     int16 rot[NUM_OF_SENSORS];		// sensor rotations
+
+    int32 emg[NUM_OF_EMGS];
 };
 
 //==============================================================     data packet

@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="firmware\firmware\Source Files\main.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="firmware\firmware\TopDesign.cysch">
 <ExpandedNodeIds>
 <v>firmware</v>
 <v>firmware\firmware</v>
@@ -29,6 +29,7 @@
 <v>firmware\firmware\Source Files\globals.c</v>
 <v>firmware\firmware\Source Files\interruptions.c</v>
 <v>firmware\firmware\Source Files\main.c</v>
+<v>firmware\firmware\Generated_Source</v>
 <v>firmware\firmware\Generated_Source\PSoC3</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ADC\ADC.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ADC\ADC.h</v>
@@ -44,8 +45,6 @@
 <v>firmware\firmware\Generated_Source\PSoC3\ADC_theACLK\ADC_theACLK.h</v>
 <v>firmware\firmware\Generated_Source\PSoC3\AMUXSEQ_MOTORS\AMUXSEQ_MOTORS.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\AMUXSEQ_MOTORS\AMUXSEQ_MOTORS.h</v>
-<v>firmware\firmware\Generated_Source\PSoC3\Bootloadable\Bootloadable.c</v>
-<v>firmware\firmware\Generated_Source\PSoC3\Bootloadable\Bootloadable.h</v>
 <v>firmware\firmware\Generated_Source\PSoC3\CLOCK_CONTROL</v>
 <v>firmware\firmware\Generated_Source\PSoC3\CLOCK_CONTROL\CLOCK_CONTROL.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\CLOCK_CONTROL\CLOCK_CONTROL.h</v>
@@ -92,6 +91,14 @@
 <v>firmware\firmware\Generated_Source\PSoC3\EEPROM</v>
 <v>firmware\firmware\Generated_Source\PSoC3\EEPROM\EEPROM.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\EEPROM\EEPROM.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\EMG_1</v>
+<v>firmware\firmware\Generated_Source\PSoC3\EMG_1\EMG_1.c</v>
+<v>firmware\firmware\Generated_Source\PSoC3\EMG_1\EMG_1.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\EMG_1\EMG_1_aliases.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\EMG_2</v>
+<v>firmware\firmware\Generated_Source\PSoC3\EMG_2\EMG_2.c</v>
+<v>firmware\firmware\Generated_Source\PSoC3\EMG_2\EMG_2.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\EMG_2\EMG_2_aliases.h</v>
 <v>firmware\firmware\Generated_Source\PSoC3\FTDI_ENABLE</v>
 <v>firmware\firmware\Generated_Source\PSoC3\FTDI_ENABLE\FTDI_ENABLE.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\FTDI_ENABLE\FTDI_ENABLE.h</v>
@@ -108,6 +115,13 @@
 <v>firmware\firmware\Generated_Source\PSoC3\ISR_RS485_RX</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ISR_RS485_RX\ISR_RS485_RX.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ISR_RS485_RX\ISR_RS485_RX.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\LED</v>
+<v>firmware\firmware\Generated_Source\PSoC3\LED\LED.c</v>
+<v>firmware\firmware\Generated_Source\PSoC3\LED\LED.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\LED\LED_aliases.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\LED_REG</v>
+<v>firmware\firmware\Generated_Source\PSoC3\LED_REG\LED_REG.c</v>
+<v>firmware\firmware\Generated_Source\PSoC3\LED_REG\LED_REG.h</v>
 <v>firmware\firmware\Generated_Source\PSoC3\MOTOR_EN</v>
 <v>firmware\firmware\Generated_Source\PSoC3\MOTOR_EN\MOTOR_EN.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\MOTOR_EN\MOTOR_EN.h</v>
@@ -131,10 +145,6 @@
 <v>firmware\firmware\Generated_Source\PSoC3\SHIFTREG_ENC_3\SHIFTREG_ENC_3.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\SHIFTREG_ENC_3\SHIFTREG_ENC_3.h</v>
 <v>firmware\firmware\Generated_Source\PSoC3\SHIFTREG_ENC_3\SHIFTREG_ENC_3_PM.c</v>
-<v>firmware\firmware\Generated_Source\PSoC3\SHIFTREG_ENC_4</v>
-<v>firmware\firmware\Generated_Source\PSoC3\SHIFTREG_ENC_4\SHIFTREG_ENC_4.c</v>
-<v>firmware\firmware\Generated_Source\PSoC3\SHIFTREG_ENC_4\SHIFTREG_ENC_4.h</v>
-<v>firmware\firmware\Generated_Source\PSoC3\SHIFTREG_ENC_4\SHIFTREG_ENC_4_PM.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\Signal_1_A</v>
 <v>firmware\firmware\Generated_Source\PSoC3\Signal_1_A\Signal_1_A.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\Signal_1_A\Signal_1_A.h</v>
@@ -171,18 +181,6 @@
 <v>firmware\firmware\Generated_Source\PSoC3\Signal_3_C\Signal_3_C.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\Signal_3_C\Signal_3_C.h</v>
 <v>firmware\firmware\Generated_Source\PSoC3\Signal_3_C\Signal_3_C_aliases.h</v>
-<v>firmware\firmware\Generated_Source\PSoC3\Signal_4_A</v>
-<v>firmware\firmware\Generated_Source\PSoC3\Signal_4_A\Signal_4_A.c</v>
-<v>firmware\firmware\Generated_Source\PSoC3\Signal_4_A\Signal_4_A.h</v>
-<v>firmware\firmware\Generated_Source\PSoC3\Signal_4_A\Signal_4_A_aliases.h</v>
-<v>firmware\firmware\Generated_Source\PSoC3\Signal_4_B</v>
-<v>firmware\firmware\Generated_Source\PSoC3\Signal_4_B\Signal_4_B.c</v>
-<v>firmware\firmware\Generated_Source\PSoC3\Signal_4_B\Signal_4_B.h</v>
-<v>firmware\firmware\Generated_Source\PSoC3\Signal_4_B\Signal_4_B_aliases.h</v>
-<v>firmware\firmware\Generated_Source\PSoC3\Signal_4_C</v>
-<v>firmware\firmware\Generated_Source\PSoC3\Signal_4_C\Signal_4_C.c</v>
-<v>firmware\firmware\Generated_Source\PSoC3\Signal_4_C\Signal_4_C.h</v>
-<v>firmware\firmware\Generated_Source\PSoC3\Signal_4_C\Signal_4_C_aliases.h</v>
 <v>firmware\firmware\Generated_Source\PSoC3\UART_RS485</v>
 <v>firmware\firmware\Generated_Source\PSoC3\UART_RS485\UART_RS485.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\UART_RS485\UART_RS485.h</v>
@@ -225,6 +223,36 @@
 <v>firmware\firmware\Source Files\interruptions.c</v>
 <v>firmware\firmware\Source Files\main.c</v>
 <v>firmware\firmware\Generated_Source</v>
+<v>firmware\firmware\Generated_Source\PSoC3</v>
+<v>firmware\firmware\Generated_Source\PSoC3\ADC</v>
+<v>firmware\firmware\Generated_Source\PSoC3\ADC_AMux</v>
+<v>firmware\firmware\Generated_Source\PSoC3\ADC_Ext_CP_Clk</v>
+<v>firmware\firmware\Generated_Source\PSoC3\ADC_IRQ</v>
+<v>firmware\firmware\Generated_Source\PSoC3\ADC_theACLK</v>
+<v>firmware\firmware\Generated_Source\PSoC3\AMUXSEQ_MOTORS</v>
+<v>firmware\firmware\Generated_Source\PSoC3\CALIB_TRIGG</v>
+<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_CONTROL</v>
+<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_CONTROL\CLOCK_CONTROL.c</v>
+<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_CONTROL\CLOCK_CONTROL.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_ENCODER_READ</v>
+<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_ENCODERS</v>
+<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_ENCODERS\CLOCK_ENCODERS.c</v>
+<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_ENCODERS\CLOCK_ENCODERS.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_MEASUREMENTS</v>
+<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_MEASUREMENTS\CLOCK_MEASUREMENTS.c</v>
+<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_MEASUREMENTS\CLOCK_MEASUREMENTS.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_PWM</v>
+<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_UART</v>
+<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_UART\CLOCK_UART.c</v>
+<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_UART\CLOCK_UART.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\COUNTER_ENC</v>
+<v>firmware\firmware\Generated_Source\PSoC3\COUNTER_ENC\COUNTER_ENC.c</v>
+<v>firmware\firmware\Generated_Source\PSoC3\COUNTER_ENC\COUNTER_ENC.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\COUNTER_ENC\COUNTER_ENC_PM.c</v>
+<v>firmware\firmware\Generated_Source\PSoC3\CURRENT_SENSE_1</v>
+<v>firmware\firmware\Generated_Source\PSoC3\CURRENT_SENSE_1\CURRENT_SENSE_1.c</v>
+<v>firmware\firmware\Generated_Source\PSoC3\CURRENT_SENSE_1\CURRENT_SENSE_1.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\CURRENT_SENSE_1\CURRENT_SENSE_1_aliases.h</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="firmware\firmware">
@@ -257,7 +285,6 @@
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ADC_PM.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ADC_theACLK.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\AMUXSEQ_MOTORS.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\Bootloadable.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CALIB_TRIGG.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CLOCK_CONTROL.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CLOCK_ENCODER_READ.lst</v>
@@ -280,6 +307,8 @@
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CySpc.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\cyutils.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\EEPROM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\EMG_1.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\EMG_2.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\FTDI_ENABLE.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\globals.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\interruptions.lst</v>
@@ -290,6 +319,8 @@
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ISR_MOTORS_CONTROL.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ISR_RS485_RX.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\KeilStart.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\LED.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\LED_REG.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\main.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\MOTOR_1A.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\MOTOR_1B.lst</v>
@@ -310,8 +341,6 @@
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\SHIFTREG_ENC_2_PM.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\SHIFTREG_ENC_3.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\SHIFTREG_ENC_3_PM.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\SHIFTREG_ENC_4.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\SHIFTREG_ENC_4_PM.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\Signal_1_A.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\Signal_1_B.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\Signal_1_C.lst</v>
@@ -321,9 +350,6 @@
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\Signal_3_A.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\Signal_3_B.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\Signal_3_C.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\Signal_4_A.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\Signal_4_B.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\Signal_4_C.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\timer_clock.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\UART_RS485.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\UART_RS485_BOOT.lst</v>
@@ -331,7 +357,6 @@
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\UART_RS485_PM.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\USB_VDD.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\VOLTAGE_SENSE.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\firmware.cyacd</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\firmware.elf</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\firmware.hex</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\firmware.map</v>
@@ -353,7 +378,6 @@
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ADC_PM.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ADC_theACLK.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\AMUXSEQ_MOTORS.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\Bootloadable.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CALIB_TRIGG.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CLOCK_CONTROL.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CLOCK_ENCODER_READ.lst</v>
@@ -376,6 +400,8 @@
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CySpc.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\cyutils.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\EEPROM.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\EMG_1.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\EMG_2.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\FTDI_ENABLE.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\globals.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\interruptions.lst</v>
@@ -384,8 +410,6 @@
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ISR_ENCODER.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ISR_MEASUREMENTS.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ISR_MOTORS_CONTROL.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ISR_RS485_RX.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\KeilStart.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -402,7 +426,6 @@
 <v>firmware\firmware\System Reference Guide v4_0</v>
 <v>firmware\firmware\ADC_DelSig_v3_0</v>
 <v>firmware\firmware\AMuxSeq_v1_80</v>
-<v>firmware\firmware\Bootloadable_v1_20</v>
 <v>firmware\firmware\Counter_v2_40</v>
 <v>firmware\firmware\cy_clock_v2_10</v>
 <v>firmware\firmware\cy_isr_v1_70</v>
@@ -428,7 +451,6 @@
 <v>firmware\firmware\System Reference Guide v4_0</v>
 <v>firmware\firmware\ADC_DelSig_v3_0</v>
 <v>firmware\firmware\AMuxSeq_v1_80</v>
-<v>firmware\firmware\Bootloadable_v1_20</v>
 <v>firmware\firmware\Counter_v2_40</v>
 <v>firmware\firmware\cy_clock_v2_10</v>
 <v>firmware\firmware\cy_isr_v1_70</v>
