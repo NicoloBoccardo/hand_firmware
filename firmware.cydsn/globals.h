@@ -41,12 +41,14 @@
 #define CONTROL_ANGLE		    0
 #define CONTROL_PWM				1
 #define CONTROL_CURRENT			2
+#define CONTROL_EMG_1           3
 
 //==================================================     control type definition
 
-//#define CONTROL_MODE			CONTROL_CURRENT
+// #define CONTROL_MODE			CONTROL_CURRENT
 #define CONTROL_MODE			CONTROL_ANGLE
-//#define CONTROL_MODE			CONTROL_PWM
+// #define CONTROL_MODE			CONTROL_PWM
+// #define CONTROL_MODE            CONTROL_EMG_1
     
 //==============================================================================
 //                                                                         OTHER
@@ -66,6 +68,8 @@
 #define MAX_CURRENT     1000          // Max current for calibration (mA) 
 	
 #define SAMPLES_FOR_MEAN 100
+
+#define SAMPLES_FOR_EMG_MEAN 3000
 
 //==============================================================================
 //                                                        structures definitions

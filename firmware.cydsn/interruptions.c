@@ -16,19 +16,8 @@
 //=================================================================     includes
 #include <interruptions.h>
 #include <command_processing.h>
-#include "globals.h"
-
-//==================================================================     defines
-
-#define TIMER_CLOCK 10000
-
-//===================================================================     global
-
-uint8 timer_flag = 0;
-
-//=============================================================     decalrations
-
-void ms_delay(uint32 ms);
+#include <globals.h>
+#include <utils.h>
 
 
 //==============================================================================
@@ -151,6 +140,12 @@ CY_ISR(ISR_RS485_RX_ExInterrupt){
 			break;			
 		}		
 	}
+	/* PSoC3 ES1, ES2 RTC ISR PATCH  */ 
+	#if(CYDEV_CHIP_FAMILY_USED == CYDEV_CHIP_FAMILY_PSOC3)
+	    #if((CYDEV_CHIP_REVISION_USED <= CYDEV_CHIP_REVISION_3A_ES2) && (ISR_RS485_RX__ES2_PATCH ))      
+	        ISR_MOTORS_CONTROL_ISR_PATCH();
+	    #endif
+	#endif
 }
 
 //==============================================================================
@@ -161,47 +156,133 @@ CY_ISR(ISR_RS485_RX_ExInterrupt){
 
 CY_ISR(ISR_MOTORS_CONTROL_ExInterrupt)
 {	
+	// -----   encoder variables   -----
+	int i;              //iterator
+
+	int32 data_encoder[NUM_OF_SENSORS];
+	int32 value_encoder[NUM_OF_SENSORS];
+	int32 aux;
+
+	static int32 last_value_encoder[NUM_OF_SENSORS];
+
+
+	// -----   control variables   -----
 	static int32 input_1 = 0;
 	static int32 input_2 = 0;
 
 	
 	static int32 pos_prec_1, pos_prec_2;
 	int32 error_1, error_2;
+
 	static int32 err_sum_1, err_sum_2;
 
+	//emg threshold
+	static int threshold = 20;
 	
-    /////////   use third encoder as input for both motors   //////////
-    if( c_mem.mode == INPUT_MODE_ENCODER3 )
-    {
-    	//--- speed control in both directions ---//
 
-    	// motor 1
-       	if (((g_meas.pos[2] - g_ref.pos[0]) > c_mem.max_step_pos)   &&   (c_mem.max_step_pos != 0)) {
-			g_ref.pos[0] += c_mem.max_step_pos;
-       	} else if (((g_meas.pos[2] - g_ref.pos[0]) < c_mem.max_step_neg)   &&   (c_mem.max_step_neg != 0)) {
-			g_ref.pos[0] += c_mem.max_step_neg;
-	    } else {
-       		g_ref.pos[0] = g_meas.pos[2];
-	    }
+//==========================================================     reading sensors
 
-	    // motor 2
-	    if (((g_meas.pos[2] - g_ref.pos[1]) > c_mem.max_step_pos)   &&   (c_mem.max_step_pos != 0)) {
-			g_ref.pos[1] += c_mem.max_step_pos;
-       	} else if (((g_meas.pos[2] - g_ref.pos[1]) < c_mem.max_step_neg)   &&   (c_mem.max_step_neg != 0)) {
-			g_ref.pos[1] += c_mem.max_step_neg;
-	    } else {
-       		g_ref.pos[1] = g_meas.pos[2];
-	    }
 
-	    // position limit
-	    if (c_mem.pos_lim_flag) {
-            if (g_ref.pos[0] < c_mem.pos_lim_inf[0]) g_ref.pos[0] = c_mem.pos_lim_inf[0];
-            if (g_ref.pos[1] < c_mem.pos_lim_inf[1]) g_ref.pos[1] = c_mem.pos_lim_inf[1];
+	for (i = 0; i < NUM_OF_SENSORS; i++) {
+		switch(i) {
+			case 0: {
+				data_encoder[i] = SHIFTREG_ENC_1_ReadData();
+				break;
+			}
+			case 1: {
+				data_encoder[i] = SHIFTREG_ENC_2_ReadData();
+				break;
+			}
+			case 2: {
+				data_encoder[i] = SHIFTREG_ENC_3_ReadData();
+				break;
+			}
+		}
+		aux = data_encoder[i] & 262142;
+		if ((data_encoder[i] & 0x01 ) == BITChecksum(aux))
+		{
+			aux = data_encoder[i] & 0x3FFC0;			// reset last 6 bit
+			value_encoder[i] = (aux - 0x20000) >> 2;	// subtract half of max value
+													// and shift to have 16 bit val
 
-            if (g_ref.pos[0] > c_mem.pos_lim_sup[0]) g_ref.pos[0] = c_mem.pos_lim_sup[0];
-            if (g_ref.pos[1] > c_mem.pos_lim_sup[1]) g_ref.pos[1] = c_mem.pos_lim_sup[1];
-        }
+			value_encoder[i]  = (int16)(value_encoder[i] + g_mem.m_off[i]);
+
+			// take care of rotations
+			aux = value_encoder[i] - last_value_encoder[i];					
+			if (aux > 32768)
+				g_meas.rot[i]--;
+			if (aux < -32768)
+			 	g_meas.rot[i]++;	
+
+			last_value_encoder[i] = value_encoder[i];	
+			
+	        value_encoder[i] += g_meas.rot[i] * 65536;			                 
+	        //value_encoder[i] += g_mem.m_off[i];
+	        value_encoder[i] *= c_mem.m_mult[i];
+		}
+		
+	    g_meas.pos[i] = value_encoder[i];
+
+	}
+
+	//================= control part
+
+	switch(c_mem.mode) {
+
+		case INPUT_MODE_ENCODER3:
+			//--- speed control in both directions ---//
+
+	    	// motor 1
+	       	if (((g_meas.pos[2] - g_ref.pos[0]) > c_mem.max_step_pos)   &&   (c_mem.max_step_pos != 0)) {
+				g_ref.pos[0] += c_mem.max_step_pos;
+	       	} else if (((g_meas.pos[2] - g_ref.pos[0]) < c_mem.max_step_neg)   &&   (c_mem.max_step_neg != 0)) {
+				g_ref.pos[0] += c_mem.max_step_neg;
+		    } else {
+	       		g_ref.pos[0] = g_meas.pos[2];
+		    }
+
+		    // motor 2
+		    if (((g_meas.pos[2] - g_ref.pos[1]) > c_mem.max_step_pos)   &&   (c_mem.max_step_pos != 0)) {
+				g_ref.pos[1] += c_mem.max_step_pos;
+	       	} else if (((g_meas.pos[2] - g_ref.pos[1]) < c_mem.max_step_neg)   &&   (c_mem.max_step_neg != 0)) {
+				g_ref.pos[1] += c_mem.max_step_neg;
+		    } else {
+	       		g_ref.pos[1] = g_meas.pos[2];
+		    }
+
+		    break;
+
+		case INPUT_MODE_EMG_PROPORTIONAL:
+			if (g_meas.emg[0] > threshold) {
+	    	g_ref.pos[0] = ((g_meas.emg[0] - threshold) * c_mem.pos_lim_inf[0]) / 1024;
+		    } else {
+		    	g_ref.pos[0] = 0;
+		    }
+
+		    break;
+
+		case INPUT_MODE_EMG_INTEGRAL:
+			if (g_meas.emg[0] > threshold) {
+		    	g_ref.pos[0] += ((g_meas.emg[0] - threshold) * c_mem.pos_lim_inf[0]) / 500000;
+		    }
+		    if (g_meas.emg[1] > threshold) {
+		    	g_ref.pos[0] -= ((g_meas.emg[1] - threshold) * c_mem.pos_lim_inf[0]) / 500000;
+		    }
+			break;
+
+		default:
+			break;
+	}
+
+	// position limit
+    if (c_mem.pos_lim_flag) {
+        if (g_ref.pos[0] < c_mem.pos_lim_inf[0]) g_ref.pos[0] = c_mem.pos_lim_inf[0];
+        if (g_ref.pos[1] < c_mem.pos_lim_inf[1]) g_ref.pos[1] = c_mem.pos_lim_inf[1];
+
+        if (g_ref.pos[0] > c_mem.pos_lim_sup[0]) g_ref.pos[0] = c_mem.pos_lim_sup[0];
+        if (g_ref.pos[1] > c_mem.pos_lim_sup[1]) g_ref.pos[1] = c_mem.pos_lim_sup[1];
     }
+
 	//////////////////////////////////////////////////////////     CONTROL_ANGLE
 	
     #if (CONTROL_MODE == CONTROL_ANGLE)
@@ -270,11 +351,10 @@ CY_ISR(ISR_MOTORS_CONTROL_ExInterrupt)
 		input_1 = g_ref.pos[0];
 		input_2 = g_ref.pos[1];
 	#endif
-	
+
+	////////////////////////////////////////////////////////////////////////////
 
 
-
-	
 
 	if (input_1 > 0) {
 		input_1 += PWM_DEAD;
@@ -313,10 +393,18 @@ CY_ISR(ISR_MEASUREMENTS_ExInterrupt)
 	int32 value;
 	static int sign_1 = 1;
 	static int sign_2 = 1;
-	static uint16 counter = SAMPLES_FOR_MEAN; // Used to perform calibration over
+	static uint16 i_counter = SAMPLES_FOR_MEAN; // Used to perform calibration over
 								// the first counter values of current
-	static int32 mean_value_1;
-	static int32 mean_value_2;
+	static uint16 emg_counter = 0;
+	static int32 i_mean_value_1;
+	static int32 i_mean_value_2;
+
+	static float emg_mean_value_1;
+	static float emg_mean_value_2;
+
+
+	float f_aux;
+	int32 i_aux;
 
 	
 	ADC_StartConvert();
@@ -335,24 +423,23 @@ CY_ISR(ISR_MEASUREMENTS_ExInterrupt)
 				//until there is no valid input tension repeat this measurement
 				if (device.tension < 0) {
 					AMUXSEQ_MOTORS_Stop();
-					counter = SAMPLES_FOR_MEAN;
-					mean_value_1 = 0;
-					mean_value_2 = 0;
-					device.tension_valid = FALSE;
-				} else {
-					device.tension_valid = TRUE;
+					i_counter = SAMPLES_FOR_MEAN;
+					emg_counter = 0;
+					i_mean_value_1 = 0;
+					i_mean_value_2 = 0;
 				}
+
 				break;
 
 			// --- Current motor 1 ---
             case 1:
-            	if (counter > 0) {
-            		mean_value_1 += value;
-            		if (counter == 1) {
-            			mean_value_1 = mean_value_1 / SAMPLES_FOR_MEAN;
+            	if (i_counter > 0) {
+            		i_mean_value_1 += value;
+            		if (i_counter == 1) {
+            			i_mean_value_1 = i_mean_value_1 / SAMPLES_FOR_MEAN;
             		}
             	} else {
-            		g_meas.curr[0] =  ((value - mean_value_1) * 5000) / mean_value_1;
+            		g_meas.curr[0] =  ((value - i_mean_value_1) * 5000) / i_mean_value_1;
 					if(g_meas.curr[0] < 60)
 						sign_1 = (MOTOR_DIR_Read() & 0x01) ? 1 : -1;
 					g_meas.curr[0] = g_meas.curr[0] * sign_1;
@@ -361,14 +448,14 @@ CY_ISR(ISR_MEASUREMENTS_ExInterrupt)
 
 			// --- Current motor 2 ---
             case 2:
-            	if (counter > 0) {
-            		mean_value_2 += value;
-            		if (counter == 1) {
-            			mean_value_2 = mean_value_2 / SAMPLES_FOR_MEAN;
+            	if (i_counter > 0) {
+            		i_mean_value_2 += value;
+            		if (i_counter == 1) {
+            			i_mean_value_2 = i_mean_value_2 / SAMPLES_FOR_MEAN;
             		}
-            		counter--;
+            		i_counter--;
             	} else {	
-					g_meas.curr[1] =  ((value - mean_value_2) * 5000) / mean_value_2;
+					g_meas.curr[1] =  ((value - i_mean_value_2) * 5000) / i_mean_value_2;
 					if(g_meas.curr[1] < 60)
 						sign_2 = (MOTOR_DIR_Read() & 0x02) ? 1 : -1;
 					g_meas.curr[1] = g_meas.curr[1] * sign_2;
@@ -377,12 +464,63 @@ CY_ISR(ISR_MEASUREMENTS_ExInterrupt)
 
             // --- EMG 1 ---
             case 3:
-            	g_meas.emg[0] = (int32)((float)value * (5000.0 / 4096.0));
+            	if (emg_counter > SAMPLES_FOR_EMG_MEAN) {
+            		// normal execution
+            		f_aux = ((float)value * (5000.0 / 4096.0));
+	            	f_aux = filter_ch1(f_aux);
+	            	i_aux = (int32)((1024.0 * f_aux) / emg_mean_value_1);
+	            	if (i_aux < 0) {
+	            		i_aux = 0;
+	            	} else if (i_aux > 1024) {
+	            		i_aux = 1024;
+	            	}
+	            	g_meas.emg[0] = i_aux;
+
+            	} else if (emg_counter < 500) {
+            		// do nothing, just to discard the first values
+            		emg_counter++;
+            	} else if (emg_counter < SAMPLES_FOR_EMG_MEAN) {
+            		// sum all the values to calculate a max mean value
+            		f_aux = ((float)value * (5000.0 / 4096.0));
+	            	emg_mean_value_1 += filter_ch1(f_aux);
+	            	LED_REG_Write(0x01);
+	            	emg_counter++;
+            	} else if (emg_counter == SAMPLES_FOR_EMG_MEAN) {
+            		// we finished the samples for mean
+            		emg_mean_value_1 = emg_mean_value_1 / (SAMPLES_FOR_EMG_MEAN - 500);
+            		LED_REG_Write(0x00);
+            		emg_counter++;
+            	}
+            	
             	break;
 
             // --- EMG 2 ---
             case 4:
-            	g_meas.emg[1] = (int32)((float)value * (5000.0 / 4096.0));
+            	if (emg_counter > SAMPLES_FOR_EMG_MEAN) {
+            		// normal execution
+            		f_aux = ((float)value * (5000.0 / 4096.0));
+	            	f_aux = filter_ch2(f_aux);
+	            	i_aux = (int32)((1024.0 * f_aux) / emg_mean_value_2);
+	            	if (i_aux < 0) {
+	            		i_aux = 0;
+	            	} else if (i_aux > 1024) {
+	            		i_aux = 1024;
+	            	}
+	            	g_meas.emg[1] = i_aux;
+
+            	} else if (emg_counter < 500) {
+            		// do nothing, just to discard the first values
+            	} else if (emg_counter < SAMPLES_FOR_EMG_MEAN) {
+            		// sum all the values to calculate a max mean value
+            		f_aux = ((float)value * (5000.0 / 4096.0));
+	            	emg_mean_value_2 += filter_ch2(f_aux);
+            	} else if (emg_counter == SAMPLES_FOR_EMG_MEAN) {
+            		// we finished the samples for mean
+            		emg_mean_value_2 = emg_mean_value_2 / (SAMPLES_FOR_EMG_MEAN - 500);
+            	}
+            	break;
+
+            default:
             	break;
 
 		}
@@ -394,79 +532,6 @@ CY_ISR(ISR_MEASUREMENTS_ExInterrupt)
 	        ISR_MEASUREMENTS_ISR_PATCH();
 	    #endif
 	#endif
-}
-
-//==============================================================================
-//                                                        	   ENCODER INTERRUPT
-//==============================================================================
-// TODO: DESCRIPTION
-//==============================================================================
-
-
-CY_ISR(ISR_ENCODER_ExInterrupt)
-{
-	int i;              //iterator
-
-	int32 data_encoder[NUM_OF_SENSORS];
-	int32 value_encoder[NUM_OF_SENSORS];
-	int32 aux;
-
-	static int32 last_value_encoder[NUM_OF_SENSORS];
-	
-
-//==========================================================     reading sensors
-
-
-	for (i = 0; i < NUM_OF_SENSORS; i++) {
-		switch(i) {
-			case 0: {
-				data_encoder[i] = SHIFTREG_ENC_1_ReadData();
-				break;
-			}
-			case 1: {
-				data_encoder[i] = SHIFTREG_ENC_2_ReadData();
-				break;
-			}
-			case 2: {
-				data_encoder[i] = SHIFTREG_ENC_3_ReadData();
-				break;
-			}
-		}
-		aux = data_encoder[i] & 262142;
-		if ((data_encoder[i] & 0x01 ) == BITChecksum(aux))
-		{
-			aux = data_encoder[i] & 0x3FFC0;			// reset last 6 bit
-			value_encoder[i] = (aux - 0x20000) >> 2;	// subtract half of max value
-													// and shift to have 16 bit val
-
-			value_encoder[i]  = (int16)(value_encoder[i] + g_mem.m_off[i]);
-
-			// take care of rotations
-			aux = value_encoder[i] - last_value_encoder[i];					
-			if (aux > 32768)
-				g_meas.rot[i]--;
-			if (aux < -32768)
-			 	g_meas.rot[i]++;	
-
-			last_value_encoder[i] = value_encoder[i];	
-			
-	        value_encoder[i] += g_meas.rot[i] * 65536;			                 
-	        //value_encoder[i] += g_mem.m_off[i];
-	        value_encoder[i] *= c_mem.m_mult[i];
-		}
-		
-	    g_meas.pos[i] = value_encoder[i];
-
-	}
-
-
-/* PSoC3 ES1, ES2 RTC ISR PATCH  */ 
-#if(CYDEV_CHIP_FAMILY_USED == CYDEV_CHIP_FAMILY_PSOC3)
-    #if((CYDEV_CHIP_REVISION_USED <= CYDEV_CHIP_REVISION_3A_ES2) && (ISR_ENCODER__ES2_PATCH ))      
-        ISR_ENCODER_ISR_PATCH();
-    #endif
-#endif
-
 }
 
 
@@ -550,62 +615,11 @@ CY_ISR(ISR_CALIBRATE_ExInterrupt)
 
 /* PSoC3 ES1, ES2 RTC ISR PATCH  */ 
 #if(CYDEV_CHIP_FAMILY_USED == CYDEV_CHIP_FAMILY_PSOC3)
-    #if((CYDEV_CHIP_REVISION_USED <= CYDEV_CHIP_REVISION_3A_ES2) && (ISR_ENCODER__ES2_PATCH ))      
-        ISR_ENCODER_ISR_PATCH();
+    #if((CYDEV_CHIP_REVISION_USED <= CYDEV_CHIP_REVISION_3A_ES2) && (ISR_CALIBRATE__ES2_PATCH ))      
+        ISR_CALIBRATE_ISR_PATCH();
     #endif
 #endif
 
-}
-
-//==============================================================================
-//                                                        	     DELAY INTERRUPT
-//==============================================================================
-// TODO: DESCRIPTION
-//==============================================================================
-
-
-CY_ISR(ISR_DELAY_ExInterrupt)
-{
-
-	timer_flag = 1;
-
-/* PSoC3 ES1, ES2 RTC ISR PATCH  */ 
-#if(CYDEV_CHIP_FAMILY_USED == CYDEV_CHIP_FAMILY_PSOC3)
-    #if((CYDEV_CHIP_REVISION_USED <= CYDEV_CHIP_REVISION_3A_ES2) && (ISR_ENCODER__ES2_PATCH ))      
-        ISR_ENCODER_ISR_PATCH();
-    #endif
-#endif
-
-}
-
-//==============================================================================
-//																	BIT CHECKSUM
-//==============================================================================
-
-
-uint8 BITChecksum(uint32 mydata){
-	uint8 i;
-	uint8 checksum = 0;
-	for(i = 0; i < 31; ++i)
-	{
-       	checksum = checksum ^ (mydata & 1);
-		mydata = mydata >> 1;
-	}
-	return checksum;
-}
-
-//==============================================================================
-//																	    MS_DELAY
-//==============================================================================
-
-
-void ms_delay(uint32 ms) {
-	uint32 period = (TIMER_CLOCK / 1000) * ms;
-    MY_TIMER_WritePeriod(period);
-    MY_TIMER_Enable(); // start the timeout counter
-    while(!timer_flag);
-    MY_TIMER_Stop();
-    timer_flag = 0;
 }
 
 

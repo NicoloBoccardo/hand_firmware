@@ -40,6 +40,7 @@
 #include <globals.h> // ALL GLOBAL DEFINITIONS, STRUCTURES AND MACROS HERE
 #include <interruptions.h>
 #include <command_processing.h>	
+#include <utils.h>
 
 //==============================================================================
 //                                                                 MAIN FUNCTION
@@ -83,10 +84,6 @@ void main()
 	SHIFTREG_ENC_1_Start();
 	SHIFTREG_ENC_2_Start();
 	SHIFTREG_ENC_3_Start();
-	#if NUM_OF_SENSORS == 4
-		SHIFTREG_ENC_4_Start();	
-	#endif
-	ISR_ENCODER_StartEx(ISR_ENCODER_ExInterrupt);
 		
 	// ADC
 	
@@ -102,7 +99,6 @@ void main()
     // Timer init
     MY_TIMER_Init();
     MY_TIMER_Stop();
-    ISR_DELAY_StartEx(ISR_DELAY_ExInterrupt);
 	
     RS485_CTS_Write(0);   
 
@@ -131,7 +127,6 @@ void main()
 
 	// Calculate conversion factor
 	device.tension_conv_factor = ((0.25 * 101.0 * 1000) / 1638.4); //derives from datasheet calculations
-	device.tension_valid = FALSE;
 
 	
 

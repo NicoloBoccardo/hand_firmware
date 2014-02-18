@@ -22,8 +22,8 @@
 // Permission is granted to copy, modify and redistribute this file, provided
 // header message is retained.
 // ----------------------------------------------------------------------------
-#ifndef command_processing_H_INCLUDED
-#define command_processing_H_INCLUDED
+#ifndef COMMAND_PROCESSING_H_INCLUDED
+#define COMMAND_PROCESSING_H_INCLUDED
 // ----------------------------------------------------------------------------
 
 //=================================================================     includes

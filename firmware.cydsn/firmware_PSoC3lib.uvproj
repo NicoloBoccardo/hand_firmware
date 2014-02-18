@@ -914,16 +914,6 @@
               <FilePath>.\Generated_Source\PSoC3\project.h</FilePath>
             </File>
             <File>
-              <FileName>ISR_ENCODER.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC3\ISR_ENCODER.c</FilePath>
-            </File>
-            <File>
-              <FileName>ISR_ENCODER.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC3\ISR_ENCODER.h</FilePath>
-            </File>
-            <File>
               <FileName>UART_RS485_BOOT.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Generated_Source\PSoC3\UART_RS485_BOOT.c</FilePath>
@@ -1079,16 +1069,6 @@
               <FilePath>.\Generated_Source\PSoC3\MOTOR_ON_OFF.h</FilePath>
             </File>
             <File>
-              <FileName>CLOCK_ENCODER_READ.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC3\CLOCK_ENCODER_READ.c</FilePath>
-            </File>
-            <File>
-              <FileName>CLOCK_ENCODER_READ.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC3\CLOCK_ENCODER_READ.h</FilePath>
-            </File>
-            <File>
               <FileName>ISR_CALIBRATE.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Generated_Source\PSoC3\ISR_CALIBRATE.c</FilePath>
@@ -1132,16 +1112,6 @@
               <FileName>MY_TIMER_PM.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Generated_Source\PSoC3\MY_TIMER_PM.c</FilePath>
-            </File>
-            <File>
-              <FileName>ISR_DELAY.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC3\ISR_DELAY.c</FilePath>
-            </File>
-            <File>
-              <FileName>ISR_DELAY.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC3\ISR_DELAY.h</FilePath>
             </File>
             <File>
               <FileName>LED_REG.c</FileName>
@@ -1197,6 +1167,16 @@
               <FileName>EMG_2_aliases.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Generated_Source\PSoC3\EMG_2_aliases.h</FilePath>
+            </File>
+            <File>
+              <FileName>TIMER_REG.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC3\TIMER_REG.c</FilePath>
+            </File>
+            <File>
+              <FileName>TIMER_REG.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC3\TIMER_REG.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -2114,16 +2094,6 @@
               <FilePath>.\Generated_Source\PSoC3\project.h</FilePath>
             </File>
             <File>
-              <FileName>ISR_ENCODER.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC3\ISR_ENCODER.c</FilePath>
-            </File>
-            <File>
-              <FileName>ISR_ENCODER.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC3\ISR_ENCODER.h</FilePath>
-            </File>
-            <File>
               <FileName>UART_RS485_BOOT.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Generated_Source\PSoC3\UART_RS485_BOOT.c</FilePath>
@@ -2279,16 +2249,6 @@
               <FilePath>.\Generated_Source\PSoC3\MOTOR_ON_OFF.h</FilePath>
             </File>
             <File>
-              <FileName>CLOCK_ENCODER_READ.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC3\CLOCK_ENCODER_READ.c</FilePath>
-            </File>
-            <File>
-              <FileName>CLOCK_ENCODER_READ.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC3\CLOCK_ENCODER_READ.h</FilePath>
-            </File>
-            <File>
               <FileName>ISR_CALIBRATE.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Generated_Source\PSoC3\ISR_CALIBRATE.c</FilePath>
@@ -2332,16 +2292,6 @@
               <FileName>MY_TIMER_PM.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Generated_Source\PSoC3\MY_TIMER_PM.c</FilePath>
-            </File>
-            <File>
-              <FileName>ISR_DELAY.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC3\ISR_DELAY.c</FilePath>
-            </File>
-            <File>
-              <FileName>ISR_DELAY.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC3\ISR_DELAY.h</FilePath>
             </File>
             <File>
               <FileName>LED_REG.c</FileName>
@@ -2397,6 +2347,16 @@
               <FileName>EMG_2_aliases.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Generated_Source\PSoC3\EMG_2_aliases.h</FilePath>
+            </File>
+            <File>
+              <FileName>TIMER_REG.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC3\TIMER_REG.c</FilePath>
+            </File>
+            <File>
+              <FileName>TIMER_REG.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC3\TIMER_REG.h</FilePath>
             </File>
           </Files>
         </Group>

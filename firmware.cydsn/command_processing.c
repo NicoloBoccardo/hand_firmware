@@ -767,7 +767,7 @@ void memStore(int displacement)
 
     ISR_RS485_RX_Disable();
     ISR_MOTORS_CONTROL_Disable();
-    ISR_ENCODER_Disable();
+    // ISR_ENCODER_Disable();
     ISR_MEASUREMENTS_Disable();
 
     PWM_MOTORS_WriteCompare1(0);
@@ -791,7 +791,7 @@ void memStore(int displacement)
 
     ISR_RS485_RX_Enable();      
     ISR_MOTORS_CONTROL_Enable();
-    ISR_ENCODER_Enable();
+    // ISR_ENCODER_Enable();
     ISR_MEASUREMENTS_Enable();
 }
 
