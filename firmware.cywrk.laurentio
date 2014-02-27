@@ -47,9 +47,6 @@
 <v>firmware\firmware\Generated_Source\PSoC3\ADC_theACLK\ADC_theACLK.h</v>
 <v>firmware\firmware\Generated_Source\PSoC3\AMUXSEQ_MOTORS\AMUXSEQ_MOTORS.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\AMUXSEQ_MOTORS\AMUXSEQ_MOTORS.h</v>
-<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_CONTROL</v>
-<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_CONTROL\CLOCK_CONTROL.c</v>
-<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_CONTROL\CLOCK_CONTROL.h</v>
 <v>firmware\firmware\Generated_Source\PSoC3\CLOCK_ENCODERS</v>
 <v>firmware\firmware\Generated_Source\PSoC3\CLOCK_ENCODERS\CLOCK_ENCODERS.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\CLOCK_ENCODERS\CLOCK_ENCODERS.h</v>
@@ -108,9 +105,6 @@
 <v>firmware\firmware\Generated_Source\PSoC3\ISR_MEASUREMENTS</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ISR_MEASUREMENTS\ISR_MEASUREMENTS.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ISR_MEASUREMENTS\ISR_MEASUREMENTS.h</v>
-<v>firmware\firmware\Generated_Source\PSoC3\ISR_MOTORS_CONTROL</v>
-<v>firmware\firmware\Generated_Source\PSoC3\ISR_MOTORS_CONTROL\ISR_MOTORS_CONTROL.c</v>
-<v>firmware\firmware\Generated_Source\PSoC3\ISR_MOTORS_CONTROL\ISR_MOTORS_CONTROL.h</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ISR_RS485_RX</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ISR_RS485_RX\ISR_RS485_RX.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ISR_RS485_RX\ISR_RS485_RX.h</v>
@@ -235,9 +229,6 @@
 <v>firmware\firmware\Generated_Source\PSoC3\ADC_theACLK</v>
 <v>firmware\firmware\Generated_Source\PSoC3\AMUXSEQ_MOTORS</v>
 <v>firmware\firmware\Generated_Source\PSoC3\CALIB_TRIGG</v>
-<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_CONTROL</v>
-<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_CONTROL\CLOCK_CONTROL.c</v>
-<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_CONTROL\CLOCK_CONTROL.h</v>
 <v>firmware\firmware\Generated_Source\PSoC3\CLOCK_ENCODERS</v>
 <v>firmware\firmware\Generated_Source\PSoC3\CLOCK_ENCODERS\CLOCK_ENCODERS.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\CLOCK_ENCODERS\CLOCK_ENCODERS.h</v>
@@ -255,6 +246,9 @@
 <v>firmware\firmware\Generated_Source\PSoC3\CURRENT_SENSE_1</v>
 <v>firmware\firmware\Generated_Source\PSoC3\CURRENT_SENSE_1\CURRENT_SENSE_1.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\CURRENT_SENSE_1\CURRENT_SENSE_1.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\CURRENT_SENSE_1\CURRENT_SENSE_1_aliases.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\CURRENT_SENSE_2</v>
+<v>firmware\firmware\Generated_Source\PSoC3\CURRENT_SENSE_2\CURRENT_SENSE_2.c</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="firmware\firmware">
@@ -288,7 +282,6 @@
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ADC_theACLK.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\AMUXSEQ_MOTORS.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CALIB_TRIGG.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CLOCK_CONTROL.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CLOCK_ENCODERS.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CLOCK_MEASUREMENTS.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CLOCK_PWM.lst</v>
@@ -315,7 +308,6 @@
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\interruptions.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ISR_CALIBRATE.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ISR_MEASUREMENTS.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ISR_MOTORS_CONTROL.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ISR_RS485_RX.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\KeilStart.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\LED.lst</v>
@@ -380,7 +372,6 @@
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ADC_theACLK.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\AMUXSEQ_MOTORS.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CALIB_TRIGG.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CLOCK_CONTROL.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CLOCK_ENCODERS.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CLOCK_MEASUREMENTS.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CLOCK_PWM.lst</v>
@@ -407,10 +398,11 @@
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\interruptions.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ISR_CALIBRATE.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ISR_MEASUREMENTS.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ISR_MOTORS_CONTROL.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ISR_RS485_RX.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\KeilStart.lst</v>
 <v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\LED.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\LED_REG.lst</v>
+<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\main.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -490,7 +482,6 @@
 <name v=".\firmware.cydsn\command_processing.c" />
 <name v=".\firmware.cydsn\TopDesign\TopDesign.cysch" />
 <name v=".\firmware.cydsn\firmware.cydwr" />
-<name v=".\firmware.cydsn\Generated_Source\PSoC3\ISR_ENCODER.c" />
 <name v=".\firmware.cydsn\interruptions.h" />
 <name v=".\firmware.cydsn\Generated_Source\PSoC3\ISR_MEASUREMENTS.c" />
 <name v=".\firmware.cydsn\globals.h" />

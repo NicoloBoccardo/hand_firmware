@@ -17,97 +17,58 @@
 
 //--------------------------------------------------------------     DEFINITIONS
 
+#define ALPHA 10
 
-float max_FDS=0.001;
-float max_EDC=0.001;
-
-float min_FDS=0.3;
-float min_EDC=1;
-float min_ave=0;
-float min_ave_ctr=0;
-float coeff_ave=0;
-
-// double max_FDS=0.0;
-// double max_EDC=0.0;
-
-float pos_ave=0;
-float pos_ave_ctr=0;
-float pos_coeff_ave=0;
-
-//==============================================================================
-//																	  FILTER CH1
-//==============================================================================
-
-float filter_ch1(float value) {
-	// high pass
-	static float xvHP1[NZEROSLP+1]={0};
-	static float yvHP1[NPOLESLP+1]={0};
-
-	// low pass
-	static float xvLP1[NZEROSLP+1]={0};
-	static float yvLP1[NPOLESLP+1]={0};
-
-
-	// xvHP1[0] = xvHP1[1];
-	// xvHP1[1] = xvHP1[2];
-	// xvHP1[2] = (value) / GAINHP;
-
-	// yvHP1[0] = yvHP1[1];
-	// yvHP1[1] = yvHP1[2]; 
-	// yvHP1[2] =    (xvHP1[0] + xvHP1[2]) - 2 * xvHP1[1]
-	//             + ( GAINL_1_HP  * yvHP1[0]) + (  GAINL_2_HP  * yvHP1[1]);
+#define SIGN(A) (((A) > 0) ? (1) : ((((A) < 0) ? (-1) : (0))))
 
 
 
 
-	xvLP1[0] = xvLP1[1]; xvLP1[1] = xvLP1[2]; 
-	// xvLP1[2] = fabs(yvHP1[2]) / GAINLP;
-	xvLP1[2] = fabs(value) / GAINLP;
-	yvLP1[0] = yvLP1[1]; yvLP1[1] = yvLP1[2]; 
-	yvLP1[2] =    (xvLP1[0] + xvLP1[2]) + 2 * xvLP1[1]
-	            + ( GAINL_1_LP * yvLP1[0]) + (  GAINL_2_LP * yvLP1[1]);
+int32 filter_ch1(int32 new_value) {
 
+	static int32 old_value, aux;
 
+	aux = (old_value * (1024 - ALPHA) + new_value * (ALPHA)) / 1024;
 
-	return yvLP1[2];
+	old_value = new_value;
+
+	return aux;
+}
+
+int32 filter_ch2(int32 new_value) {
+
+	static int32 old_value, aux;
+
+	aux = (old_value * (1024 - ALPHA) + new_value * (ALPHA)) / 1024;
+
+	old_value = new_value;
+
+	return aux;
+}
+
+int32 filter_i1(int32 new_value) {
+
+	static int32 old_value, aux;
+
+	aux = (old_value * (1024 - ALPHA) + new_value * (ALPHA)) / 1024;
+
+	old_value = aux;
+
+	return aux;
+}
+
+int32 filter_i2(int32 new_value) {
+
+	static int32 old_value, aux;
+
+	aux = (old_value * (1024 - ALPHA) + new_value * (ALPHA)) / 1024;
+
+	old_value = aux;
+
+	return aux;
 }
 
 
-//==============================================================================
-//																	  FILTER CH2
-//==============================================================================
-
-float filter_ch2(float value) {
-	// high pass
-	static float xvHP2[NZEROSLP+1]={0};
-	static float yvHP2[NPOLESLP+1]={0};
-
-	// low pass
-	static float xvLP2[NZEROSLP+1]={0};
-	static float yvLP2[NPOLESLP+1]={0};
-
-
-	// xvHP2[0] = xvHP2[1];
-	// xvHP2[1] = xvHP2[2]; 
-	// xvHP2[2] = (value) / GAINHP;
-
-	// yvHP2[0] = yvHP2[1];
-	// yvHP2[1] = yvHP2[2]; 
-	// yvHP2[2] =    (xvHP2[0] + xvHP2[2]) - 2 * xvHP2[1]
-	//             + ( GAINL_1_HP  * yvHP2[0]) + (  GAINL_2_HP  * yvHP2[1]);
-
-	
-
-	xvLP2[0] = xvLP2[1]; xvLP2[1] = xvLP2[2]; 
-	xvLP2[2] = fabs(value) / GAINLP;
-	// xvLP2[2] = fabs(yvHP2[2]) / GAINLP;
-	yvLP2[0] = yvLP2[1]; yvLP2[1] = yvLP2[2]; 
-	yvLP2[2] =    (xvLP2[0] + xvLP2[2]) + 2 * xvLP2[1]
-	            + ( GAINL_1_LP * yvLP2[0]) + (  GAINL_2_LP * yvLP2[1]);
-
-
-	return yvLP2[2];
-}
 
 
 //==============================================================================
@@ -137,6 +98,123 @@ void ms_delay(uint32 ms) {
     MY_TIMER_Start(); // start the timeout counter
     while(MY_TIMER_ReadPeriod());
     MY_TIMER_Stop();
+}
+
+//==============================================================================
+//																	   CALIBRATE
+//==============================================================================
+
+void calibrate(void) {
+	g_ref.pos[0] = 0;
+	
+	calib.enabled = TRUE;
+}
+
+void calibration_increment(void) {
+	static uint8 direction; //0 closing, 1 opening
+	static uint8 closure_counter;
+
+
+	// closing
+	if (direction == 0) {
+		g_ref.pos[0] += dx_sx_hand * calib.speed;
+		// if (abs(g_ref.pos[0]) > closed_hand_pos) {
+		// 	direction = 1;
+		// }
+		if ((g_ref.pos[0] * dx_sx_hand) > closed_hand_pos) {
+			direction = 1;
+		}
+	} else { //opening
+		g_ref.pos[0] -= dx_sx_hand * calib.speed;
+		if (SIGN(g_ref.pos[0]) != dx_sx_hand) {
+			direction = 0;
+			closure_counter++;
+			if (closure_counter == NUM_OF_CLOSURES) {
+				closure_counter = 0;
+				calib.enabled = FALSE;
+			}
+		}
+	}
+}
+
+
+//==============================================================================
+//																   HAND FEEDBACK
+//==============================================================================
+
+#define D_model_po 0.
+#define K_model_po 0.0169
+#define F_model_po 0.0
+
+#define P1  -11  //-11
+#define P2  9    //9
+#define P3  11   //11
+
+
+#define pi 3.14159265359
+
+#define gear_ratio 83
+#define gear_rat_inv (1.0 / gear_ratio)
+
+#define enc 65536
+#define inv_enc (1.0 / enc)
+
+#define torq_cts 0.0184
+#define torq_cts_inv (1.0 / torq_cts)
+
+#define motor_inertia 0.000000555
+#define vel_mult_cts (2 * pi / enc)
+
+#define Fs 200 // your sampling frequency
+
+#define aux_1 (-gear_ratio * Fs * vel_mult_cts)
+
+#define BETA 20 //filter value
+
+
+void torque_feedback() {
+
+	static int32 velocity_sign;
+	static int32 i_old_value, p_old_value;
+	static int32 i_filtered,  p_filtered;
+
+	static int32 tmp, old_output;
+
+
+
+	// --- Current filter
+
+	i_filtered = (i_old_value * (1024 - BETA) + g_meas.curr[0] * (BETA)) / 1024;
+
+	i_old_value = i_filtered;
+
+	// --- Position filter
+
+	p_filtered = (p_old_value * (1024 - BETA) + (g_meas.pos[0] / 8) * (BETA)) / 1024;
+
+	p_old_value = p_filtered;
+
+
+	// --- Calculate curr velocity sign
+	velocity_sign = SIGN(p_filtered - p_old_value);
+
+
+	tmp = (velocity_sign + 1) * p_filtered;
+	tmp /= 1024;
+
+	//tmp = p_filtered / 512;
+
+
+	i_filtered -= velocity_sign * P1;
+	i_filtered -= tmp * P2;
+	i_filtered -= (((tmp * p_filtered) / 1024) * P3) / 16;
+
+	// --- Result ilter
+
+	tau_feedback = (old_output * (1024 - BETA) + i_filtered * (BETA)) / 1024;
+
+	old_output = tau_feedback;
+
 }
 
 

@@ -18,6 +18,7 @@
 #include <command_processing.h>
 #include "commands.h"
 #include <stdio.h>
+#include <utils.h>
 
 //================================================================     variables
 
@@ -170,25 +171,47 @@ void commProcess(void){
         case CMD_GET_CURR_AND_MEAS:
             //Packet: header + curr_meas(int16) + pos_meas(int16) + CRC
             //packet_lenght = 1 + 2 * 2 + (NUM_OF_SENSORS * 2) + 1;
-            packet_lenght = 6 + (NUM_OF_SENSORS * 2);
+            // packet_lenght = 6 + (NUM_OF_SENSORS * 2);
+
+            // packet_data[0] = CMD_GET_CURR_AND_MEAS;
+
+            // // Currents
+            // *((int16 *) &packet_data[1]) = (int16) g_meas.curr[0];
+            // *((int16 *) &packet_data[3]) = (int16) g_meas.curr[1];
+
+            // // Positions
+            // for (i = 0; i < NUM_OF_SENSORS; i++) {
+            //     *((int16 *) &packet_data[(i*2) + 5]) = (int16)
+            //     (g_meas.pos[i] >> g_mem.res[i]);
+            // }
+
+            // packet_data[packet_lenght - 1] =
+            //     LCRChecksum (packet_data,packet_lenght - 1);
+
+            // //commWrite(packet_data, packet_lenght);
+            // commWrite(packet_data, packet_lenght);
+
+            //Packet: header + curr1 + pos1 + calib_flag + CRC
+            //packet_length = 1 + 2 + 2 + 2 + 1
+            packet_lenght = 8;
 
             packet_data[0] = CMD_GET_CURR_AND_MEAS;
 
-            // Currents
+            // Current
             *((int16 *) &packet_data[1]) = (int16) g_meas.curr[0];
-            *((int16 *) &packet_data[3]) = (int16) g_meas.curr[1];
-
-            // Positions
-            for (i = 0; i < NUM_OF_SENSORS; i++) {
-                *((int16 *) &packet_data[(i*2) + 5]) = (int16)
-                (g_meas.pos[i] >> g_mem.res[i]);
-            }
+            *((int16 *) &packet_data[3]) = (int16)
+                (g_meas.pos[0] >> g_mem.res[0]);
+            // *((int16 *) &packet_data[5]) = (int16) calib.enabled;
+                *((int16 *) &packet_data[5]) = (int16) (tau_feedback);
 
             packet_data[packet_lenght - 1] =
                 LCRChecksum (packet_data,packet_lenght - 1);
 
             //commWrite(packet_data, packet_lenght);
             commWrite(packet_data, packet_lenght);
+
+
+
         break;
 
 //=========================================================     CMD_GET_ACTIVATE
@@ -302,9 +325,13 @@ void commProcess(void){
 
 //============================================================     CMD_CALIBRATE
         case CMD_CALIBRATE:
-            CALIB_TRIGG_Write(1);
-            sendAcknowledgment();
-            CALIB_TRIGG_Write(0);
+            calib.speed = *((int16 *) &g_rx.buffer[1]);
+            if (calib.speed < 0) {
+                calib.speed = 0;
+            } else if (calib.speed > 100) {
+                calib.speed = 100;
+            }
+            calibrate();
             break;
 	}
 
@@ -432,6 +459,15 @@ void paramSet(uint16 param_type)
                 g_mem.pos_lim_inf[i] = g_mem.pos_lim_inf[i] << g_mem.res[i];
                 g_mem.pos_lim_sup[i] = g_mem.pos_lim_sup[i] << g_mem.res[i];
 
+                if (g_mem.pos_lim_inf[0] == 0) {
+                    closed_hand_pos = g_mem.pos_lim_sup[0];
+                    opened_hand_pos = 0;
+                    dx_sx_hand = 1;   //sx hand
+                } else {
+                    closed_hand_pos = -g_mem.pos_lim_inf[0];
+                    opened_hand_pos = 0;
+                    dx_sx_hand = -1;   //dx hand
+                }
             }
             break;
 
@@ -557,7 +593,7 @@ void infoPrepare(unsigned char *info_string)
     int i;
     int pages;
 	
-    unsigned char str[50];    
+    unsigned char str[100];    
     strcpy(info_string, "");        
     strcat(info_string, "\r\n");
     strcat(info_string, "Firmware version: ");
@@ -575,11 +611,11 @@ void infoPrepare(unsigned char *info_string)
 
     strcat(info_string,"MOTORS INFO\r\n");                       
     sprintf(str,"Motor 1 reference: %d",
-        (int) g_ref.pos[0] >> c_mem.res[0]);
+        (int)(g_ref.pos[0] >> c_mem.res[0]));
     strcat(info_string,str); 
     strcat(info_string,"\r\n");  
     sprintf(str,"Motor 2 reference: %d",
-        (int) g_ref.pos[1] >> c_mem.res[1]);
+        (int)(g_ref.pos[1] >> c_mem.res[1]));
     strcat(info_string,str); 
     strcat(info_string,"\r\n");
     
@@ -591,7 +627,7 @@ void infoPrepare(unsigned char *info_string)
     }
     strcat(info_string, str);
     
-    sprintf(str,"Motor 2 enabled: ");     
+    sprintf(str,"Motor 2 enabled: ");
     if (g_ref.onoff & 0x01) {
         strcat(str,"YES\r\n");
     } else {
@@ -602,7 +638,7 @@ void infoPrepare(unsigned char *info_string)
     strcat(info_string,"\r\nMEASUREMENTS INFO\r\n");
     for (i = 0; i < NUM_OF_SENSORS; i++) {
         sprintf(str,"Sensor %d value: %d", i+1,
-            (int) g_meas.pos[i] >> c_mem.res[i]);
+            (int)(g_meas.pos[i] >> c_mem.res[i]));
         strcat(info_string, str);
         strcat(info_string, "\r\n");
     }
@@ -670,6 +706,10 @@ void infoPrepare(unsigned char *info_string)
                 (int32)g_mem.pos_lim_sup[i] >> g_mem.res[i]);
         strcat(info_string, str);
     }
+
+    sprintf(str, "Open hand pos: %ld \nClosed hand pos: %ld", (int32)(opened_hand_pos >> g_mem.res[0]), (int32)(closed_hand_pos >> g_mem.res[0]));
+    strcat(info_string, str); 
+    strcat(info_string,"\r\n");
 
     sprintf(str, "Max step pos and neg: %d %d", (int)g_mem.max_step_pos, (int)g_mem.max_step_neg);
     strcat(info_string, str); 
@@ -766,8 +806,6 @@ void memStore(int displacement)
     int pages;
 
     ISR_RS485_RX_Disable();
-    ISR_MOTORS_CONTROL_Disable();
-    // ISR_ENCODER_Disable();
     ISR_MEASUREMENTS_Disable();
 
     PWM_MOTORS_WriteCompare1(0);
@@ -790,8 +828,6 @@ void memStore(int displacement)
     memcpy( &g_mem, &c_mem, sizeof(g_mem) );
 
     ISR_RS485_RX_Enable();      
-    ISR_MOTORS_CONTROL_Enable();
-    // ISR_ENCODER_Enable();
     ISR_MEASUREMENTS_Enable();
 }
 
@@ -817,6 +853,18 @@ void memRecall(void)
         memRestore();   
     } else {
         memcpy( &c_mem, &g_mem, sizeof(g_mem) );    
+    }
+
+
+    // hand settings
+    if (g_mem.pos_lim_inf[0] == 0) {
+        closed_hand_pos = g_mem.pos_lim_sup[0];
+        opened_hand_pos = 0;
+        dx_sx_hand = 1; //sx hand
+    } else {
+        closed_hand_pos = -g_mem.pos_lim_inf[0];
+        opened_hand_pos = 0;
+        dx_sx_hand = -1; //dx hand
     }
 }
 
@@ -857,9 +905,9 @@ void memInit(void)
     uint8 i;
 	//initialize memory settings
 	g_mem.id       = 	1;             ////////////
-	g_mem.k_p      = 	0.1 * 65536;
+	g_mem.k_p      = 	-0.01 * 65536;
     g_mem.k_i      =    0 * 65536;
-    g_mem.k_d      =    0.8 * 65536;
+    g_mem.k_d      =    -0.2 * 65536;
     g_mem.activ    = 	0;
     g_mem.mode     = 	0;
 

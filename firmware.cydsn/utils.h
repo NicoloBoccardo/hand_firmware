@@ -21,19 +21,20 @@
 //------------------------------------------------------------------     DEFINES
 
 //high pass filter coefs
-#define NZEROSHP 		2
-#define NPOLESHP 		2
-#define GAINHP   		1.022463023e+00
-#define GAINL_1_HP   	-0.9565436765
-#define GAINL_2_HP   	1.9555782403
+// #define NZEROSHP 		2
+// #define NPOLESHP 		2
 
-//low pass filter coefs
-#define NZEROSLP 		2
-#define NPOLESLP 		2
-#define GAINLP 		    1.140829091e+04
+// #define GAINHP   		((int32)(1.022463023e+00 * 1024))
+// #define GAINL_1_HP   	((int32)(-0.9565436765 * 1024))
+// #define GAINL_2_HP   	((int32)(1.9555782403 * 1024))
 
-#define GAINL_1_LP  	-0.9736948720
-#define GAINL_2_LP    	1.9733442498
+// //low pass filter coefs
+// #define NZEROSLP 		2
+// #define NPOLESLP 		2
+
+// #define GAINLP 		    ((int32)1.140829091e+04)
+// #define GAINL_1_LP  	((int32)(-0.9736948720 * 1024))
+// #define GAINL_2_LP    	((int32)(1.9733442498 * 1024))
 
 
 #define TIMER_CLOCK 10000
@@ -42,12 +43,17 @@
 //-------------------------------------------------------------     DECLARATIONS
 
 
-float filter_ch1(float value);
-float filter_ch2(float value);
+int32 filter_ch1(int32 value);
+int32 filter_ch2(int32 value);
+int32 filter_i1(int32 value);
+int32 filter_i2(int32 value);
 
 uint8 BITChecksum(uint32);
 
 void ms_delay(uint32);
+
+void calibrate(void);
+void calibration_increment(void);
 
 #endif
 

@@ -154,10 +154,15 @@ CY_ISR(ISR_RS485_RX_ExInterrupt){
 // Motors control
 //==============================================================================
 
-CY_ISR(ISR_MOTORS_CONTROL_ExInterrupt)
-{	
+void control_and_encoder() {
+
 	// -----   encoder variables   -----
 	int i;              //iterator
+
+
+	static int32 cuff_k_p      = 	-0.001 * 65536;
+    static int32 cuff_k_i      =    0 * 65536;
+    static int32 cuff_k_d      =    -0.002 * 65536;
 
 	int32 data_encoder[NUM_OF_SENSORS];
 	int32 value_encoder[NUM_OF_SENSORS];
@@ -178,6 +183,12 @@ CY_ISR(ISR_MOTORS_CONTROL_ExInterrupt)
 
 	//emg threshold
 	static int threshold = 20;
+
+//==============================================================     calibration
+
+	if (calib.enabled) {
+		calibration_increment();
+	}
 	
 
 //==========================================================     reading sensors
@@ -242,19 +253,28 @@ CY_ISR(ISR_MOTORS_CONTROL_ExInterrupt)
 		    }
 
 		    // motor 2
-		    if (((g_meas.pos[2] - g_ref.pos[1]) > c_mem.max_step_pos)   &&   (c_mem.max_step_pos != 0)) {
-				g_ref.pos[1] += c_mem.max_step_pos;
-	       	} else if (((g_meas.pos[2] - g_ref.pos[1]) < c_mem.max_step_neg)   &&   (c_mem.max_step_neg != 0)) {
-				g_ref.pos[1] += c_mem.max_step_neg;
+		  //   if (((g_meas.pos[2] - g_ref.pos[1]) > c_mem.max_step_pos)   &&   (c_mem.max_step_pos != 0)) {
+				// g_ref.pos[1] += c_mem.max_step_pos;
+	   //     	} else if (((g_meas.pos[2] - g_ref.pos[1]) < c_mem.max_step_neg)   &&   (c_mem.max_step_neg != 0)) {
+				// g_ref.pos[1] += c_mem.max_step_neg;
+		  //   } else {
+	   //     		g_ref.pos[1] = g_meas.pos[2];
+		  //   }
+
+		    if (tau_feedback < 0) {
+		    	g_ref.pos[1] = 0;	
+		    } else if ((tau_feedback * (50 << 8)) > c_mem.pos_lim_sup[1]) {
+		    	g_ref.pos[1] = c_mem.pos_lim_sup[1];
 		    } else {
-	       		g_ref.pos[1] = g_meas.pos[2];
+		    	g_ref.pos[1] = (tau_feedback * (50 << 8));
 		    }
+		    
 
 		    break;
 
 		case INPUT_MODE_EMG_PROPORTIONAL:
 			if (g_meas.emg[0] > threshold) {
-	    	g_ref.pos[0] = ((g_meas.emg[0] - threshold) * c_mem.pos_lim_inf[0]) / 1024;
+	    	g_ref.pos[0] = ((g_meas.emg[0] - threshold) * dx_sx_hand * closed_hand_pos) / 1024;
 		    } else {
 		    	g_ref.pos[0] = 0;
 		    }
@@ -263,10 +283,10 @@ CY_ISR(ISR_MOTORS_CONTROL_ExInterrupt)
 
 		case INPUT_MODE_EMG_INTEGRAL:
 			if (g_meas.emg[0] > threshold) {
-		    	g_ref.pos[0] += ((g_meas.emg[0] - threshold) * c_mem.pos_lim_inf[0]) / 500000;
+		    	g_ref.pos[0] += ((g_meas.emg[0] - threshold) * dx_sx_hand * closed_hand_pos) / 500000;
 		    }
 		    if (g_meas.emg[1] > threshold) {
-		    	g_ref.pos[0] -= ((g_meas.emg[1] - threshold) * c_mem.pos_lim_inf[0]) / 500000;
+		    	g_ref.pos[0] -= ((g_meas.emg[1] - threshold) * dx_sx_hand * closed_hand_pos) / 500000;
 		    }
 			break;
 
@@ -307,15 +327,15 @@ CY_ISR(ISR_MOTORS_CONTROL_ExInterrupt)
 
     	// Proportional
 		input_1 = (int32)(c_mem.k_p * error_1) >> 16;
-		input_2 = (int32)(c_mem.k_p * error_2) >> 16;
+		input_2 = (int32)(cuff_k_p * error_2) >> 16;
 
 		// Integrative
 		input_1 += (int32)(c_mem.k_i * err_sum_1) >> 16;
-		input_2 += (int32)(c_mem.k_i * err_sum_2) >> 16;
+		input_2 += (int32)(cuff_k_i * err_sum_2) >> 16;
 
 		// Derivative
 		input_1 += (int32)(c_mem.k_d * (pos_prec_1 - g_meas.pos[0])) >> 16;
-		input_2 += (int32)(c_mem.k_d * (pos_prec_2 - g_meas.pos[1])) >> 16;
+		input_2 += (int32)(cuff_k_d * (pos_prec_2 - g_meas.pos[1])) >> 16;
 
 		// Update measure
 		pos_prec_1 = g_meas.pos[0];
@@ -371,14 +391,7 @@ CY_ISR(ISR_MOTORS_CONTROL_ExInterrupt)
 	MOTOR_DIR_Write((input_1 >= 0) + ((input_2 >= 0) << 1));
 	PWM_MOTORS_WriteCompare1(abs(input_1));
 	PWM_MOTORS_WriteCompare2(abs(input_2));
-	
-	
-	/* PSoC3 ES1, ES2 RTC ISR PATCH  */ 
-	#if(CYDEV_CHIP_FAMILY_USED == CYDEV_CHIP_FAMILY_PSOC3)
-	    #if((CYDEV_CHIP_REVISION_USED <= CYDEV_CHIP_REVISION_3A_ES2) && (ISR_MOTORS_CONTROL__ES2_PATCH ))      
-	        ISR_MOTORS_CONTROL_ISR_PATCH();
-	    #endif
-	#endif
+
 }
 
 //==============================================================================
@@ -399,12 +412,28 @@ CY_ISR(ISR_MEASUREMENTS_ExInterrupt)
 	static int32 i_mean_value_1;
 	static int32 i_mean_value_2;
 
-	static float emg_mean_value_1;
-	static float emg_mean_value_2;
+	static int32 emg_mean_value_1;
+	static int32 emg_mean_value_2;
 
 
 	float f_aux;
 	int32 i_aux;
+
+	static uint8 control_and_encoder_int = 10;
+	static uint8 feedback_hand_conrol_int = 25;
+
+	if (control_and_encoder_int == 5) {
+		control_and_encoder();
+		control_and_encoder_int = 1;
+	}
+
+	if (feedback_hand_conrol_int == 25) {
+		torque_feedback();
+		feedback_hand_conrol_int = 1;
+	}
+
+	control_and_encoder_int++;
+	feedback_hand_conrol_int++;
 
 	
 	ADC_StartConvert();
@@ -423,42 +452,44 @@ CY_ISR(ISR_MEASUREMENTS_ExInterrupt)
 				//until there is no valid input tension repeat this measurement
 				if (device.tension < 0) {
 					AMUXSEQ_MOTORS_Stop();
-					i_counter = SAMPLES_FOR_MEAN;
 					emg_counter = 0;
-					i_mean_value_1 = 0;
-					i_mean_value_2 = 0;
 				}
 
 				break;
 
 			// --- Current motor 1 ---
             case 1:
-            	if (i_counter > 0) {
-            		i_mean_value_1 += value;
-            		if (i_counter == 1) {
-            			i_mean_value_1 = i_mean_value_1 / SAMPLES_FOR_MEAN;
-            		}
+            	if (g_ref.onoff == 0x03) {
+            		if (i_counter > 0) {
+	            		i_mean_value_1 += value;
+	            		if (i_counter == 1) {
+	            			i_mean_value_1 = i_mean_value_1 / SAMPLES_FOR_MEAN;
+	            		}
+	            	} else {
+	            		g_meas.curr[0] =  filter_i1(abs(((value - i_mean_value_1) * 5000) / i_mean_value_1));
+	            	}
             	} else {
-            		g_meas.curr[0] =  ((value - i_mean_value_1) * 5000) / i_mean_value_1;
-					if(g_meas.curr[0] < 60)
-						sign_1 = (MOTOR_DIR_Read() & 0x01) ? 1 : -1;
-					g_meas.curr[0] = g_meas.curr[0] * sign_1;
+            		i_counter = SAMPLES_FOR_MEAN;
+            		i_mean_value_1 = 0;
+					i_mean_value_2 = 0;
+					g_meas.curr[0] = 0;
             	}
 				break;
 
 			// --- Current motor 2 ---
             case 2:
-            	if (i_counter > 0) {
-            		i_mean_value_2 += value;
-            		if (i_counter == 1) {
-            			i_mean_value_2 = i_mean_value_2 / SAMPLES_FOR_MEAN;
-            		}
-            		i_counter--;
-            	} else {	
-					g_meas.curr[1] =  ((value - i_mean_value_2) * 5000) / i_mean_value_2;
-					if(g_meas.curr[1] < 60)
-						sign_2 = (MOTOR_DIR_Read() & 0x02) ? 1 : -1;
-					g_meas.curr[1] = g_meas.curr[1] * sign_2;
+            	if (g_ref.onoff == 0x03) {
+	            	if (i_counter > 0) {
+	            		i_mean_value_2 += value;
+	            		if (i_counter == 1) {
+	            			i_mean_value_2 = i_mean_value_2 / SAMPLES_FOR_MEAN;
+	            		}
+	            		i_counter--;
+	            	} else {	
+						g_meas.curr[1] =  filter_i2(abs(((value - i_mean_value_2) * 5000) / i_mean_value_2));
+					}
+				} else {
+					g_meas.curr[1] = 0;	
 				}
             	break;
 
@@ -466,9 +497,9 @@ CY_ISR(ISR_MEASUREMENTS_ExInterrupt)
             case 3:
             	if (emg_counter > SAMPLES_FOR_EMG_MEAN) {
             		// normal execution
-            		f_aux = ((float)value * (5000.0 / 4096.0));
-	            	f_aux = filter_ch1(f_aux);
-	            	i_aux = (int32)((1024.0 * f_aux) / emg_mean_value_1);
+            		// f_aux = ((float)value * (5000.0 / 4096.0));
+	            	i_aux = filter_ch1(value);
+	            	i_aux = (1024 * i_aux) / emg_mean_value_1;
 	            	if (i_aux < 0) {
 	            		i_aux = 0;
 	            	} else if (i_aux > 1024) {
@@ -481,8 +512,8 @@ CY_ISR(ISR_MEASUREMENTS_ExInterrupt)
             		emg_counter++;
             	} else if (emg_counter < SAMPLES_FOR_EMG_MEAN) {
             		// sum all the values to calculate a max mean value
-            		f_aux = ((float)value * (5000.0 / 4096.0));
-	            	emg_mean_value_1 += filter_ch1(f_aux);
+            		// f_aux = ((float)value * (5000.0 / 4096.0));
+	            	emg_mean_value_1 += filter_ch1(value);
 	            	LED_REG_Write(0x01);
 	            	emg_counter++;
             	} else if (emg_counter == SAMPLES_FOR_EMG_MEAN) {
@@ -490,6 +521,10 @@ CY_ISR(ISR_MEASUREMENTS_ExInterrupt)
             		emg_mean_value_1 = emg_mean_value_1 / (SAMPLES_FOR_EMG_MEAN - 500);
             		LED_REG_Write(0x00);
             		emg_counter++;
+            		if ((c_mem.mode == INPUT_MODE_EMG_PROPORTIONAL) || (c_mem.mode == INPUT_MODE_EMG_INTEGRAL)) {
+            			g_ref.onoff = c_mem.activ; 
+            			MOTOR_ON_OFF_Write(g_ref.onoff);
+            		}
             	}
             	
             	break;
@@ -498,9 +533,9 @@ CY_ISR(ISR_MEASUREMENTS_ExInterrupt)
             case 4:
             	if (emg_counter > SAMPLES_FOR_EMG_MEAN) {
             		// normal execution
-            		f_aux = ((float)value * (5000.0 / 4096.0));
-	            	f_aux = filter_ch2(f_aux);
-	            	i_aux = (int32)((1024.0 * f_aux) / emg_mean_value_2);
+            		// f_aux = ((float)value * (5000.0 / 4096.0));
+	            	i_aux = filter_ch2(value);
+	            	i_aux = (1024 * i_aux) / emg_mean_value_2;
 	            	if (i_aux < 0) {
 	            		i_aux = 0;
 	            	} else if (i_aux > 1024) {
@@ -512,8 +547,8 @@ CY_ISR(ISR_MEASUREMENTS_ExInterrupt)
             		// do nothing, just to discard the first values
             	} else if (emg_counter < SAMPLES_FOR_EMG_MEAN) {
             		// sum all the values to calculate a max mean value
-            		f_aux = ((float)value * (5000.0 / 4096.0));
-	            	emg_mean_value_2 += filter_ch2(f_aux);
+            		// f_aux = ((float)value * (5000.0 / 4096.0));
+	            	emg_mean_value_2 += filter_ch2(value);
             	} else if (emg_counter == SAMPLES_FOR_EMG_MEAN) {
             		// we finished the samples for mean
             		emg_mean_value_2 = emg_mean_value_2 / (SAMPLES_FOR_EMG_MEAN - 500);
@@ -526,6 +561,7 @@ CY_ISR(ISR_MEASUREMENTS_ExInterrupt)
 		}
 		AMUXSEQ_MOTORS_Next();		
 	}
+
 
 	#if(CYDEV_CHIP_FAMILY_USED == CYDEV_CHIP_FAMILY_PSOC3)
 	    #if((CYDEV_CHIP_REVISION_USED <= CYDEV_CHIP_REVISION_3A_ES2) && (ISR_MEASUREMENTS__ES2_PATCH ))      

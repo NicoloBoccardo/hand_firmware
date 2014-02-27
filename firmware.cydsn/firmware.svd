@@ -9,7 +9,7 @@
     <peripheral>
       <name>LED_REG</name>
       <description>No description available</description>
-      <baseAddress>0x647D</baseAddress>
+      <baseAddress>0x6576</baseAddress>
       <addressBlock>
         <offset>0</offset>
         <size>0x1</size>
@@ -30,7 +30,7 @@
     <peripheral>
       <name>CALIB_TRIGG</name>
       <description>No description available</description>
-      <baseAddress>0x6474</baseAddress>
+      <baseAddress>0x6476</baseAddress>
       <addressBlock>
         <offset>0</offset>
         <size>0x1</size>
@@ -51,7 +51,7 @@
     <peripheral>
       <name>TIMER_REG</name>
       <description>No description available</description>
-      <baseAddress>0x656A</baseAddress>
+      <baseAddress>0x6566</baseAddress>
       <addressBlock>
         <offset>0</offset>
         <size>0x31</size>
@@ -4494,7 +4494,7 @@
     <peripheral>
       <name>RS485_CTS</name>
       <description>No description available</description>
-      <baseAddress>0x657B</baseAddress>
+      <baseAddress>0x657A</baseAddress>
       <addressBlock>
         <offset>0</offset>
         <size>0x1</size>
@@ -4518,7 +4518,7 @@
       <baseAddress>0x642B</baseAddress>
       <addressBlock>
         <offset>0</offset>
-        <size>0x14E</size>
+        <size>0x71</size>
         <usage>registers</usage>
       </addressBlock>
       <registers>
@@ -4539,6 +4539,38 @@
           <access>read-write</access>
           <resetValue>0</resetValue>
           <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>PWM_MOTORS_Control_Reg</name>
+          <description>UDB Control Register - Assigned Control Register Value</description>
+          <addressOffset>0x53</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+          <fields>
+            <field>
+              <name>CTRL_ENABLE</name>
+              <description>Enable the PWM</description>
+              <lsb>7</lsb>
+              <msb>7</msb>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CTRL_CMPMODE2</name>
+              <description>Compare mode 2</description>
+              <lsb>3</lsb>
+              <msb>5</msb>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CTRL_CMPMODE1</name>
+              <description>Compare mode 1</description>
+              <lsb>0</lsb>
+              <msb>2</msb>
+              <access>read-write</access>
+            </field>
+          </fields>
         </register>
         <register>
           <name>PWM_MOTORS_STATUS_AUX_CTRL</name>
@@ -4665,44 +4697,12 @@
             </field>
           </fields>
         </register>
-        <register>
-          <name>PWM_MOTORS_Control_Reg</name>
-          <description>UDB Control Register - Assigned Control Register Value</description>
-          <addressOffset>0x14D</addressOffset>
-          <size>8</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-          <fields>
-            <field>
-              <name>CTRL_ENABLE</name>
-              <description>Enable the PWM</description>
-              <lsb>7</lsb>
-              <msb>7</msb>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>CTRL_CMPMODE2</name>
-              <description>Compare mode 2</description>
-              <lsb>3</lsb>
-              <msb>5</msb>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>CTRL_CMPMODE1</name>
-              <description>Compare mode 1</description>
-              <lsb>0</lsb>
-              <msb>2</msb>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
       </registers>
     </peripheral>
     <peripheral>
       <name>UART_RS485</name>
       <description>UART</description>
-      <baseAddress>0x642C</baseAddress>
+      <baseAddress>0x642F</baseAddress>
       <addressBlock>
         <offset>0</offset>
         <size>0x41</size>
@@ -4730,7 +4730,7 @@
         <register>
           <name>TX_UART_RS485_TX_DATA</name>
           <description>TX Data Register</description>
-          <addressOffset>0x1E</addressOffset>
+          <addressOffset>0x1B</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -4748,7 +4748,7 @@
         <register>
           <name>TX_UART_RS485_TX_STATUS</name>
           <description>TX status register</description>
-          <addressOffset>0x3E</addressOffset>
+          <addressOffset>0x3A</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -4849,17 +4849,76 @@
     <peripheral>
       <name>COUNTER_ENC</name>
       <description>No description available</description>
-      <baseAddress>0x648B</baseAddress>
+      <baseAddress>0x6508</baseAddress>
       <addressBlock>
         <offset>0</offset>
-        <size>0xEF</size>
+        <size>0x91</size>
         <usage>registers</usage>
       </addressBlock>
       <registers>
         <register>
+          <name>COUNTER_ENC_COUNTER</name>
+          <description>UDB.A0 - Current Counter Value</description>
+          <addressOffset>0x0</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>COUNTER_ENC_PERIOD</name>
+          <description>UDB.D0 - Assigned Period</description>
+          <addressOffset>0x20</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>COUNTER_ENC_COMPARE</name>
+          <description>UDB.D1 - Assigned Compare Value</description>
+          <addressOffset>0x30</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>COUNTER_ENC_Control_Reg</name>
+          <description>UDB Control Register - Assigned Control Register Value</description>
+          <addressOffset>0x6F</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+          <fields>
+            <field>
+              <name>CTRL_ENABLE</name>
+              <description>Enable Counter</description>
+              <lsb>7</lsb>
+              <msb>7</msb>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CTRL_CAPMODE</name>
+              <description>Capture mode</description>
+              <lsb>3</lsb>
+              <msb>4</msb>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CTRL_CMPMODE</name>
+              <description>Compare mode</description>
+              <lsb>0</lsb>
+              <msb>2</msb>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
           <name>COUNTER_ENC_STATUS_MASK</name>
           <description>UDB Status bits Interrupt Mask Enable Register</description>
-          <addressOffset>0x0</addressOffset>
+          <addressOffset>0x80</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -4919,7 +4978,7 @@
         <register>
           <name>COUNTER_ENC_STATUS_AUX_CTRL</name>
           <description>UDB Auxilliary Control Register</description>
-          <addressOffset>0x10</addressOffset>
+          <addressOffset>0x90</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -5041,71 +5100,12 @@
             </field>
           </fields>
         </register>
-        <register>
-          <name>COUNTER_ENC_COUNTER</name>
-          <description>UDB.A0 - Current Counter Value</description>
-          <addressOffset>0x7D</addressOffset>
-          <size>8</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>COUNTER_ENC_PERIOD</name>
-          <description>UDB.D0 - Assigned Period</description>
-          <addressOffset>0x9D</addressOffset>
-          <size>8</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>COUNTER_ENC_COMPARE</name>
-          <description>UDB.D1 - Assigned Compare Value</description>
-          <addressOffset>0xAD</addressOffset>
-          <size>8</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>COUNTER_ENC_Control_Reg</name>
-          <description>UDB Control Register - Assigned Control Register Value</description>
-          <addressOffset>0xEE</addressOffset>
-          <size>8</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-          <fields>
-            <field>
-              <name>CTRL_ENABLE</name>
-              <description>Enable Counter</description>
-              <lsb>7</lsb>
-              <msb>7</msb>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>CTRL_CAPMODE</name>
-              <description>Capture mode</description>
-              <lsb>3</lsb>
-              <msb>4</msb>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>CTRL_CMPMODE</name>
-              <description>Compare mode</description>
-              <lsb>0</lsb>
-              <msb>2</msb>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
       </registers>
     </peripheral>
     <peripheral>
       <name>MOTOR_DIR</name>
       <description>No description available</description>
-      <baseAddress>0x647E</baseAddress>
+      <baseAddress>0x647D</baseAddress>
       <addressBlock>
         <offset>0</offset>
         <size>0x1</size>

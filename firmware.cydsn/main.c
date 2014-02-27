@@ -72,7 +72,6 @@ void main()
 	// PWM
     
 	PWM_MOTORS_Start();
-	ISR_MOTORS_CONTROL_StartEx(ISR_MOTORS_CONTROL_ExInterrupt);
 	PWM_MOTORS_WriteCompare1(0);
 	PWM_MOTORS_WriteCompare2(0);
 	MOTOR_DIR_Write(0);
@@ -110,12 +109,19 @@ void main()
     for (i = 0; i < NUM_OF_MOTORS; i++) {
     	g_ref.pos[i] = 0;	
     }
-	g_ref.onoff = c_mem.activ;
+    if ((c_mem.mode == INPUT_MODE_EMG_PROPORTIONAL) || (c_mem.mode == INPUT_MODE_EMG_INTEGRAL)) {
+    	g_ref.onoff = 0x00;
+    } else {
+		g_ref.onoff = c_mem.activ;
+	}
 
 	for (i = 0; i < NUM_OF_SENSORS; i++) {
 		g_meas.pos[i] = 0;
-		g_meas.rot[i] = 0;	
+		g_meas.rot[i] = 0;
 	}
+
+	g_meas.emg[0] = 0;
+	g_meas.emg[1] = 0;
 
 	g_rx.length			= 0;
 	g_rx.ready			= 0;

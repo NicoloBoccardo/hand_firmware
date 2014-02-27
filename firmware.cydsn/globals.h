@@ -26,7 +26,7 @@
 //                                                                        DEVICE
 //==============================================================================
 
-#define VERSION         "THE v1.0.0"
+#define VERSION         "THE v1.0.1"
 
 #define NUM_OF_MOTORS   2
 #define NUM_OF_SENSORS  3
@@ -46,9 +46,8 @@
 //==================================================     control type definition
 
 // #define CONTROL_MODE			CONTROL_CURRENT
-#define CONTROL_MODE			CONTROL_ANGLE
+ #define CONTROL_MODE			CONTROL_ANGLE
 // #define CONTROL_MODE			CONTROL_PWM
-// #define CONTROL_MODE            CONTROL_EMG_1
     
 //==============================================================================
 //                                                                         OTHER
@@ -67,9 +66,12 @@
 #define ANTI_WINDUP     1000
 #define MAX_CURRENT     1000          // Max current for calibration (mA) 
 	
-#define SAMPLES_FOR_MEAN 100
+#define SAMPLES_FOR_MEAN 500
 
-#define SAMPLES_FOR_EMG_MEAN 3000
+#define SAMPLES_FOR_EMG_MEAN 1500
+
+#define CALIB_DECIMATION 1
+#define NUM_OF_CLOSURES  5
 
 //==============================================================================
 //                                                        structures definitions
@@ -137,6 +139,14 @@ struct st_dev{
     uint8   tension_valid;
 };
 
+
+struct st_calib {
+    uint8   enabled;
+    uint8   direction;
+    int16   speed;
+};
+
+
 //====================================      external global variables definition
 
 
@@ -146,8 +156,14 @@ extern struct st_meas 	g_meas;			// measurements
 extern struct st_data 	g_rx;			// income data
 extern struct st_mem 	g_mem, c_mem;	// memory
 extern struct st_dev	device;			//device related variables
+extern struct st_calib  calib;
 	
 
+extern int32 opened_hand_pos;
+extern int32 closed_hand_pos;
+extern int8 dx_sx_hand;
+
+extern float tau_feedback;
 
 // -----------------------------------------------------------------------------
 

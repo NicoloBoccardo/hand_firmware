@@ -489,16 +489,6 @@
               <FilePath>.\Generated_Source\PSoC3\CURRENT_SENSE_1_aliases.h</FilePath>
             </File>
             <File>
-              <FileName>CLOCK_CONTROL.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC3\CLOCK_CONTROL.c</FilePath>
-            </File>
-            <File>
-              <FileName>CLOCK_CONTROL.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC3\CLOCK_CONTROL.h</FilePath>
-            </File>
-            <File>
               <FileName>ISR_RS485_RX.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Generated_Source\PSoC3\ISR_RS485_RX.c</FilePath>
@@ -507,16 +497,6 @@
               <FileName>ISR_RS485_RX.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Generated_Source\PSoC3\ISR_RS485_RX.h</FilePath>
-            </File>
-            <File>
-              <FileName>ISR_MOTORS_CONTROL.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC3\ISR_MOTORS_CONTROL.c</FilePath>
-            </File>
-            <File>
-              <FileName>ISR_MOTORS_CONTROL.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC3\ISR_MOTORS_CONTROL.h</FilePath>
             </File>
             <File>
               <FileName>ISR_MEASUREMENTS.c</FileName>
@@ -1669,16 +1649,6 @@
               <FilePath>.\Generated_Source\PSoC3\CURRENT_SENSE_1_aliases.h</FilePath>
             </File>
             <File>
-              <FileName>CLOCK_CONTROL.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC3\CLOCK_CONTROL.c</FilePath>
-            </File>
-            <File>
-              <FileName>CLOCK_CONTROL.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC3\CLOCK_CONTROL.h</FilePath>
-            </File>
-            <File>
               <FileName>ISR_RS485_RX.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Generated_Source\PSoC3\ISR_RS485_RX.c</FilePath>
@@ -1687,16 +1657,6 @@
               <FileName>ISR_RS485_RX.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Generated_Source\PSoC3\ISR_RS485_RX.h</FilePath>
-            </File>
-            <File>
-              <FileName>ISR_MOTORS_CONTROL.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC3\ISR_MOTORS_CONTROL.c</FilePath>
-            </File>
-            <File>
-              <FileName>ISR_MOTORS_CONTROL.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC3\ISR_MOTORS_CONTROL.h</FilePath>
             </File>
             <File>
               <FileName>ISR_MEASUREMENTS.c</FileName>

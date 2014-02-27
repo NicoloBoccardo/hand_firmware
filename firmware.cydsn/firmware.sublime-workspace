@@ -4,8 +4,76 @@
 		"selected_items":
 		[
 			[
+				"tau_",
+				"tau_feedback"
+			],
+			[
+				"old_",
+				"old_output"
+			],
+			[
+				"velo",
+				"velocity_sign"
+			],
+			[
+				"curr",
+				"curr_velocity"
+			],
+			[
+				"des",
+				"des_pos_old"
+			],
+			[
+				"tau",
+				"tau_hat"
+			],
+			[
 				"aux",
-				"aux_string"
+				"aux_1"
+			],
+			[
+				"clos",
+				"closure_counter"
+			],
+			[
+				"pos_lim",
+				"pos_lim_inf"
+			],
+			[
+				"al",
+				"ALPHA"
+			],
+			[
+				"contro",
+				"control_and_encoder_int"
+			],
+			[
+				"NUM",
+				"NUM_OF_SENSORS"
+			],
+			[
+				"emg_",
+				"emg_counter"
+			],
+			[
+				"i",
+				"i_aux"
+			],
+			[
+				"SAM",
+				"SAMPLES_FOR_EMG_MEAN"
+			],
+			[
+				"SA",
+				"SAMPLES_FOR_EMG_MEAN"
+			],
+			[
+				"emg",
+				"emg_counter"
+			],
+			[
+				"INPUT",
+				"INPUT_MODE_EMG_PROPORTIONAL"
 			],
 			[
 				"corre",
@@ -67,7 +135,7 @@
 			"file": "command_processing.c",
 			"settings":
 			{
-				"buffer_size": 24164,
+				"buffer_size": 29463,
 				"line_ending": "Unix"
 			}
 		},
@@ -75,7 +143,7 @@
 			"file": "command_processing.h",
 			"settings":
 			{
-				"buffer_size": 1982,
+				"buffer_size": 2072,
 				"line_ending": "Unix"
 			}
 		},
@@ -83,7 +151,7 @@
 			"file": "commands.h",
 			"settings":
 			{
-				"buffer_size": 6687,
+				"buffer_size": 6911,
 				"line_ending": "Unix"
 			}
 		},
@@ -99,7 +167,7 @@
 			"file": "globals.c",
 			"settings":
 			{
-				"buffer_size": 801,
+				"buffer_size": 925,
 				"line_ending": "Windows"
 			}
 		},
@@ -107,23 +175,41 @@
 			"file": "globals.h",
 			"settings":
 			{
-				"buffer_size": 4962,
+				"buffer_size": 5570,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "Searching 11 files for \"activ\"\n\n/Users/laurentio/Dropbox/Centro Piaggio/QB/qbrobotics_git/hand_firmware/firmware.cydsn/command_processing.c:\n   58  \n   59  	switch(rx_cmd){\n   60: //=============================================================     CMD_ACTIVATE		\n   61: 		case CMD_ACTIVATE:\n   62  		    g_ref.onoff = g_rx.buffer[1];\n   63  \n   ..\n  215          break;\n  216  \n  217: //=========================================================     CMD_GET_ACTIVATE\n  218  		\n  219:         case CMD_GET_ACTIVATE:\n  220  			packet_lenght = 3;                                                     \n  221  \n  222: 		    packet_data[0] = CMD_GET_ACTIVATE;\n  223  		    packet_data[1] = g_ref.onoff;\n  224  		    packet_data[2] = LCRChecksum(packet_data,packet_lenght - 1);\n  ...\n  414              break;\n  415  \n  416:         case PARAM_STARTUP_ACTIVATION:\n  417:         	g_mem.activ = g_rx.buffer[3];\n  418              break;        \n  419  \n  ...\n  517              break;\n  518  \n  519:         case PARAM_STARTUP_ACTIVATION:\n  520:             packet_data[1] = c_mem.activ;\n  521              packet_lenght = 3;\n  522              break;   \n  ...\n  660      strcat(info_string, str); \n  661      strcat(info_string,\"\\r\\n\");\n  662:     sprintf(str,\"Startup activation: %d\", (int) c_mem.activ);\n  663      strcat(info_string, str); \n  664      strcat(info_string,\"\\r\\n\");\n  ...\n  694      }\n  695  \n  696:     sprintf(str, \"Position limit active: %d\", (int)g_mem.pos_lim_flag);\n  697      strcat(info_string, str); \n  698      strcat(info_string,\"\\r\\n\");\n  ...\n  909      g_mem.k_i      =    0 * 65536;\n  910      g_mem.k_d      =    -0.2 * 65536;\n  911:     g_mem.activ    = 	0;\n  912      g_mem.mode     = 	0;\n  913  \n\n/Users/laurentio/Dropbox/Centro Piaggio/QB/qbrobotics_git/hand_firmware/firmware.cydsn/commands.h:\n   78  //=========================================================     QB Move commands\n   79  \n   80:     CMD_ACTIVATE		    = 128,  ///< Command for activating/deactivating \n   81                                      ///  the device\n   82:     CMD_GET_ACTIVATE	    = 129,  ///< Command for getting device activation\n   83                                      ///  state\n   84      CMD_SET_INPUTS		    = 130,  ///< Command for setting reference inputs\n   ..\n  107      PARAM_ID		    	     = 0,	///< Device's ID number\n  108      PARAM_PID_CONTROL            = 1,	///< PID Control proportional constant\n  109:     PARAM_STARTUP_ACTIVATION     = 2,	///< Start up activation byte\n  110      PARAM_INPUT_MODE             = 3,	///< Input mode\n  111      \n\n/Users/laurentio/Dropbox/Centro Piaggio/QB/qbrobotics_git/hand_firmware/firmware.cydsn/globals.h:\n  116      int32   k_d;                        // Integrative constant\n  117  \n  118:     uint8   activ;     					// Activation upon startup\n  119      uint8   mode;       				// Input mode\n  120  \n  ...\n  122      int32   m_off[NUM_OF_SENSORS];		// Measurement offset\n  123      float   m_mult[NUM_OF_SENSORS];		// Measurement multiplier\n  124:     uint8	pos_lim_flag;				// Position limit active/inactive\n  125      int32	pos_lim_inf[NUM_OF_MOTORS]; // Inferior position limit for motors\n  126      int32	pos_lim_sup[NUM_OF_MOTORS]; // Superior position limit for motors\n\n/Users/laurentio/Dropbox/Centro Piaggio/QB/qbrobotics_git/hand_firmware/firmware.cydsn/interruptions.c:\n  589  	g_ref.pos[1] = 0;\n  590  \n  591: 	// Activate motors\n  592  	if (!(g_ref.onoff & 0x03)) {\n  593  		MOTOR_ON_OFF_Write(0x03);	\n  ...\n  637  	ms_delay(3000);\n  638  \n  639: 	//Deactivate motors\n  640  	// if (!(g_ref.onoff & 0x03)) {\n  641  	// 	MOTOR_ON_OFF_Write(0x00);	\n\n/Users/laurentio/Dropbox/Centro Piaggio/QB/qbrobotics_git/hand_firmware/firmware.cydsn/main.c:\n  110      	g_ref.pos[i] = 0;	\n  111      }\n  112: 	g_ref.onoff = c_mem.activ;\n  113  \n  114  	for (i = 0; i < NUM_OF_SENSORS; i++) {\n  ...\n  123  	g_rx.ready			= 0;\n  124  	\n  125: 	// Activating motors\n  126  	g_ref.pos[0] = g_meas.pos[0];\n  127  	g_ref.pos[1] = g_meas.pos[1];\n\n28 matches across 5 files\n\n\nSearching 11 files for \"g_ref.onoff\"\n\n/Users/laurentio/Dropbox/Centro Piaggio/QB/qbrobotics_git/hand_firmware/firmware.cydsn/command_processing.c:\n   60  //=============================================================     CMD_ACTIVATE		\n   61  		case CMD_ACTIVATE:\n   62: 		    g_ref.onoff = g_rx.buffer[1];\n   63  \n   64  \n   ..\n   67                  g_ref.pos[1] = g_meas.pos[1];                       \n   68              #endif\n   69:             MOTOR_ON_OFF_Write(g_ref.onoff);\n   70  \n   71      		break;\n   ..\n  221  \n  222  		    packet_data[0] = CMD_GET_ACTIVATE;\n  223: 		    packet_data[1] = g_ref.onoff;\n  224  		    packet_data[2] = LCRChecksum(packet_data,packet_lenght - 1);\n  225  		    commWrite(packet_data, packet_lenght);\n  ...\n  621      \n  622      sprintf(str,\"Motor 1 enabled: \");     \n  623:     if (g_ref.onoff & 0x02) {\n  624          strcat(str,\"YES\\r\\n\");\n  625      } else {\n  ...\n  629      \n  630      sprintf(str,\"Motor 2 enabled: \");\n  631:     if (g_ref.onoff & 0x01) {\n  632          strcat(str,\"YES\\r\\n\");\n  633      } else {\n\n/Users/laurentio/Dropbox/Centro Piaggio/QB/qbrobotics_git/hand_firmware/firmware.cydsn/interruptions.c:\n  347  \n  348  	#if (CONTROL_MODE == CONTROL_CURRENT)\n  349: 		if(g_ref.onoff & 1)\n  350  		{\n  351  			error_1 = g_ref.pos[0] - g_meas.curr[0];\n  ...\n  460  			// --- Current motor 1 ---\n  461              case 1:\n  462:             	if (g_ref.onoff == 0x03) {\n  463              		if (i_counter > 0) {\n  464  	            		i_mean_value_1 += value;\n  ...\n  479  			// --- Current motor 2 ---\n  480              case 2:\n  481:             	if (g_ref.onoff == 0x03) {\n  482  	            	if (i_counter > 0) {\n  483  	            		i_mean_value_2 += value;\n  ...\n  523              		emg_counter++;\n  524              		if ((c_mem.mode == INPUT_MODE_EMG_PROPORTIONAL) || (c_mem.mode == INPUT_MODE_EMG_INTEGRAL)) {\n  525:             			g_ref.onoff == \n  526              	}\n  527              	\n  ...\n  592  \n  593  	// Activate motors\n  594: 	if (!(g_ref.onoff & 0x03)) {\n  595  		MOTOR_ON_OFF_Write(0x03);	\n  596  	}\n  ...\n  640  \n  641  	//Deactivate motors\n  642: 	// if (!(g_ref.onoff & 0x03)) {\n  643  	// 	MOTOR_ON_OFF_Write(0x00);	\n  644  	// }\n\n/Users/laurentio/Dropbox/Centro Piaggio/QB/qbrobotics_git/hand_firmware/firmware.cydsn/main.c:\n  111      }\n  112      if ((c_mem.mode == INPUT_MODE_EMG_PROPORTIONAL) || (c_mem.mode == INPUT_MODE_EMG_INTEGRAL)) {\n  113:     	g_ref.onoff = 0x00;\n  114      } else {\n  115: 		g_ref.onoff = c_mem.activ;\n  116  	}\n  117  \n  ...\n  130  	g_ref.pos[0] = g_meas.pos[0];\n  131  	g_ref.pos[1] = g_meas.pos[1];\n  132: 	MOTOR_ON_OFF_Write(g_ref.onoff);\n  133  \n  134  	// Calculate conversion factor\n\n14 matches across 3 files\n\n\nSearching 11 files for \"g_ref.onoff\"\n\n/Users/laurentio/Dropbox/Centro Piaggio/QB/qbrobotics_git/hand_firmware/firmware.cydsn/command_processing.c:\n   60  //=============================================================     CMD_ACTIVATE		\n   61  		case CMD_ACTIVATE:\n   62: 		    g_ref.onoff = g_rx.buffer[1];\n   63  \n   64  \n   ..\n   67                  g_ref.pos[1] = g_meas.pos[1];                       \n   68              #endif\n   69:             MOTOR_ON_OFF_Write(g_ref.onoff);\n   70  \n   71      		break;\n   ..\n  221  \n  222  		    packet_data[0] = CMD_GET_ACTIVATE;\n  223: 		    packet_data[1] = g_ref.onoff;\n  224  		    packet_data[2] = LCRChecksum(packet_data,packet_lenght - 1);\n  225  		    commWrite(packet_data, packet_lenght);\n  ...\n  621      \n  622      sprintf(str,\"Motor 1 enabled: \");     \n  623:     if (g_ref.onoff & 0x02) {\n  624          strcat(str,\"YES\\r\\n\");\n  625      } else {\n  ...\n  629      \n  630      sprintf(str,\"Motor 2 enabled: \");\n  631:     if (g_ref.onoff & 0x01) {\n  632          strcat(str,\"YES\\r\\n\");\n  633      } else {\n\n/Users/laurentio/Dropbox/Centro Piaggio/QB/qbrobotics_git/hand_firmware/firmware.cydsn/interruptions.c:\n  347  \n  348  	#if (CONTROL_MODE == CONTROL_CURRENT)\n  349: 		if(g_ref.onoff & 1)\n  350  		{\n  351  			error_1 = g_ref.pos[0] - g_meas.curr[0];\n  ...\n  460  			// --- Current motor 1 ---\n  461              case 1:\n  462:             	if (g_ref.onoff == 0x03) {\n  463              		if (i_counter > 0) {\n  464  	            		i_mean_value_1 += value;\n  ...\n  479  			// --- Current motor 2 ---\n  480              case 2:\n  481:             	if (g_ref.onoff == 0x03) {\n  482  	            	if (i_counter > 0) {\n  483  	            		i_mean_value_2 += value;\n  ...\n  523              		emg_counter++;\n  524              		if ((c_mem.mode == INPUT_MODE_EMG_PROPORTIONAL) || (c_mem.mode == INPUT_MODE_EMG_INTEGRAL)) {\n  525:             			g_ref.onoff == \n  526              	}\n  527              	\n  ...\n  592  \n  593  	// Activate motors\n  594: 	if (!(g_ref.onoff & 0x03)) {\n  595  		MOTOR_ON_OFF_Write(0x03);	\n  596  	}\n  ...\n  640  \n  641  	//Deactivate motors\n  642: 	// if (!(g_ref.onoff & 0x03)) {\n  643  	// 	MOTOR_ON_OFF_Write(0x00);	\n  644  	// }\n\n/Users/laurentio/Dropbox/Centro Piaggio/QB/qbrobotics_git/hand_firmware/firmware.cydsn/main.c:\n  111      }\n  112      if ((c_mem.mode == INPUT_MODE_EMG_PROPORTIONAL) || (c_mem.mode == INPUT_MODE_EMG_INTEGRAL)) {\n  113:     	g_ref.onoff = 0x00;\n  114      } else {\n  115: 		g_ref.onoff = c_mem.activ;\n  116  	}\n  117  \n  ...\n  130  	g_ref.pos[0] = g_meas.pos[0];\n  131  	g_ref.pos[1] = g_meas.pos[1];\n  132: 	MOTOR_ON_OFF_Write(g_ref.onoff);\n  133  \n  134  	// Calculate conversion factor\n\n14 matches across 3 files\n\n\nSearching 11 files for \"g_ref.onoff\"\n\n/Users/laurentio/Dropbox/Centro Piaggio/QB/qbrobotics_git/hand_firmware/firmware.cydsn/command_processing.c:\n   60  //=============================================================     CMD_ACTIVATE		\n   61  		case CMD_ACTIVATE:\n   62: 		    g_ref.onoff = g_rx.buffer[1];\n   63  \n   64  \n   ..\n   67                  g_ref.pos[1] = g_meas.pos[1];                       \n   68              #endif\n   69:             MOTOR_ON_OFF_Write(g_ref.onoff);\n   70  \n   71      		break;\n   ..\n  221  \n  222  		    packet_data[0] = CMD_GET_ACTIVATE;\n  223: 		    packet_data[1] = g_ref.onoff;\n  224  		    packet_data[2] = LCRChecksum(packet_data,packet_lenght - 1);\n  225  		    commWrite(packet_data, packet_lenght);\n  ...\n  621      \n  622      sprintf(str,\"Motor 1 enabled: \");     \n  623:     if (g_ref.onoff & 0x02) {\n  624          strcat(str,\"YES\\r\\n\");\n  625      } else {\n  ...\n  629      \n  630      sprintf(str,\"Motor 2 enabled: \");\n  631:     if (g_ref.onoff & 0x01) {\n  632          strcat(str,\"YES\\r\\n\");\n  633      } else {\n\n/Users/laurentio/Dropbox/Centro Piaggio/QB/qbrobotics_git/hand_firmware/firmware.cydsn/interruptions.c:\n  347  \n  348  	#if (CONTROL_MODE == CONTROL_CURRENT)\n  349: 		if(g_ref.onoff & 1)\n  350  		{\n  351  			error_1 = g_ref.pos[0] - g_meas.curr[0];\n  ...\n  460  			// --- Current motor 1 ---\n  461              case 1:\n  462:             	if (g_ref.onoff == 0x03) {\n  463              		if (i_counter > 0) {\n  464  	            		i_mean_value_1 += value;\n  ...\n  479  			// --- Current motor 2 ---\n  480              case 2:\n  481:             	if (g_ref.onoff == 0x03) {\n  482  	            	if (i_counter > 0) {\n  483  	            		i_mean_value_2 += value;\n  ...\n  523              		emg_counter++;\n  524              		if ((c_mem.mode == INPUT_MODE_EMG_PROPORTIONAL) || (c_mem.mode == INPUT_MODE_EMG_INTEGRAL)) {\n  525:             			g_ref.onoff == \n  526              	}\n  527              	\n  ...\n  592  \n  593  	// Activate motors\n  594: 	if (!(g_ref.onoff & 0x03)) {\n  595  		MOTOR_ON_OFF_Write(0x03);	\n  596  	}\n  ...\n  640  \n  641  	//Deactivate motors\n  642: 	// if (!(g_ref.onoff & 0x03)) {\n  643  	// 	MOTOR_ON_OFF_Write(0x00);	\n  644  	// }\n\n/Users/laurentio/Dropbox/Centro Piaggio/QB/qbrobotics_git/hand_firmware/firmware.cydsn/main.c:\n  111      }\n  112      if ((c_mem.mode == INPUT_MODE_EMG_PROPORTIONAL) || (c_mem.mode == INPUT_MODE_EMG_INTEGRAL)) {\n  113:     	g_ref.onoff = 0x00;\n  114      } else {\n  115: 		g_ref.onoff = c_mem.activ;\n  116  	}\n  117  \n  ...\n  130  	g_ref.pos[0] = g_meas.pos[0];\n  131  	g_ref.pos[1] = g_meas.pos[1];\n  132: 	MOTOR_ON_OFF_Write(g_ref.onoff);\n  133  \n  134  	// Calculate conversion factor\n\n14 matches across 3 files\n",
+			"settings":
+			{
+				"buffer_size": 12254,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
 			}
 		},
 		{
 			"file": "interruptions.h",
 			"settings":
 			{
-				"buffer_size": 1104,
+				"buffer_size": 868,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "interruptions.c",
+			"file": "utils.c",
 			"settings":
 			{
-				"buffer_size": 12335,
+				"buffer_size": 4580,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "utils.h",
+			"settings":
+			{
+				"buffer_size": 1420,
 				"line_ending": "Windows"
 			}
 		},
@@ -131,7 +217,7 @@
 			"file": "main.c",
 			"settings":
 			{
-				"buffer_size": 3245,
+				"buffer_size": 3515,
 				"line_ending": "Unix"
 			}
 		}
@@ -163,6 +249,7 @@
 	},
 	"file_history":
 	[
+		"/Users/laurentio/Dropbox/Centro Piaggio/QB/qbrobotics_git/hand_firmware/firmware.cydsn/interruptions.c",
 		"/Users/laurentio/Desktop/P.PNT",
 		"/Users/laurentio/Desktop/prova.c",
 		"/Users/laurentio/Desktop/PUNTI.csv.1",
@@ -171,7 +258,7 @@
 	],
 	"find":
 	{
-		"height": 39.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -186,6 +273,67 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"g_ref.onoff",
+			"activ",
+			"tau",
+			"ta",
+			"tau",
+			"ALPHA",
+			"x",
+			"=",
+			"static",
+			"pos_filter",
+			"g_meas.curr",
+			"i_filtered",
+			"pos_cmnd",
+			"gear_ratio",
+			"enc",
+			"closed_hand",
+			"control_And",
+			"activate",
+			"get_cur",
+			"get",
+			"get_cus",
+			"GET_CURR_ADN",
+			"filter_i1",
+			"on_off",
+			"current",
+			"dx_sx_hand",
+			"calibrate",
+			"opened_hand_pos",
+			"open_hand_pos",
+			"open_hand_post",
+			"closed_hand",
+			"calibra",
+			"memrecal",
+			"pos_lim_inf",
+			"pos_limit",
+			"x_old_per_1024",
+			"int16",
+			"__int16",
+			"65536",
+			"isr_motor",
+			"isr_motor_contr",
+			"g_meas.pos[2]",
+			"num_of_sensors",
+			"num_of_sensros",
+			"isr_encoder",
+			"aux",
+			"mean_value",
+			"mean_value_1",
+			"device.tension_valid",
+			"counter",
+			"mode",
+			"input_mode_enc",
+			"thres",
+			"double",
+			"float",
+			"double",
+			"float",
+			"tension_conv_fa",
+			"tension_valid",
+			"shiftreg_enc_4",
+			"boot",
 			"changing",
 			"device",
 			"activate",
@@ -253,7 +401,7 @@
 	"groups":
 	[
 		{
-			"selected": 8,
+			"selected": 7,
 			"sheets":
 			[
 				{
@@ -262,15 +410,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 24164,
+						"buffer_size": 29463,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								28578,
+								28683
 							]
 						],
 						"settings":
@@ -283,6 +431,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
@@ -291,15 +440,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1982,
+						"buffer_size": 2072,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1050,
+								1050
 							]
 						],
 						"settings":
@@ -310,6 +459,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
@@ -318,15 +468,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6687,
+						"buffer_size": 6911,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								6423,
+								6423
 							]
 						],
 						"settings":
@@ -339,6 +489,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -366,6 +517,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -374,15 +526,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 801,
+						"buffer_size": 925,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								906,
+								906
 							]
 						],
 						"settings":
@@ -393,6 +545,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -401,15 +554,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4962,
+						"buffer_size": 5570,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								3941,
+								3941
 							]
 						],
 						"settings":
@@ -419,26 +572,349 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1555.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 6,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12254,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										252,
+										257
+									],
+									[
+										281,
+										286
+									],
+									[
+										457,
+										462
+									],
+									[
+										504,
+										509
+									],
+									[
+										642,
+										647
+									],
+									[
+										843,
+										848
+									],
+									[
+										877,
+										882
+									],
+									[
+										1017,
+										1022
+									],
+									[
+										1071,
+										1076
+									],
+									[
+										1260,
+										1265
+									],
+									[
+										1289,
+										1294
+									],
+									[
+										1441,
+										1446
+									],
+									[
+										1667,
+										1672
+									],
+									[
+										1933,
+										1938
+									],
+									[
+										1972,
+										1977
+									],
+									[
+										1985,
+										1990
+									],
+									[
+										2075,
+										2080
+									],
+									[
+										2128,
+										2133
+									],
+									[
+										2449,
+										2454
+									],
+									[
+										2483,
+										2488
+									],
+									[
+										2769,
+										2774
+									],
+									[
+										2788,
+										2793
+									],
+									[
+										3062,
+										3067
+									],
+									[
+										3071,
+										3076
+									],
+									[
+										3394,
+										3399
+									],
+									[
+										3533,
+										3538
+									],
+									[
+										3796,
+										3801
+									],
+									[
+										3910,
+										3915
+									],
+									[
+										4311,
+										4322
+									],
+									[
+										4503,
+										4514
+									],
+									[
+										4637,
+										4648
+									],
+									[
+										4859,
+										4870
+									],
+									[
+										5017,
+										5028
+									],
+									[
+										5268,
+										5279
+									],
+									[
+										5441,
+										5452
+									],
+									[
+										5647,
+										5658
+									],
+									[
+										5938,
+										5949
+									],
+									[
+										6052,
+										6063
+									],
+									[
+										6180,
+										6191
+									],
+									[
+										6481,
+										6492
+									],
+									[
+										6530,
+										6541
+									],
+									[
+										6684,
+										6695
+									],
+									[
+										7052,
+										7063
+									],
+									[
+										7244,
+										7255
+									],
+									[
+										7378,
+										7389
+									],
+									[
+										7600,
+										7611
+									],
+									[
+										7758,
+										7769
+									],
+									[
+										8009,
+										8020
+									],
+									[
+										8182,
+										8193
+									],
+									[
+										8388,
+										8399
+									],
+									[
+										8679,
+										8690
+									],
+									[
+										8793,
+										8804
+									],
+									[
+										8921,
+										8932
+									],
+									[
+										9222,
+										9233
+									],
+									[
+										9271,
+										9282
+									],
+									[
+										9425,
+										9436
+									],
+									[
+										9793,
+										9804
+									],
+									[
+										9985,
+										9996
+									],
+									[
+										10119,
+										10130
+									],
+									[
+										10341,
+										10352
+									],
+									[
+										10499,
+										10510
+									],
+									[
+										10750,
+										10761
+									],
+									[
+										10923,
+										10934
+									],
+									[
+										11129,
+										11140
+									],
+									[
+										11420,
+										11431
+									],
+									[
+										11534,
+										11545
+									],
+									[
+										11662,
+										11673
+									],
+									[
+										11963,
+										11974
+									],
+									[
+										12012,
+										12023
+									],
+									[
+										12166,
+										12177
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								12171,
+								12171
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 4,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 6281.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
 					"file": "interruptions.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1104,
+						"buffer_size": 868,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								673,
+								673
 							]
 						],
 						"settings":
@@ -449,51 +925,89 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "interruptions.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 12335,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 8,
-					"file": "main.c",
+					"file": "utils.c",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3245,
+						"buffer_size": 4580,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								944,
+								944
+							]
+						],
+						"settings":
+						{
+							"rulers":
+							[
+								80
+							],
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 113.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "utils.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1420,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1265,
+								1265
+							]
+						],
+						"settings":
+						{
+							"rulers":
+							[
+								80
+							],
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "main.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3515,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2840,
+								2850
 							]
 						],
 						"settings":
@@ -502,9 +1016,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1734.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -541,6 +1056,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
 	"project": "firmware.sublime-project",
 	"replace":
 	{
@@ -578,7 +1097,7 @@
 	"show_open_files": true,
 	"show_tabs": false,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 172.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
