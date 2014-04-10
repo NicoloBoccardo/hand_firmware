@@ -19,7 +19,6 @@
 //=====================================================     function definitions
 CY_ISR_PROTO(ISR_RS485_RX_ExInterrupt);
 CY_ISR_PROTO(ISR_MEASUREMENTS_ExInterrupt);
-CY_ISR_PROTO(ISR_CALIBRATE_ExInterrupt);
 
 // ----------------------------------------------------------------------------
 #endif

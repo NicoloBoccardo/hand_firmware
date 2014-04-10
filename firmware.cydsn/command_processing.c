@@ -320,16 +320,17 @@ void commProcess(void){
 //===========================================================     CMD_BOOTLOADER
         case CMD_BOOTLOADER:
             sendAcknowledgment();
-            // Bootloadable_Load();
+            Bootloadable_Load();
             break;
 
 //============================================================     CMD_CALIBRATE
         case CMD_CALIBRATE:
             calib.speed = *((int16 *) &g_rx.buffer[1]);
+            calib.repetitions = *((int16 *) &g_rx.buffer[3]);
             if (calib.speed < 0) {
                 calib.speed = 0;
-            } else if (calib.speed > 100) {
-                calib.speed = 100;
+            } else if (calib.speed > 200) {
+                calib.speed = 200;
             }
             calibrate();
             break;
@@ -921,7 +922,7 @@ void memInit(void)
     for(i = 0; i < NUM_OF_SENSORS; ++i)
     {
         g_mem.m_mult[i] = 1;
-        g_mem.res[i] = 1;
+        g_mem.res[i] = 3;
     }
     
     g_mem.m_off[0] = (int32)0 << g_mem.res[0];

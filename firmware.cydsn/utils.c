@@ -69,8 +69,6 @@ int32 filter_i2(int32 new_value) {
 }
 
 
-
-
 //==============================================================================
 //																	BIT CHECKSUM
 //==============================================================================
@@ -87,18 +85,6 @@ uint8 BITChecksum(uint32 mydata) {
 	return checksum;
 }
 
-//==============================================================================
-//																	    MS_DELAY
-//==============================================================================
-
-
-void ms_delay(uint32 ms) {
-	uint32 period = (TIMER_CLOCK / 1000) * ms;
-    MY_TIMER_WritePeriod(period);
-    MY_TIMER_Start(); // start the timeout counter
-    while(MY_TIMER_ReadPeriod());
-    MY_TIMER_Stop();
-}
 
 //==============================================================================
 //																	   CALIBRATE
@@ -129,7 +115,7 @@ void calibration_increment(void) {
 		if (SIGN(g_ref.pos[0]) != dx_sx_hand) {
 			direction = 0;
 			closure_counter++;
-			if (closure_counter == NUM_OF_CLOSURES) {
+			if (closure_counter == calib.repetitions) {
 				closure_counter = 0;
 				calib.enabled = FALSE;
 			}

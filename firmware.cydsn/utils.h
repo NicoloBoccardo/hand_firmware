@@ -50,10 +50,11 @@ int32 filter_i2(int32 value);
 
 uint8 BITChecksum(uint32);
 
-void ms_delay(uint32);
 
 void calibrate(void);
 void calibration_increment(void);
+
+void torque_feedback(void);
 
 #endif
 

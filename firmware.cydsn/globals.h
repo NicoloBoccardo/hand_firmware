@@ -26,7 +26,7 @@
 //                                                                        DEVICE
 //==============================================================================
 
-#define VERSION         "THE v1.0.1"
+#define VERSION         "THE v2.0.0"
 
 #define NUM_OF_MOTORS   2
 #define NUM_OF_SENSORS  3
@@ -64,9 +64,10 @@
                                       // value of PWM always limited to 100
 
 #define ANTI_WINDUP     1000
-#define MAX_CURRENT     1000          // Max current for calibration (mA) 
+#define MAX_CURRENT     1000          // Max current for calibration (mA)
+#define CURRENT_LIMIT   1000          // Current limit for hand closing
 	
-#define SAMPLES_FOR_MEAN 500
+#define SAMPLES_FOR_MEAN 100
 
 #define SAMPLES_FOR_EMG_MEAN 1500
 
@@ -137,6 +138,7 @@ struct st_dev{
 	int32	tension;				// Power supply tension
     float   tension_conv_factor;    // Used to calculate input tension
     uint8   tension_valid;
+    uint8   overcurrent;            // 1 if max_curr is reached, 0 otherwise
 };
 
 
@@ -144,6 +146,7 @@ struct st_calib {
     uint8   enabled;
     uint8   direction;
     int16   speed;
+    int16   repetitions;
 };
 
 

@@ -59,6 +59,9 @@ void main()
 	memRecall();                                     	// recall configuration
 
 	// RS485
+
+    CyDelay(100);
+    FTDI_ENABLE_REG_Write(0x01);
 	
 	UART_RS485_Stop();									// stop UART
 	UART_RS485_Start();									// start UART
@@ -92,12 +95,6 @@ void main()
     ISR_MEASUREMENTS_StartEx(ISR_MEASUREMENTS_ExInterrupt);
     AMUXSEQ_MOTORS_Start();                              // start mux
 
-    // Calibrate interrupt init
-    ISR_CALIBRATE_StartEx(ISR_CALIBRATE_ExInterrupt);
-
-    // Timer init
-    MY_TIMER_Init();
-    MY_TIMER_Stop();
 	
     RS485_CTS_Write(0);   
 
