@@ -906,9 +906,9 @@ void memInit(void)
     uint8 i;
 	//initialize memory settings
 	g_mem.id       = 	1;             ////////////
-	g_mem.k_p      = 	-0.01 * 65536;
+	g_mem.k_p      = 	0.01 * 65536;
     g_mem.k_i      =    0 * 65536;
-    g_mem.k_d      =    -0.2 * 65536;
+    g_mem.k_d      =    0.2 * 65536;
     g_mem.activ    = 	0;
     g_mem.mode     = 	0;
 

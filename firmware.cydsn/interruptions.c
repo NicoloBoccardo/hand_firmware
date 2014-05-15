@@ -1,4 +1,4 @@
- // ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 // Copyright (C)  qbrobotics. All rights reserved.
 // www.qbrobotics.com
 // ----------------------------------------------------------------------------
@@ -394,6 +394,7 @@ void control_and_encoder() {
     if(input_2 < -PWM_LIMIT) input_2 = -PWM_LIMIT;
 
     MOTOR_DIR_Write((input_1 >= 0) + ((input_2 >= 0) << 1));
+    //MOTOR_DIR_Write((input_1 <= 0) + ((input_2 <= 0) << 1));
     PWM_MOTORS_WriteCompare1(abs(input_1));
     PWM_MOTORS_WriteCompare2(abs(input_2));
 

@@ -695,3 +695,5 @@ firmware.cydsn/Generated_Source/PSoC3/FTDI_ENABLE_REG.c
 firmware.cydsn/Generated_Source/PSoC3/FTDI_ENABLE_REG.h
 firmware.cydsn/codegentemp/FTDI_ENABLE_REG.c
 firmware.cydsn/codegentemp/FTDI_ENABLE_REG.h
+Backup/firmware._3.0_Component_Pack_7.zip
+firmware.cydsn/codegentemp/pins_48-SSOP.xml
