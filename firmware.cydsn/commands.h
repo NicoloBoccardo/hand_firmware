@@ -109,7 +109,7 @@ enum qbmove_parameter
     PARAM_STARTUP_ACTIVATION     = 2,	///< Start up activation byte
     PARAM_INPUT_MODE             = 3,	///< Input mode
     
-    PARAM_POS_RESOLUTION         = 4,	///< Angle resolution for inputs and
+    PARAM_CONTROL_MODE           = 4,	///< Angle resolution for inputs and
                                         ///  measurements. Used during
                                         ///  communication.
     PARAM_MEASUREMENT_OFFSET     = 5,   ///< Adds a constant offset to the
@@ -122,7 +122,10 @@ enum qbmove_parameter
     									///  | INF_LIM_1 | SUP_LIM_1 | INF_LIM_2 | SUP_LIM_2 |
 
     PARAM_MAX_STEP_POS           = 9,
-    PARAM_MAX_STEP_NEG           = 10
+    PARAM_MAX_STEP_NEG           = 10,
+    PARAM_POS_RESOLUTION         = 11   ///< Angle resolution for inputs and
+                                        ///  measurements. Used during
+                                        ///  communication.
 };
 
 

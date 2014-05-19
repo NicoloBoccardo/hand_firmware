@@ -1616,21 +1616,23 @@
 <v>.\Generated_Source\PSoC3\cyfitter_cfg.c</v>
 <v>.\Generated_Source\PSoC3\config.hex</v>
 <v>.\Generated_Source\PSoC3\protect.hex</v>
+<v>.\Generated_Source\PSoC3\eeprom.hex</v>
 <v>.\Generated_Source\PSoC3\cydevice.h</v>
 <v>.\Generated_Source\PSoC3\cydevicekeil.inc</v>
 <v>.\Generated_Source\PSoC3\cydevice_trm.h</v>
 <v>.\Generated_Source\PSoC3\cydevicekeil_trm.inc</v>
 <v>.\Generated_Source\PSoC3\cyfitterkeil.inc</v>
 <v>.\Generated_Source\PSoC3\cyfitter.h</v>
-<v>.\Generated_Source\PSoC3\MOTOR_A1.c</v>
-<v>.\Generated_Source\PSoC3\MOTOR_A1.h</v>
-<v>.\Generated_Source\PSoC3\MOTOR_A1_aliases.h</v>
+<v>.\Generated_Source\PSoC3\cydisabledsheets.h</v>
+<v>.\Generated_Source\PSoC3\MOTOR_1A.c</v>
+<v>.\Generated_Source\PSoC3\MOTOR_1A.h</v>
+<v>.\Generated_Source\PSoC3\MOTOR_1A_aliases.h</v>
 <v>.\Generated_Source\PSoC3\MOTOR_EN.c</v>
 <v>.\Generated_Source\PSoC3\MOTOR_EN.h</v>
 <v>.\Generated_Source\PSoC3\MOTOR_EN_aliases.h</v>
-<v>.\Generated_Source\PSoC3\MOTOR_A2.c</v>
-<v>.\Generated_Source\PSoC3\MOTOR_A2.h</v>
-<v>.\Generated_Source\PSoC3\MOTOR_A2_aliases.h</v>
+<v>.\Generated_Source\PSoC3\MOTOR_2A.c</v>
+<v>.\Generated_Source\PSoC3\MOTOR_2A.h</v>
+<v>.\Generated_Source\PSoC3\MOTOR_2A_aliases.h</v>
 <v>.\Generated_Source\PSoC3\UART_RS485.c</v>
 <v>.\Generated_Source\PSoC3\UART_RS485.h</v>
 <v>.\Generated_Source\PSoC3\UART_RS485_PM.c</v>
@@ -1639,42 +1641,38 @@
 <v>.\Generated_Source\PSoC3\RS_485_EN.c</v>
 <v>.\Generated_Source\PSoC3\RS_485_EN.h</v>
 <v>.\Generated_Source\PSoC3\RS_485_EN_aliases.h</v>
-<v>.\Generated_Source\PSoC3\PWM_MOTOR_A.c</v>
-<v>.\Generated_Source\PSoC3\PWM_MOTOR_A.h</v>
-<v>.\Generated_Source\PSoC3\PWM_MOTOR_A_PM.c</v>
-<v>.\Generated_Source\PSoC3\CLOCK_12_MHz.c</v>
-<v>.\Generated_Source\PSoC3\CLOCK_12_MHz.h</v>
+<v>.\Generated_Source\PSoC3\PWM_MOTORS.c</v>
+<v>.\Generated_Source\PSoC3\PWM_MOTORS.h</v>
+<v>.\Generated_Source\PSoC3\PWM_MOTORS_PM.c</v>
+<v>.\Generated_Source\PSoC3\CLOCK_PWM.c</v>
+<v>.\Generated_Source\PSoC3\CLOCK_PWM.h</v>
 <v>.\Generated_Source\PSoC3\AMUXSEQ_MOTORS.c</v>
 <v>.\Generated_Source\PSoC3\AMUXSEQ_MOTORS.h</v>
-<v>.\Generated_Source\PSoC3\Signal_2_C.c</v>
-<v>.\Generated_Source\PSoC3\Signal_2_C.h</v>
-<v>.\Generated_Source\PSoC3\Signal_2_C_aliases.h</v>
+<v>.\Generated_Source\PSoC3\Signal_1_C.c</v>
+<v>.\Generated_Source\PSoC3\Signal_1_C.h</v>
+<v>.\Generated_Source\PSoC3\Signal_1_C_aliases.h</v>
 <v>.\Generated_Source\PSoC3\CURRENT_SENSE_2.c</v>
 <v>.\Generated_Source\PSoC3\CURRENT_SENSE_2.h</v>
 <v>.\Generated_Source\PSoC3\CURRENT_SENSE_2_aliases.h</v>
 <v>.\Generated_Source\PSoC3\CURRENT_SENSE_1.c</v>
 <v>.\Generated_Source\PSoC3\CURRENT_SENSE_1.h</v>
 <v>.\Generated_Source\PSoC3\CURRENT_SENSE_1_aliases.h</v>
-<v>.\Generated_Source\PSoC3\CLOCK_CONTROL.c</v>
-<v>.\Generated_Source\PSoC3\CLOCK_CONTROL.h</v>
 <v>.\Generated_Source\PSoC3\ISR_RS485_RX.c</v>
 <v>.\Generated_Source\PSoC3\ISR_RS485_RX.h</v>
-<v>.\Generated_Source\PSoC3\ISR_MOTORS_CONTROL.c</v>
-<v>.\Generated_Source\PSoC3\ISR_MOTORS_CONTROL.h</v>
 <v>.\Generated_Source\PSoC3\ISR_MEASUREMENTS.c</v>
 <v>.\Generated_Source\PSoC3\ISR_MEASUREMENTS.h</v>
 <v>.\Generated_Source\PSoC3\CLOCK_MEASUREMENTS.c</v>
 <v>.\Generated_Source\PSoC3\CLOCK_MEASUREMENTS.h</v>
 <v>.\Generated_Source\PSoC3\CLOCK_UART.c</v>
 <v>.\Generated_Source\PSoC3\CLOCK_UART.h</v>
-<v>.\Generated_Source\PSoC3\MOTOR_B1.c</v>
-<v>.\Generated_Source\PSoC3\MOTOR_B1.h</v>
-<v>.\Generated_Source\PSoC3\MOTOR_B1_aliases.h</v>
-<v>.\Generated_Source\PSoC3\MOTOR_B2.c</v>
-<v>.\Generated_Source\PSoC3\MOTOR_B2.h</v>
-<v>.\Generated_Source\PSoC3\MOTOR_B2_aliases.h</v>
-<v>.\Generated_Source\PSoC3\CONTROL_REG_MOTORS.c</v>
-<v>.\Generated_Source\PSoC3\CONTROL_REG_MOTORS.h</v>
+<v>.\Generated_Source\PSoC3\MOTOR_1B.c</v>
+<v>.\Generated_Source\PSoC3\MOTOR_1B.h</v>
+<v>.\Generated_Source\PSoC3\MOTOR_1B_aliases.h</v>
+<v>.\Generated_Source\PSoC3\MOTOR_2B.c</v>
+<v>.\Generated_Source\PSoC3\MOTOR_2B.h</v>
+<v>.\Generated_Source\PSoC3\MOTOR_2B_aliases.h</v>
+<v>.\Generated_Source\PSoC3\MOTOR_DIR.c</v>
+<v>.\Generated_Source\PSoC3\MOTOR_DIR.h</v>
 <v>.\Generated_Source\PSoC3\COUNTER_ENC.c</v>
 <v>.\Generated_Source\PSoC3\COUNTER_ENC.h</v>
 <v>.\Generated_Source\PSoC3\COUNTER_ENC_PM.c</v>
@@ -1683,14 +1681,12 @@
 <v>.\Generated_Source\PSoC3\SHIFTREG_ENC_1_PM.c</v>
 <v>.\Generated_Source\PSoC3\CLOCK_ENCODERS.c</v>
 <v>.\Generated_Source\PSoC3\CLOCK_ENCODERS.h</v>
-<v>.\Generated_Source\PSoC3\ISR_ENCODER.c</v>
-<v>.\Generated_Source\PSoC3\ISR_ENCODER.h</v>
-<v>.\Generated_Source\PSoC3\Signal_4_C.c</v>
-<v>.\Generated_Source\PSoC3\Signal_4_C.h</v>
-<v>.\Generated_Source\PSoC3\Signal_4_C_aliases.h</v>
-<v>.\Generated_Source\PSoC3\Signal_1_C.c</v>
-<v>.\Generated_Source\PSoC3\Signal_1_C.h</v>
-<v>.\Generated_Source\PSoC3\Signal_1_C_aliases.h</v>
+<v>.\Generated_Source\PSoC3\Signal_3_C.c</v>
+<v>.\Generated_Source\PSoC3\Signal_3_C.h</v>
+<v>.\Generated_Source\PSoC3\Signal_3_C_aliases.h</v>
+<v>.\Generated_Source\PSoC3\Signal_2_C.c</v>
+<v>.\Generated_Source\PSoC3\Signal_2_C.h</v>
+<v>.\Generated_Source\PSoC3\Signal_2_C_aliases.h</v>
 <v>.\Generated_Source\PSoC3\SHIFTREG_ENC_2.c</v>
 <v>.\Generated_Source\PSoC3\SHIFTREG_ENC_2.h</v>
 <v>.\Generated_Source\PSoC3\SHIFTREG_ENC_2_PM.c</v>
@@ -1705,88 +1701,58 @@
 <v>.\Generated_Source\PSoC3\FTDI_ENABLE.c</v>
 <v>.\Generated_Source\PSoC3\FTDI_ENABLE.h</v>
 <v>.\Generated_Source\PSoC3\FTDI_ENABLE_aliases.h</v>
-<v>.\Generated_Source\PSoC3\QuadDec_4.c</v>
-<v>.\Generated_Source\PSoC3\QuadDec_4.h</v>
-<v>.\Generated_Source\PSoC3\QuadDec_4_PM.c</v>
 <v>.\Generated_Source\PSoC3\VOLTAGE_SENSE.c</v>
 <v>.\Generated_Source\PSoC3\VOLTAGE_SENSE.h</v>
 <v>.\Generated_Source\PSoC3\VOLTAGE_SENSE_aliases.h</v>
-<v>.\Generated_Source\PSoC3\Signal_2_B_aliases.h</v>
-<v>.\Generated_Source\PSoC3\Signal_2_B.c</v>
-<v>.\Generated_Source\PSoC3\Signal_2_B.h</v>
-<v>.\Generated_Source\PSoC3\Signal_4_B_aliases.h</v>
-<v>.\Generated_Source\PSoC3\Signal_4_B.c</v>
-<v>.\Generated_Source\PSoC3\Signal_4_B.h</v>
-<v>.\Generated_Source\PSoC3\Signal_3_B_aliases.h</v>
 <v>.\Generated_Source\PSoC3\Signal_3_B.c</v>
 <v>.\Generated_Source\PSoC3\Signal_3_B.h</v>
-<v>.\Generated_Source\PSoC3\I2C_SDA.c</v>
-<v>.\Generated_Source\PSoC3\I2C_SDA.h</v>
-<v>.\Generated_Source\PSoC3\I2C_SDA_aliases.h</v>
-<v>.\Generated_Source\PSoC3\I2C_SCL.c</v>
-<v>.\Generated_Source\PSoC3\I2C_SCL.h</v>
-<v>.\Generated_Source\PSoC3\I2C_SCL_aliases.h</v>
-<v>.\Generated_Source\PSoC3\I2C_1.c</v>
-<v>.\Generated_Source\PSoC3\I2C_1.h</v>
-<v>.\Generated_Source\PSoC3\I2C_1_BOOT.c</v>
-<v>.\Generated_Source\PSoC3\I2C_1_INT.c</v>
-<v>.\Generated_Source\PSoC3\I2C_1_PM.c</v>
-<v>.\Generated_Source\PSoC3\CONTROL_REG_SIGNALS.c</v>
-<v>.\Generated_Source\PSoC3\CONTROL_REG_SIGNALS.h</v>
-<v>.\Generated_Source\PSoC3\SHIFTREG_ENC_4.c</v>
-<v>.\Generated_Source\PSoC3\SHIFTREG_ENC_4.h</v>
-<v>.\Generated_Source\PSoC3\SHIFTREG_ENC_4_PM.c</v>
-<v>.\Generated_Source\PSoC3\Signal_1_B_aliases.h</v>
+<v>.\Generated_Source\PSoC3\Signal_3_B_aliases.h</v>
 <v>.\Generated_Source\PSoC3\Signal_1_B.c</v>
 <v>.\Generated_Source\PSoC3\Signal_1_B.h</v>
-<v>.\Generated_Source\PSoC3\Signal_3_C.c</v>
-<v>.\Generated_Source\PSoC3\Signal_3_C.h</v>
-<v>.\Generated_Source\PSoC3\Signal_3_C_aliases.h</v>
-<v>.\Generated_Source\PSoC3\QuadDec_3.c</v>
-<v>.\Generated_Source\PSoC3\QuadDec_3.h</v>
-<v>.\Generated_Source\PSoC3\QuadDec_3_PM.c</v>
-<v>.\Generated_Source\PSoC3\QuadDec_1.c</v>
-<v>.\Generated_Source\PSoC3\QuadDec_1.h</v>
-<v>.\Generated_Source\PSoC3\QuadDec_1_PM.c</v>
-<v>.\Generated_Source\PSoC3\QuadDec_2.c</v>
-<v>.\Generated_Source\PSoC3\QuadDec_2.h</v>
-<v>.\Generated_Source\PSoC3\QuadDec_2_PM.c</v>
+<v>.\Generated_Source\PSoC3\Signal_1_B_aliases.h</v>
+<v>.\Generated_Source\PSoC3\Signal_2_B.c</v>
+<v>.\Generated_Source\PSoC3\Signal_2_B.h</v>
+<v>.\Generated_Source\PSoC3\Signal_2_B_aliases.h</v>
+<v>.\Generated_Source\PSoC3\LED_REG.c</v>
+<v>.\Generated_Source\PSoC3\LED_REG.h</v>
+<v>.\Generated_Source\PSoC3\LED.c</v>
+<v>.\Generated_Source\PSoC3\LED.h</v>
+<v>.\Generated_Source\PSoC3\LED_aliases.h</v>
 <v>.\Generated_Source\PSoC3\ADC.c</v>
 <v>.\Generated_Source\PSoC3\ADC.h</v>
 <v>.\Generated_Source\PSoC3\ADC_PM.c</v>
 <v>.\Generated_Source\PSoC3\ADC_INT.c</v>
+<v>.\Generated_Source\PSoC3\Signal_3_A.c</v>
+<v>.\Generated_Source\PSoC3\Signal_3_A.h</v>
+<v>.\Generated_Source\PSoC3\Signal_3_A_aliases.h</v>
 <v>.\Generated_Source\PSoC3\Signal_1_A.c</v>
 <v>.\Generated_Source\PSoC3\Signal_1_A.h</v>
 <v>.\Generated_Source\PSoC3\Signal_1_A_aliases.h</v>
 <v>.\Generated_Source\PSoC3\Signal_2_A.c</v>
 <v>.\Generated_Source\PSoC3\Signal_2_A.h</v>
 <v>.\Generated_Source\PSoC3\Signal_2_A_aliases.h</v>
-<v>.\Generated_Source\PSoC3\Signal_4_A.c</v>
-<v>.\Generated_Source\PSoC3\Signal_4_A.h</v>
-<v>.\Generated_Source\PSoC3\Signal_4_A_aliases.h</v>
-<v>.\Generated_Source\PSoC3\Signal_3_A.c</v>
-<v>.\Generated_Source\PSoC3\Signal_3_A.h</v>
-<v>.\Generated_Source\PSoC3\Signal_3_A_aliases.h</v>
 <v>.\Generated_Source\PSoC3\RS485_CTS.c</v>
 <v>.\Generated_Source\PSoC3\RS485_CTS.h</v>
-<v>.\Generated_Source\PSoC3\QuadDec_4_Cnt8.c</v>
-<v>.\Generated_Source\PSoC3\QuadDec_4_Cnt8.h</v>
-<v>.\Generated_Source\PSoC3\QuadDec_4_Cnt8_PM.c</v>
-<v>.\Generated_Source\PSoC3\QuadDec_3_Cnt8.c</v>
-<v>.\Generated_Source\PSoC3\QuadDec_3_Cnt8.h</v>
-<v>.\Generated_Source\PSoC3\QuadDec_3_Cnt8_PM.c</v>
-<v>.\Generated_Source\PSoC3\QuadDec_1_Cnt8.c</v>
-<v>.\Generated_Source\PSoC3\QuadDec_1_Cnt8.h</v>
-<v>.\Generated_Source\PSoC3\QuadDec_1_Cnt8_PM.c</v>
-<v>.\Generated_Source\PSoC3\QuadDec_2_Cnt8.c</v>
-<v>.\Generated_Source\PSoC3\QuadDec_2_Cnt8.h</v>
-<v>.\Generated_Source\PSoC3\QuadDec_2_Cnt8_PM.c</v>
-<v>.\Generated_Source\PSoC3\ADC_theACLK.c</v>
-<v>.\Generated_Source\PSoC3\ADC_theACLK.h</v>
-<v>.\Generated_Source\PSoC3\ADC_Ext_CP_Clk.c</v>
-<v>.\Generated_Source\PSoC3\ADC_Ext_CP_Clk.h</v>
+<v>.\Generated_Source\PSoC3\Bootloadable.c</v>
+<v>.\Generated_Source\PSoC3\Bootloadable.h</v>
+<v>.\Generated_Source\PSoC3\MOTOR_ON_OFF.c</v>
+<v>.\Generated_Source\PSoC3\MOTOR_ON_OFF.h</v>
+<v>.\Generated_Source\PSoC3\FTDI_ENABLE_REG.c</v>
+<v>.\Generated_Source\PSoC3\FTDI_ENABLE_REG.h</v>
+<v>.\Generated_Source\PSoC3\EMG_1.c</v>
+<v>.\Generated_Source\PSoC3\EMG_1.h</v>
+<v>.\Generated_Source\PSoC3\EMG_1_aliases.h</v>
+<v>.\Generated_Source\PSoC3\EMG_2.c</v>
+<v>.\Generated_Source\PSoC3\EMG_2.h</v>
+<v>.\Generated_Source\PSoC3\EMG_2_aliases.h</v>
 <v>.\Generated_Source\PSoC3\ADC_AMux.c</v>
 <v>.\Generated_Source\PSoC3\ADC_AMux.h</v>
+<v>.\Generated_Source\PSoC3\ADC_Ext_CP_Clk.c</v>
+<v>.\Generated_Source\PSoC3\ADC_Ext_CP_Clk.h</v>
+<v>.\Generated_Source\PSoC3\ADC_IRQ.c</v>
+<v>.\Generated_Source\PSoC3\ADC_IRQ.h</v>
+<v>.\Generated_Source\PSoC3\ADC_theACLK.c</v>
+<v>.\Generated_Source\PSoC3\ADC_theACLK.h</v>
 <v>.\Generated_Source\PSoC3\CyBootAsmKeil.a51</v>
 <v>.\Generated_Source\PSoC3\CyDmac.c</v>
 <v>.\Generated_Source\PSoC3\CyDmac.h</v>
@@ -1806,65 +1772,6 @@
 <v>.\Generated_Source\PSoC3\PSoC3_8051.h</v>
 <v>.\Generated_Source\PSoC3\PSoC3_8051.inc</v>
 <v>.\Generated_Source\PSoC3\project.h</v>
-<v>.\Generated_Source\PSoC3\CLOCK_CONTROL_1.c</v>
-<v>.\Generated_Source\PSoC3\CLOCK_CONTROL_1.h</v>
-<v>.\Generated_Source\PSoC3\eeprom.hex</v>
-<v>.\Generated_Source\PSoC3\cydisabledsheets.h</v>
-<v>.\Generated_Source\PSoC3\ADC_IRQ.c</v>
-<v>.\Generated_Source\PSoC3\ADC_IRQ.h</v>
-<v>.\Generated_Source\PSoC3\MOTOR_1A.c</v>
-<v>.\Generated_Source\PSoC3\MOTOR_1A.h</v>
-<v>.\Generated_Source\PSoC3\MOTOR_1A_aliases.h</v>
-<v>.\Generated_Source\PSoC3\MOTOR_2A.c</v>
-<v>.\Generated_Source\PSoC3\MOTOR_2A.h</v>
-<v>.\Generated_Source\PSoC3\MOTOR_2A_aliases.h</v>
-<v>.\Generated_Source\PSoC3\PWM_MOTORS.c</v>
-<v>.\Generated_Source\PSoC3\PWM_MOTORS.h</v>
-<v>.\Generated_Source\PSoC3\PWM_MOTORS_PM.c</v>
-<v>.\Generated_Source\PSoC3\CLOCK_PWM.c</v>
-<v>.\Generated_Source\PSoC3\CLOCK_PWM.h</v>
-<v>.\Generated_Source\PSoC3\MOTOR_1B.c</v>
-<v>.\Generated_Source\PSoC3\MOTOR_1B.h</v>
-<v>.\Generated_Source\PSoC3\MOTOR_1B_aliases.h</v>
-<v>.\Generated_Source\PSoC3\MOTOR_2B.c</v>
-<v>.\Generated_Source\PSoC3\MOTOR_2B.h</v>
-<v>.\Generated_Source\PSoC3\MOTOR_2B_aliases.h</v>
-<v>.\Generated_Source\PSoC3\MOTOR_DIR.c</v>
-<v>.\Generated_Source\PSoC3\MOTOR_DIR.h</v>
-<v>.\Generated_Source\PSoC3\MOTOR_ON_OFF.c</v>
-<v>.\Generated_Source\PSoC3\MOTOR_ON_OFF.h</v>
-<v>.\Generated_Source\PSoC3\Bootloadable.c</v>
-<v>.\Generated_Source\PSoC3\Bootloadable.h</v>
-<v>.\Generated_Source\PSoC3\CLOCK_ENCODER_READ.c</v>
-<v>.\Generated_Source\PSoC3\CLOCK_ENCODER_READ.h</v>
-<v>.\Generated_Source\PSoC3\ISR_CALIBRATE.c</v>
-<v>.\Generated_Source\PSoC3\ISR_CALIBRATE.h</v>
-<v>.\Generated_Source\PSoC3\CALIBRATE_TRIGGER.c</v>
-<v>.\Generated_Source\PSoC3\CALIBRATE_TRIGGER.h</v>
-<v>.\Generated_Source\PSoC3\CALIB_TRIGG.c</v>
-<v>.\Generated_Source\PSoC3\CALIB_TRIGG.h</v>
-<v>.\Generated_Source\PSoC3\timer_clock.c</v>
-<v>.\Generated_Source\PSoC3\timer_clock.h</v>
-<v>.\Generated_Source\PSoC3\MY_TIMER.c</v>
-<v>.\Generated_Source\PSoC3\MY_TIMER.h</v>
-<v>.\Generated_Source\PSoC3\MY_TIMER_PM.c</v>
-<v>.\Generated_Source\PSoC3\ISR_DELAY.c</v>
-<v>.\Generated_Source\PSoC3\ISR_DELAY.h</v>
-<v>.\Generated_Source\PSoC3\LED_REG.c</v>
-<v>.\Generated_Source\PSoC3\LED_REG.h</v>
-<v>.\Generated_Source\PSoC3\LED.c</v>
-<v>.\Generated_Source\PSoC3\LED.h</v>
-<v>.\Generated_Source\PSoC3\LED_aliases.h</v>
-<v>.\Generated_Source\PSoC3\EMG_1.c</v>
-<v>.\Generated_Source\PSoC3\EMG_1.h</v>
-<v>.\Generated_Source\PSoC3\EMG_1_aliases.h</v>
-<v>.\Generated_Source\PSoC3\EMG_2.c</v>
-<v>.\Generated_Source\PSoC3\EMG_2.h</v>
-<v>.\Generated_Source\PSoC3\EMG_2_aliases.h</v>
-<v>.\Generated_Source\PSoC3\TIMER_REG.c</v>
-<v>.\Generated_Source\PSoC3\TIMER_REG.h</v>
-<v>.\Generated_Source\PSoC3\FTDI_ENABLE_REG.c</v>
-<v>.\Generated_Source\PSoC3\FTDI_ENABLE_REG.h</v>
 </gen_list>
 <warp_dep>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\warp\lib\ieee\work\stdlogic.vif</v>
@@ -1890,7 +1797,7 @@
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif</v>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif</v>
 </warp_dep>
-<deps_time v="130446340346764000" />
+<deps_time v="130449941226942000" />
 <top_block v="TopDesign" />
 <last_generation v="1" />
 </CyGuid_925cc1e1-309e-4e08-b0a1-09a83c35b157>
@@ -5214,26 +5121,35 @@
 <dep name=".\DP8051_Keil_951\Release\main.obj" />
 <dep name=".\DP8051_Keil_951\Release\utils.obj" />
 <dep name=".\DP8051_Keil_951\Release\cyfitter_cfg.obj" />
+<dep name=".\DP8051_Keil_951\Release\MOTOR_1A.obj" />
 <dep name=".\DP8051_Keil_951\Release\MOTOR_EN.obj" />
+<dep name=".\DP8051_Keil_951\Release\MOTOR_2A.obj" />
 <dep name=".\DP8051_Keil_951\Release\UART_RS485.obj" />
 <dep name=".\DP8051_Keil_951\Release\UART_RS485_PM.obj" />
 <dep name=".\DP8051_Keil_951\Release\UART_RS485_INT.obj" />
 <dep name=".\DP8051_Keil_951\Release\UART_RS485_BOOT.obj" />
 <dep name=".\DP8051_Keil_951\Release\RS_485_EN.obj" />
+<dep name=".\DP8051_Keil_951\Release\PWM_MOTORS.obj" />
+<dep name=".\DP8051_Keil_951\Release\PWM_MOTORS_PM.obj" />
+<dep name=".\DP8051_Keil_951\Release\CLOCK_PWM.obj" />
 <dep name=".\DP8051_Keil_951\Release\AMUXSEQ_MOTORS.obj" />
-<dep name=".\DP8051_Keil_951\Release\Signal_2_C.obj" />
+<dep name=".\DP8051_Keil_951\Release\Signal_1_C.obj" />
 <dep name=".\DP8051_Keil_951\Release\CURRENT_SENSE_2.obj" />
 <dep name=".\DP8051_Keil_951\Release\CURRENT_SENSE_1.obj" />
 <dep name=".\DP8051_Keil_951\Release\ISR_RS485_RX.obj" />
 <dep name=".\DP8051_Keil_951\Release\ISR_MEASUREMENTS.obj" />
 <dep name=".\DP8051_Keil_951\Release\CLOCK_MEASUREMENTS.obj" />
 <dep name=".\DP8051_Keil_951\Release\CLOCK_UART.obj" />
+<dep name=".\DP8051_Keil_951\Release\MOTOR_1B.obj" />
+<dep name=".\DP8051_Keil_951\Release\MOTOR_2B.obj" />
+<dep name=".\DP8051_Keil_951\Release\MOTOR_DIR.obj" />
 <dep name=".\DP8051_Keil_951\Release\COUNTER_ENC.obj" />
 <dep name=".\DP8051_Keil_951\Release\COUNTER_ENC_PM.obj" />
 <dep name=".\DP8051_Keil_951\Release\SHIFTREG_ENC_1.obj" />
 <dep name=".\DP8051_Keil_951\Release\SHIFTREG_ENC_1_PM.obj" />
 <dep name=".\DP8051_Keil_951\Release\CLOCK_ENCODERS.obj" />
-<dep name=".\DP8051_Keil_951\Release\Signal_1_C.obj" />
+<dep name=".\DP8051_Keil_951\Release\Signal_3_C.obj" />
+<dep name=".\DP8051_Keil_951\Release\Signal_2_C.obj" />
 <dep name=".\DP8051_Keil_951\Release\SHIFTREG_ENC_2.obj" />
 <dep name=".\DP8051_Keil_951\Release\SHIFTREG_ENC_2_PM.obj" />
 <dep name=".\DP8051_Keil_951\Release\SHIFTREG_ENC_3.obj" />
@@ -5242,20 +5158,27 @@
 <dep name=".\DP8051_Keil_951\Release\USB_VDD.obj" />
 <dep name=".\DP8051_Keil_951\Release\FTDI_ENABLE.obj" />
 <dep name=".\DP8051_Keil_951\Release\VOLTAGE_SENSE.obj" />
-<dep name=".\DP8051_Keil_951\Release\Signal_2_B.obj" />
 <dep name=".\DP8051_Keil_951\Release\Signal_3_B.obj" />
 <dep name=".\DP8051_Keil_951\Release\Signal_1_B.obj" />
-<dep name=".\DP8051_Keil_951\Release\Signal_3_C.obj" />
+<dep name=".\DP8051_Keil_951\Release\Signal_2_B.obj" />
+<dep name=".\DP8051_Keil_951\Release\LED_REG.obj" />
+<dep name=".\DP8051_Keil_951\Release\LED.obj" />
 <dep name=".\DP8051_Keil_951\Release\ADC.obj" />
 <dep name=".\DP8051_Keil_951\Release\ADC_PM.obj" />
 <dep name=".\DP8051_Keil_951\Release\ADC_INT.obj" />
+<dep name=".\DP8051_Keil_951\Release\Signal_3_A.obj" />
 <dep name=".\DP8051_Keil_951\Release\Signal_1_A.obj" />
 <dep name=".\DP8051_Keil_951\Release\Signal_2_A.obj" />
-<dep name=".\DP8051_Keil_951\Release\Signal_3_A.obj" />
 <dep name=".\DP8051_Keil_951\Release\RS485_CTS.obj" />
-<dep name=".\DP8051_Keil_951\Release\ADC_theACLK.obj" />
-<dep name=".\DP8051_Keil_951\Release\ADC_Ext_CP_Clk.obj" />
+<dep name=".\DP8051_Keil_951\Release\Bootloadable.obj" />
+<dep name=".\DP8051_Keil_951\Release\MOTOR_ON_OFF.obj" />
+<dep name=".\DP8051_Keil_951\Release\FTDI_ENABLE_REG.obj" />
+<dep name=".\DP8051_Keil_951\Release\EMG_1.obj" />
+<dep name=".\DP8051_Keil_951\Release\EMG_2.obj" />
 <dep name=".\DP8051_Keil_951\Release\ADC_AMux.obj" />
+<dep name=".\DP8051_Keil_951\Release\ADC_Ext_CP_Clk.obj" />
+<dep name=".\DP8051_Keil_951\Release\ADC_IRQ.obj" />
+<dep name=".\DP8051_Keil_951\Release\ADC_theACLK.obj" />
 <dep name=".\DP8051_Keil_951\Release\CyBootAsmKeil.obj" />
 <dep name=".\DP8051_Keil_951\Release\CyDmac.obj" />
 <dep name=".\DP8051_Keil_951\Release\CyFlash.obj" />
@@ -5265,22 +5188,6 @@
 <dep name=".\DP8051_Keil_951\Release\CySpc.obj" />
 <dep name=".\DP8051_Keil_951\Release\cyutils.obj" />
 <dep name=".\DP8051_Keil_951\Release\KeilStart.obj" />
-<dep name=".\DP8051_Keil_951\Release\ADC_IRQ.obj" />
-<dep name=".\DP8051_Keil_951\Release\MOTOR_1A.obj" />
-<dep name=".\DP8051_Keil_951\Release\MOTOR_2A.obj" />
-<dep name=".\DP8051_Keil_951\Release\PWM_MOTORS.obj" />
-<dep name=".\DP8051_Keil_951\Release\PWM_MOTORS_PM.obj" />
-<dep name=".\DP8051_Keil_951\Release\CLOCK_PWM.obj" />
-<dep name=".\DP8051_Keil_951\Release\MOTOR_1B.obj" />
-<dep name=".\DP8051_Keil_951\Release\MOTOR_2B.obj" />
-<dep name=".\DP8051_Keil_951\Release\MOTOR_DIR.obj" />
-<dep name=".\DP8051_Keil_951\Release\MOTOR_ON_OFF.obj" />
-<dep name=".\DP8051_Keil_951\Release\Bootloadable.obj" />
-<dep name=".\DP8051_Keil_951\Release\LED_REG.obj" />
-<dep name=".\DP8051_Keil_951\Release\LED.obj" />
-<dep name=".\DP8051_Keil_951\Release\EMG_1.obj" />
-<dep name=".\DP8051_Keil_951\Release\EMG_2.obj" />
-<dep name=".\DP8051_Keil_951\Release\FTDI_ENABLE_REG.obj" />
 <dep name=".\DP8051_Keil_951\Release\firmware.lib" />
 <dep name="${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\DP8051\DP8051_Keil_951\Release\CyComponentLibrary.lib" />
 </file>
@@ -5484,9 +5391,10 @@
 <name_val_pair name=".\utils.c" v="&quot;NOIV &quot;&quot;LARGE &quot;&quot;MODDP2 &quot;&quot;OMF2 &quot;&quot;VB(1) &quot;&quot;PR(${OutputDir}\${CompileFile}.lst) &quot;&quot;CD &quot;&quot;DB &quot;&quot;NOIP &quot;&quot;OT(8, Speed) &quot;&quot;DF (NDEBUG) &quot;&quot;INCDIR(., .\Generated_Source\PSoC3) &quot;" />
 <name_val_pair name=".\Generated_Source\PSoC3\TIMER_REG.c" v="&quot;NOIV &quot;&quot;LARGE &quot;&quot;MODDP2 &quot;&quot;OMF2 &quot;&quot;VB(1) &quot;&quot;PR(${OutputDir}\${CompileFile}.lst) &quot;&quot;CD &quot;&quot;DB &quot;&quot;NOIP &quot;&quot;OT(8, Speed) &quot;&quot;DF (NDEBUG) &quot;&quot;INCDIR(., .\Generated_Source\PSoC3) &quot;" />
 <name_val_pair name=".\Generated_Source\PSoC3\FTDI_ENABLE_REG.c" v="&quot;NOIV &quot;&quot;LARGE &quot;&quot;MODDP2 &quot;&quot;OMF2 &quot;&quot;VB(1) &quot;&quot;PR(${OutputDir}\${CompileFile}.lst) &quot;&quot;CD &quot;&quot;DB &quot;&quot;NOIP &quot;&quot;OT(8, Speed) &quot;&quot;DF (NDEBUG) &quot;&quot;INCDIR(., .\Generated_Source\PSoC3) &quot;" />
+<name_val_pair name="X:\Centro Piaggio\QB\my_github\hand_firmware\firmware.cydsn\DP8051_Keil_951\Release\firmware.hex" v="&quot; TO &quot;&quot;'${OutputDir}\${ProjectShortName}.omf' &quot;&quot;PR(${OutputDir}\${ProjectShortName}.map) &quot;&quot;IX &quot;&quot;CODE &quot;&quot;DW(16) &quot;&quot;RU &quot;&quot;CL(XDATA(X:0x0000-X:0x1FFF)) &quot;&quot;CL(CODE(C:0x2200-C:0xFFBF)) &quot;&quot;CL(CONST(C:0x2200-C:0xFFBF)) &quot;" />
 </name>
 </genericCmdLineData>
-<codeGenCmdLineTag v="&quot;-.appdatapath&quot; &quot;C:\Users\laurentio\AppData\Local\Cypress Semiconductor\PSoC Creator\3.0&quot; &quot;-.fdsnotice&quot; &quot;-.fdswarpdepfile=warp_dependencies.txt&quot; &quot;-.fdselabdepfile=elab_dependencies.txt&quot; &quot;-.fdsbldfile=generated_files.txt&quot; &quot;-p&quot; &quot;X:\Centro Piaggio\QB\qbrobotics_git\hand_firmware\firmware.cydsn\firmware.cyprj&quot; &quot;-d&quot; &quot;CY8C3246PVI-147&quot; &quot;-s&quot; &quot;X:\Centro Piaggio\QB\qbrobotics_git\hand_firmware\firmware.cydsn\Generated_Source\PSoC3&quot; &quot;--&quot; &quot;-yv2&quot; &quot;-v3&quot; &quot;-ygs&quot; &quot;-q10&quot; &quot;-o2&quot; &quot;-.fftcfgtype=BE&quot; " />
+<codeGenCmdLineTag v="&quot;-.appdatapath&quot; &quot;C:\Users\laurentio\AppData\Local\Cypress Semiconductor\PSoC Creator\3.0&quot; &quot;-.fdsnotice&quot; &quot;-.fdswarpdepfile=warp_dependencies.txt&quot; &quot;-.fdselabdepfile=elab_dependencies.txt&quot; &quot;-.fdsbldfile=generated_files.txt&quot; &quot;-p&quot; &quot;X:\Centro Piaggio\QB\my_github\hand_firmware\firmware.cydsn\firmware.cyprj&quot; &quot;-d&quot; &quot;CY8C3246PVI-147&quot; &quot;-s&quot; &quot;X:\Centro Piaggio\QB\my_github\hand_firmware\firmware.cydsn\Generated_Source\PSoC3&quot; &quot;--&quot; &quot;-yv2&quot; &quot;-v3&quot; &quot;-ygs&quot; &quot;-q10&quot; &quot;-o2&quot; &quot;-.fftcfgtype=BE&quot; " />
 </CyGuid_b0374e30-ce3a-47f2-ad85-821643292c68>
 </dataGuid>
 <dataGuid v="237c8ed1-e161-4c9d-af97-582eda6d6952">
@@ -5512,7 +5420,7 @@
 </dataGuid>
 <dataGuid v="769d31ea-68b1-4f0c-b90a-7c10a43ee563">
 <CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563 type_name="CyDesigner.Common.ProjMgmt.Model.CyLinkCustomData" version="1">
-<deps_time v="130446340504012000" />
+<deps_time v="130449934454066000" />
 </CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563>
 </dataGuid>
 <dataGuid v="504337dd-7d07-4bc7-9057-90e60cf6c469">

@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="firmware\firmware\Header Files\globals.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="firmware\firmware\TopDesign.cysch">
 <ExpandedNodeIds>
 <v>firmware</v>
 <v>firmware\firmware</v>
@@ -33,18 +33,24 @@
 <v>firmware\firmware\Source Files\utils.c</v>
 <v>firmware\firmware\Generated_Source</v>
 <v>firmware\firmware\Generated_Source\PSoC3</v>
+<v>firmware\firmware\Generated_Source\PSoC3\ADC</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ADC\ADC.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ADC\ADC.h</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ADC\ADC_INT.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ADC\ADC_PM.c</v>
+<v>firmware\firmware\Generated_Source\PSoC3\ADC_AMux</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ADC_AMux\ADC_AMux.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ADC_AMux\ADC_AMux.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\ADC_Ext_CP_Clk</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ADC_Ext_CP_Clk\ADC_Ext_CP_Clk.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ADC_Ext_CP_Clk\ADC_Ext_CP_Clk.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\ADC_IRQ</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ADC_IRQ\ADC_IRQ.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ADC_IRQ\ADC_IRQ.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\ADC_theACLK</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ADC_theACLK\ADC_theACLK.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ADC_theACLK\ADC_theACLK.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\AMUXSEQ_MOTORS</v>
 <v>firmware\firmware\Generated_Source\PSoC3\AMUXSEQ_MOTORS\AMUXSEQ_MOTORS.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\AMUXSEQ_MOTORS\AMUXSEQ_MOTORS.h</v>
 <v>firmware\firmware\Generated_Source\PSoC3\Bootloadable</v>
@@ -56,6 +62,9 @@
 <v>firmware\firmware\Generated_Source\PSoC3\CLOCK_MEASUREMENTS</v>
 <v>firmware\firmware\Generated_Source\PSoC3\CLOCK_MEASUREMENTS\CLOCK_MEASUREMENTS.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\CLOCK_MEASUREMENTS\CLOCK_MEASUREMENTS.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_PWM</v>
+<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_PWM\CLOCK_PWM.c</v>
+<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_PWM\CLOCK_PWM.h</v>
 <v>firmware\firmware\Generated_Source\PSoC3\CLOCK_UART</v>
 <v>firmware\firmware\Generated_Source\PSoC3\CLOCK_UART\CLOCK_UART.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\CLOCK_UART\CLOCK_UART.h</v>
@@ -121,10 +130,36 @@
 <v>firmware\firmware\Generated_Source\PSoC3\LED_REG</v>
 <v>firmware\firmware\Generated_Source\PSoC3\LED_REG\LED_REG.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\LED_REG\LED_REG.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\MOTOR_1A</v>
+<v>firmware\firmware\Generated_Source\PSoC3\MOTOR_1A\MOTOR_1A.c</v>
+<v>firmware\firmware\Generated_Source\PSoC3\MOTOR_1A\MOTOR_1A.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\MOTOR_1A\MOTOR_1A_aliases.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\MOTOR_1B</v>
+<v>firmware\firmware\Generated_Source\PSoC3\MOTOR_1B\MOTOR_1B.c</v>
+<v>firmware\firmware\Generated_Source\PSoC3\MOTOR_1B\MOTOR_1B.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\MOTOR_1B\MOTOR_1B_aliases.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\MOTOR_2A</v>
+<v>firmware\firmware\Generated_Source\PSoC3\MOTOR_2A\MOTOR_2A.c</v>
+<v>firmware\firmware\Generated_Source\PSoC3\MOTOR_2A\MOTOR_2A.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\MOTOR_2A\MOTOR_2A_aliases.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\MOTOR_2B</v>
+<v>firmware\firmware\Generated_Source\PSoC3\MOTOR_2B\MOTOR_2B.c</v>
+<v>firmware\firmware\Generated_Source\PSoC3\MOTOR_2B\MOTOR_2B.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\MOTOR_2B\MOTOR_2B_aliases.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\MOTOR_DIR</v>
+<v>firmware\firmware\Generated_Source\PSoC3\MOTOR_DIR\MOTOR_DIR.c</v>
+<v>firmware\firmware\Generated_Source\PSoC3\MOTOR_DIR\MOTOR_DIR.h</v>
 <v>firmware\firmware\Generated_Source\PSoC3\MOTOR_EN</v>
 <v>firmware\firmware\Generated_Source\PSoC3\MOTOR_EN\MOTOR_EN.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\MOTOR_EN\MOTOR_EN.h</v>
 <v>firmware\firmware\Generated_Source\PSoC3\MOTOR_EN\MOTOR_EN_aliases.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\MOTOR_ON_OFF</v>
+<v>firmware\firmware\Generated_Source\PSoC3\MOTOR_ON_OFF\MOTOR_ON_OFF.c</v>
+<v>firmware\firmware\Generated_Source\PSoC3\MOTOR_ON_OFF\MOTOR_ON_OFF.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\PWM_MOTORS</v>
+<v>firmware\firmware\Generated_Source\PSoC3\PWM_MOTORS\PWM_MOTORS.c</v>
+<v>firmware\firmware\Generated_Source\PSoC3\PWM_MOTORS\PWM_MOTORS.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\PWM_MOTORS\PWM_MOTORS_PM.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\RS_485_EN</v>
 <v>firmware\firmware\Generated_Source\PSoC3\RS_485_EN\RS_485_EN.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\RS_485_EN\RS_485_EN.h</v>
@@ -226,11 +261,25 @@
 <v>firmware\firmware\Generated_Source</v>
 <v>firmware\firmware\Generated_Source\PSoC3</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ADC</v>
+<v>firmware\firmware\Generated_Source\PSoC3\ADC\ADC.c</v>
+<v>firmware\firmware\Generated_Source\PSoC3\ADC\ADC.h</v>
+<v>firmware\firmware\Generated_Source\PSoC3\ADC\ADC_INT.c</v>
+<v>firmware\firmware\Generated_Source\PSoC3\ADC\ADC_PM.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ADC_AMux</v>
+<v>firmware\firmware\Generated_Source\PSoC3\ADC_AMux\ADC_AMux.c</v>
+<v>firmware\firmware\Generated_Source\PSoC3\ADC_AMux\ADC_AMux.h</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ADC_Ext_CP_Clk</v>
+<v>firmware\firmware\Generated_Source\PSoC3\ADC_Ext_CP_Clk\ADC_Ext_CP_Clk.c</v>
+<v>firmware\firmware\Generated_Source\PSoC3\ADC_Ext_CP_Clk\ADC_Ext_CP_Clk.h</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ADC_IRQ</v>
+<v>firmware\firmware\Generated_Source\PSoC3\ADC_IRQ\ADC_IRQ.c</v>
+<v>firmware\firmware\Generated_Source\PSoC3\ADC_IRQ\ADC_IRQ.h</v>
 <v>firmware\firmware\Generated_Source\PSoC3\ADC_theACLK</v>
+<v>firmware\firmware\Generated_Source\PSoC3\ADC_theACLK\ADC_theACLK.c</v>
+<v>firmware\firmware\Generated_Source\PSoC3\ADC_theACLK\ADC_theACLK.h</v>
 <v>firmware\firmware\Generated_Source\PSoC3\AMUXSEQ_MOTORS</v>
+<v>firmware\firmware\Generated_Source\PSoC3\AMUXSEQ_MOTORS\AMUXSEQ_MOTORS.c</v>
+<v>firmware\firmware\Generated_Source\PSoC3\AMUXSEQ_MOTORS\AMUXSEQ_MOTORS.h</v>
 <v>firmware\firmware\Generated_Source\PSoC3\Bootloadable</v>
 <v>firmware\firmware\Generated_Source\PSoC3\Bootloadable\Bootloadable.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\Bootloadable\Bootloadable.h</v>
@@ -238,20 +287,6 @@
 <v>firmware\firmware\Generated_Source\PSoC3\CLOCK_ENCODERS\CLOCK_ENCODERS.c</v>
 <v>firmware\firmware\Generated_Source\PSoC3\CLOCK_ENCODERS\CLOCK_ENCODERS.h</v>
 <v>firmware\firmware\Generated_Source\PSoC3\CLOCK_MEASUREMENTS</v>
-<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_MEASUREMENTS\CLOCK_MEASUREMENTS.c</v>
-<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_MEASUREMENTS\CLOCK_MEASUREMENTS.h</v>
-<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_PWM</v>
-<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_UART</v>
-<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_UART\CLOCK_UART.c</v>
-<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_UART\CLOCK_UART.h</v>
-<v>firmware\firmware\Generated_Source\PSoC3\COUNTER_ENC</v>
-<v>firmware\firmware\Generated_Source\PSoC3\COUNTER_ENC\COUNTER_ENC.c</v>
-<v>firmware\firmware\Generated_Source\PSoC3\COUNTER_ENC\COUNTER_ENC.h</v>
-<v>firmware\firmware\Generated_Source\PSoC3\COUNTER_ENC\COUNTER_ENC_PM.c</v>
-<v>firmware\firmware\Generated_Source\PSoC3\CURRENT_SENSE_1</v>
-<v>firmware\firmware\Generated_Source\PSoC3\CURRENT_SENSE_1\CURRENT_SENSE_1.c</v>
-<v>firmware\firmware\Generated_Source\PSoC3\CURRENT_SENSE_1\CURRENT_SENSE_1.h</v>
-<v>firmware\firmware\Generated_Source\PSoC3\CURRENT_SENSE_1\CURRENT_SENSE_1_aliases.h</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="firmware\firmware">
@@ -437,10 +472,8 @@
 <name v=".\firmware.cydsn\TopDesign\TopDesign.cysch" />
 <name v=".\firmware.cydsn\firmware.cydwr" />
 <name v=".\firmware.cydsn\interruptions.h" />
-<name v=".\firmware.cydsn\Generated_Source\PSoC3\ISR_MEASUREMENTS.c" />
 <name v=".\firmware.cydsn\globals.h" />
 <name v=".\firmware.cydsn\main.c" />
-<name v=".\firmware.cydsn\Generated_Source\PSoC3\UART_RS485.h" />
 <name v=".\firmware.cydsn\utils.h" />
 <name v=".\firmware.cydsn\utils.c" />
 <name v=".\firmware.cydsn\device.h" />
