@@ -26,7 +26,7 @@
 //                                                                        DEVICE
 //==============================================================================
 
-#define VERSION         "THE v2.0.1"
+#define VERSION         "THE v2.1.0"
 
 #define NUM_OF_MOTORS   2
 #define NUM_OF_SENSORS  3
@@ -64,8 +64,8 @@
                                       // value of PWM always limited to 100
 
 #define ANTI_WINDUP     1000
-#define MAX_CURRENT     1000          // Max current for calibration (mA)
-#define CURRENT_LIMIT   1000          // Current limit for hand closing
+#define DEFAULT_CURRENT_LIMIT   1000    // Current limit for hand closing
+                                        // 0 means unlimited
 	
 #define SAMPLES_FOR_MEAN 100
 
@@ -117,7 +117,7 @@ struct st_mem {
     int32   k_d;                        // Integrative constant
 
     uint8   activ;     					// Activation upon startup
-    uint8   mode;       				// Input mode
+    uint8   input_mode;       				// Input mode
 
     uint8   res[NUM_OF_SENSORS];    	// Angle resolution
     int32   m_off[NUM_OF_SENSORS];		// Measurement offset
@@ -129,7 +129,7 @@ struct st_mem {
     int32   max_step_pos;               // Maximum number of step per cylce when
     int32   max_step_neg;               // using sensor 3 as input
 
-    uint16  max_stiffness;              // Max stiffness value obtained in calibration
+    int16  current_limit;              // Limit for absorbed current
 };
 
 //=================================================     device related variables

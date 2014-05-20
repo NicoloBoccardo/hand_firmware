@@ -238,7 +238,7 @@ void control_and_encoder() {
 
     //================= control part
 
-    switch(c_mem.mode) {
+    switch(c_mem.input_mode) {
 
         case INPUT_MODE_ENCODER3:
             //--- speed control in both directions ---//
@@ -467,7 +467,7 @@ CY_ISR(ISR_MEASUREMENTS_ExInterrupt)
                     emg_mean_value_1 = 0;
                     emg_mean_value_2 = 0;
                     device.overcurrent = 0;
-                    if ((c_mem.mode == INPUT_MODE_EMG_PROPORTIONAL) || (c_mem.mode == INPUT_MODE_EMG_INTEGRAL)) {
+                    if ((c_mem.input_mode == INPUT_MODE_EMG_PROPORTIONAL) || (c_mem.input_mode == INPUT_MODE_EMG_INTEGRAL)) {
                         g_ref.onoff = 0x00; 
                         MOTOR_ON_OFF_Write(g_ref.onoff);
                     }
@@ -485,7 +485,7 @@ CY_ISR(ISR_MEASUREMENTS_ExInterrupt)
                         }
                     } else {
                         g_meas.curr[0] =  filter_i1(abs(((value - i_mean_value_1) * 5000) / i_mean_value_1));
-                        if (g_meas.curr[0] > CURRENT_LIMIT) {
+                        if ((c_mem.current_limit != 0) && (g_meas.curr[0] > c_mem.current_limit)) {
                             device.overcurrent = 1;
                         } else {
                             device.overcurrent = 0;
@@ -578,7 +578,7 @@ CY_ISR(ISR_MEASUREMENTS_ExInterrupt)
                     emg_mean_value_2 = emg_mean_value_2 / (SAMPLES_FOR_EMG_MEAN - 500);
                     LED_REG_Write(0x00);
                     emg_counter_2++;
-                    if ((c_mem.mode == INPUT_MODE_EMG_PROPORTIONAL) || (c_mem.mode == INPUT_MODE_EMG_INTEGRAL)) {
+                    if ((c_mem.input_mode == INPUT_MODE_EMG_PROPORTIONAL) || (c_mem.input_mode == INPUT_MODE_EMG_INTEGRAL)) {
                         #if (CONTROL_MODE == CONTROL_ANGLE)
                             g_ref.pos[0] = g_meas.pos[0];
                             g_ref.pos[1] = g_meas.pos[1];                       

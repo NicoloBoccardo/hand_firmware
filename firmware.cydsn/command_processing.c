@@ -39,7 +39,6 @@ void commProcess(void){
 	uint8 packet_data[16];
 	uint8 packet_lenght;
     int32 pos_1, pos_2;
-    int32  pos, stiff;
     uint32 off_1, off_2;
     uint32 mult_1, mult_2;
 	    
@@ -91,26 +90,6 @@ void commProcess(void){
 //========================================================     CMD_SET_POS_STIFF
 
         case CMD_SET_POS_STIFF:
-            pos = *((int16 *) &g_rx.buffer[1]);   // eq position
-            stiff = *((int16 *) &g_rx.buffer[3]);   // stiffness
-
-            // position in ticks
-            pos = pos << g_mem.res[0];
-
-            // position limit
-            if (pos > (c_mem.pos_lim_sup[0] - c_mem.max_stiffness))
-                pos = c_mem.pos_lim_sup[0] - c_mem.max_stiffness;
-
-            if (pos < (c_mem.pos_lim_inf[0] + c_mem.max_stiffness))
-                pos = c_mem.pos_lim_inf[0] + c_mem.max_stiffness;
-
-            // stiffness is intended between -32768 and 32767
-            // remap  stiff value between -MAX_STIFFNESS and MAX_STIFFNESS
-            stiff = (int32)(((float)c_mem.max_stiffness / 32768.0) * stiff);
-
-            // pos stiff rule
-            g_ref.pos[0] = pos + stiff;
-            g_ref.pos[1] = pos - stiff;
 
             break;
 
@@ -269,7 +248,7 @@ void commProcess(void){
 
 //=========================================================     CMD_STORE_PARAMS
         case CMD_STORE_PARAMS:
-		    if( c_mem.mode == INPUT_MODE_EXTERNAL )
+		    if( c_mem.input_mode == INPUT_MODE_EXTERNAL )
 		    {
 		        off_1 = c_mem.m_off[0];
 		        off_2 = c_mem.m_off[1];
@@ -419,7 +398,7 @@ void paramSet(uint16 param_type)
             break;        
 
         case PARAM_INPUT_MODE:
-        	g_mem.mode = g_rx.buffer[3];
+            g_mem.input_mode = g_rx.buffer[3];
             break;            
 
         case PARAM_POS_RESOLUTION:
@@ -486,6 +465,10 @@ void paramSet(uint16 param_type)
             }
             break;
 
+        case PARAM_CURRENT_LIMIT:
+            g_mem.current_limit = *((int16*) &g_rx.buffer[3]);
+            break;
+
     }
     sendAcknowledgment();
 }
@@ -523,7 +506,7 @@ void paramGet(uint16 param_type)
             break;   
             
         case PARAM_INPUT_MODE:
-            packet_data[1] = c_mem.mode;
+            packet_data[1] = c_mem.input_mode;
             packet_lenght = 3;                
             break;  
                         
@@ -579,6 +562,11 @@ void paramGet(uint16 param_type)
             packet_lenght = 6;
             break;
 
+        case PARAM_CURRENT_LIMIT:
+            *((int16 *)(packet_data + 1)) = c_mem.current_limit;
+            packet_lenght = 6;
+            break;
+
     }
     
     packet_data[packet_lenght - 1] = LCRChecksum(packet_data,packet_lenght - 1);
@@ -592,7 +580,6 @@ void paramGet(uint16 param_type)
 void infoPrepare(unsigned char *info_string)
 {
     int i;
-    int pages;
 	
     unsigned char str[100];    
     strcpy(info_string, "");        
@@ -611,38 +598,31 @@ void infoPrepare(unsigned char *info_string)
     strcat(info_string,"\r\n");  
 
     strcat(info_string,"MOTORS INFO\r\n");                       
-    sprintf(str,"Motor 1 reference: %d",
-        (int)(g_ref.pos[0] >> c_mem.res[0]));
-    strcat(info_string,str); 
-    strcat(info_string,"\r\n");  
-    sprintf(str,"Motor 2 reference: %d",
-        (int)(g_ref.pos[1] >> c_mem.res[1]));
-    strcat(info_string,str); 
+    strcat(info_string, "Motor references: ");
+    for (i = 0; i < NUM_OF_MOTORS; i++) {
+        sprintf(str, "%d ", (int)(g_ref.pos[i] >> c_mem.res[i]));
+        strcat(info_string,str);
+    }
     strcat(info_string,"\r\n");
     
-    sprintf(str,"Motor 1 enabled: ");     
-    if (g_ref.onoff & 0x02) {
+    sprintf(str, "Motor enabled: ");
+    if (g_ref.onoff & 0x03) {
         strcat(str,"YES\r\n");
     } else {
         strcat(str,"NO\r\n");
     }
     strcat(info_string, str);
-    
-    sprintf(str,"Motor 2 enabled: ");
-    if (g_ref.onoff & 0x01) {
-        strcat(str,"YES\r\n");
-    } else {
-        strcat(str,"NO\r\n");
-    }
-    strcat(info_string, str); 
+    strcat(info_string,"\r\n");
 
     strcat(info_string,"\r\nMEASUREMENTS INFO\r\n");
+    strcat(info_string, "Sensor value:\r\n");
     for (i = 0; i < NUM_OF_SENSORS; i++) {
-        sprintf(str,"Sensor %d value: %d", i+1,
-            (int)(g_meas.pos[i] >> c_mem.res[i]));
+        sprintf(str,"%d -> %d", i+1,
+            (int) g_meas.pos[i] >> c_mem.res[i]);
         strcat(info_string, str);
         strcat(info_string, "\r\n");
     }
+
     sprintf(str,"Voltage (mV): %ld", (int32) device.tension );
     strcat(info_string, str);
     strcat(info_string,"\r\n"); 
@@ -657,38 +637,62 @@ void infoPrepare(unsigned char *info_string)
  
 
     strcat(info_string,"\r\nDEVICE PARAMETERS\r\n");
-    sprintf(str,"PID Controller: \r\n%f\t%f\t%f", ((double) c_mem.k_p / 65536), ((double)c_mem.k_i / 65536), ((double)c_mem.k_d / 65536));
+    strcat(info_string, "PID Controller:\r\n");
+    sprintf(str,"P -> %f\r\n", ((double) c_mem.k_p / 65536));
+    strcat(info_string, str);
+    sprintf(str,"I -> %f\r\n", ((double) c_mem.k_i / 65536));
+    strcat(info_string, str);
+    sprintf(str,"D -> %f\r\n", ((double) c_mem.k_d / 65536));
     strcat(info_string, str); 
     strcat(info_string,"\r\n");
-    sprintf(str,"Startup activation: %d", (int) c_mem.activ);
-    strcat(info_string, str); 
-    strcat(info_string,"\r\n");
-    sprintf(str,"Input Mode: %d", (int) c_mem.mode);
-    strcat(info_string, str); 
-    strcat(info_string,"\r\n");
-	
 
 
+    if (c_mem.activ == 0x03) {
+        strcat(info_string, "Startup activation: YES\r\n");
+    } else {
+        strcat(info_string, "Startup activation: NO\r\n");
+    }
+
+    switch(c_mem.input_mode) {
+        case 0:
+            strcat(info_string, "Input mode: USB\r\n");
+            break;
+        case 1:
+            strcat(info_string, "Input mode: Sensor 3\r\n");
+            break;
+        case 2:
+            strcat(info_string, "Input mode: EMG proportional\r\n");
+            break;
+        case 3:
+            strcat(info_string, "Input mode: EMG integral\r\n");
+            break;
+    }
+
+
+
+    strcat(info_string, "Sensor resolution:\r\n");
     for(i = 0; i < NUM_OF_SENSORS; ++i)
     {
-        sprintf(str,"Position resolution sensor %d: %d", (int) i, 
+        sprintf(str,"%d -> %d", (int) (i + 1), 
             (int) c_mem.res[i]);
         strcat(info_string, str); 
         strcat(info_string,"\r\n");
     }
 
-	
+
+    strcat(info_string, "Measurement Offset:\r\n"); 
     for(i = 0; i < NUM_OF_SENSORS; ++i)
     {
-        sprintf(str,"Measurement Offset %d: %ld", (int) i, 
+        sprintf(str,"%d -> %ld", (int) (i + 1), 
             (int32) c_mem.m_off[i] >> c_mem.res[i]);
         strcat(info_string, str); 
         strcat(info_string,"\r\n");
     }
 
+    strcat(info_string, "Measurement Multiplier:\r\n");
     for(i = 0; i < NUM_OF_SENSORS; ++i)
     {
-        sprintf(str,"Measurement Multiplier %d: %f", (int) i, 
+        sprintf(str,"%d -> %f", (int)(i + 1), 
             (double) c_mem.m_mult[i]);
         strcat(info_string, str); 
         strcat(info_string,"\r\n");
@@ -699,11 +703,11 @@ void infoPrepare(unsigned char *info_string)
     strcat(info_string,"\r\n");
 
     for (i = 0; i < NUM_OF_MOTORS; i++) {
-        sprintf(str, "Position limit inf motor %d: %ld\r\n", (int)(i + 1),
+        sprintf(str, "Position limit motor %d: inf -> %ld  ", (int)(i + 1),
                 (int32)g_mem.pos_lim_inf[i] >> g_mem.res[i]);
         strcat(info_string, str);
 
-        sprintf(str, "Position limit sup motor %d: %ld\r\n", (int)(i + 1),
+        sprintf(str, "sup -> %ld\r\n",
                 (int32)g_mem.pos_lim_sup[i] >> g_mem.res[i]);
         strcat(info_string, str);
     }
@@ -716,15 +720,9 @@ void infoPrepare(unsigned char *info_string)
     strcat(info_string, str); 
     strcat(info_string,"\r\n");
 
-    sprintf(str, "Max stiffness: %d", (int)g_mem.max_stiffness >> g_mem.res[0]);
+    sprintf(str, "Current limit: %d", (int)g_mem.current_limit);
     strcat(info_string, str); 
     strcat(info_string,"\r\n");
-
-    pages = sizeof(g_mem) / 16 + (sizeof(g_mem) % 16 > 0);
-    sprintf(str,"Debug: %d",(int) pages);
-    strcat(info_string, str); 
-    strcat(info_string,"\r\n");
-    
 }
 
 //==============================================================================
@@ -904,13 +902,13 @@ void memRestore(void) {
 void memInit(void)
 {
     uint8 i;
-	//initialize memory settings
-	g_mem.id       = 	1;             ////////////
-	g_mem.k_p      = 	0.01 * 65536;
-    g_mem.k_i      =    0 * 65536;
-    g_mem.k_d      =    0.2 * 65536;
-    g_mem.activ    = 	0;
-    g_mem.mode     = 	0;
+    //initialize memory settings
+    g_mem.id            = 1;
+    g_mem.k_p           = 0.01 * 65536;
+    g_mem.k_i           =    0 * 65536;
+    g_mem.k_d           =  0.2 * 65536;
+    g_mem.activ         = 0;
+    g_mem.input_mode    = 0;
 
     g_mem.pos_lim_flag = 1;
 
@@ -932,7 +930,7 @@ void memInit(void)
     g_mem.max_step_pos = 0;
     g_mem.max_step_neg = 0;
 
-    g_mem.max_stiffness = (int32)3000 << g_mem.res[0];
+    g_mem.current_limit = DEFAULT_CURRENT_LIMIT;
  
 	//set the initialized flag to show EEPROM has been populated
 	g_mem.flag = TRUE;
