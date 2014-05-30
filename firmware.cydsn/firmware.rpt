@@ -1,13 +1,13 @@
-Loading plugins phase: Elapsed time ==> 0s.936ms
-Initializing data phase: Elapsed time ==> 4s.508ms
+Loading plugins phase: Elapsed time ==> 0s.202ms
+Initializing data phase: Elapsed time ==> 1s.840ms
 <CYPRESSTAG name="CyDsfit arguments...">
-cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -p X:\Centro Piaggio\QB\my_github\hand_firmware\firmware.cydsn\firmware.cyprj -d CY8C3246PVI-147 -s X:\Centro Piaggio\QB\my_github\hand_firmware\firmware.cydsn\Generated_Source\PSoC3 -- -yv2 -v3 -ygs -q10 -o2 -.fftcfgtype=BE</CYPRESSTAG>
+cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -p X:\Centro_Piaggio\QB\my_github\hand_firmware\firmware.cydsn\firmware.cyprj -d CY8C3246PVI-147 -s X:\Centro_Piaggio\QB\my_github\hand_firmware\firmware.cydsn\Generated_Source\PSoC3 -- -yv2 -v3 -ygs -q10 -o2 -.fftcfgtype=BE</CYPRESSTAG>
 <CYPRESSTAG name="Design elaboration results...">
 </CYPRESSTAG>
-Elaboration phase: Elapsed time ==> 6s.193ms
+Elaboration phase: Elapsed time ==> 4s.742ms
 <CYPRESSTAG name="HDL generation results...">
 </CYPRESSTAG>
-HDL generation phase: Elapsed time ==> 0s.187ms
+HDL generation phase: Elapsed time ==> 0s.171ms
 <CYPRESSTAG name="Synthesis results...">
 
      | | | | | | |
@@ -25,23 +25,23 @@ HDL generation phase: Elapsed time ==> 0s.187ms
 ======================================================================
 Compiling:  firmware.v
 Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\warp\bin/warp.exe
-Options  :    -yv2 -v3 -ygs -q10 -o2 -.fftcfgtype=BE -ya -.fftprj=X:\Centro Piaggio\QB\my_github\hand_firmware\firmware.cydsn\firmware.cyprj -dcpsoc3 firmware.v -verilog
+Options  :    -yv2 -v3 -ygs -q10 -o2 -.fftcfgtype=BE -ya -.fftprj=X:\Centro_Piaggio\QB\my_github\hand_firmware\firmware.cydsn\firmware.cyprj -dcpsoc3 firmware.v -verilog
 ======================================================================
 
 ======================================================================
 Compiling:  firmware.v
 Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\warp\bin/warp.exe
-Options  :    -yv2 -v3 -ygs -q10 -o2 -.fftcfgtype=BE -ya -.fftprj=X:\Centro Piaggio\QB\my_github\hand_firmware\firmware.cydsn\firmware.cyprj -dcpsoc3 firmware.v -verilog
+Options  :    -yv2 -v3 -ygs -q10 -o2 -.fftcfgtype=BE -ya -.fftprj=X:\Centro_Piaggio\QB\my_github\hand_firmware\firmware.cydsn\firmware.cyprj -dcpsoc3 firmware.v -verilog
 ======================================================================
 
 ======================================================================
 Compiling:  firmware.v
 Program  :   vlogfe
-Options  :    -yv2 -v3 -ygs -q10 -o2 -.fftcfgtype=BE -ya -.fftprj=X:\Centro Piaggio\QB\my_github\hand_firmware\firmware.cydsn\firmware.cyprj -dcpsoc3 -verilog firmware.v
+Options  :    -yv2 -v3 -ygs -q10 -o2 -.fftcfgtype=BE -ya -.fftprj=X:\Centro_Piaggio\QB\my_github\hand_firmware\firmware.cydsn\firmware.cyprj -dcpsoc3 -verilog firmware.v
 ======================================================================
 
 vlogfe V6.3 IR 41:  Verilog parser
-Mon May 19 19:28:19 2014
+Wed May 28 16:21:08 2014
 
 
 ======================================================================
@@ -51,7 +51,7 @@ Options  :    -yv2 -q10 firmware.v
 ======================================================================
 
 vpp V6.3 IR 41:  Verilog Pre-Processor
-Mon May 19 19:28:19 2014
+Wed May 28 16:21:08 2014
 
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\warp\..\psoc\content\cyprimitives\CyPrimitives.cylib\and_v1_0\and_v1_0.v'
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\warp\..\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
@@ -112,11 +112,11 @@ vlogfe:  No errors.
 ======================================================================
 Compiling:  firmware.v
 Program  :   tovif
-Options  :    -yv2 -v3 -ygs -q10 -o2 -.fftcfgtype=BE -ya -.fftprj=X:\Centro Piaggio\QB\my_github\hand_firmware\firmware.cydsn\firmware.cyprj -dcpsoc3 -verilog firmware.v
+Options  :    -yv2 -v3 -ygs -q10 -o2 -.fftcfgtype=BE -ya -.fftprj=X:\Centro_Piaggio\QB\my_github\hand_firmware\firmware.cydsn\firmware.cyprj -dcpsoc3 -verilog firmware.v
 ======================================================================
 
 tovif V6.3 IR 41:  High-level synthesis
-Mon May 19 19:28:20 2014
+Wed May 28 16:21:09 2014
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -127,9 +127,9 @@ Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\warp\lib\c
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
-Linking 'X:\Centro Piaggio\QB\my_github\hand_firmware\firmware.cydsn\codegentemp\firmware.ctl'.
+Linking 'X:\Centro_Piaggio\QB\my_github\hand_firmware\firmware.cydsn\codegentemp\firmware.ctl'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\and_v1_0\and_v1_0.v'.
-Linking 'X:\Centro Piaggio\QB\my_github\hand_firmware\firmware.cydsn\codegentemp\firmware.v'.
+Linking 'X:\Centro_Piaggio\QB\my_github\hand_firmware\firmware.cydsn\codegentemp\firmware.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_UART_v2_30\B_UART_v2_30.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\warp\lib\common\cypress.v'.
@@ -158,11 +158,11 @@ tovif:  No errors.
 ======================================================================
 Compiling:  firmware.v
 Program  :   topld
-Options  :    -yv2 -v3 -ygs -q10 -o2 -.fftcfgtype=BE -ya -.fftprj=X:\Centro Piaggio\QB\my_github\hand_firmware\firmware.cydsn\firmware.cyprj -dcpsoc3 -verilog firmware.v
+Options  :    -yv2 -v3 -ygs -q10 -o2 -.fftcfgtype=BE -ya -.fftprj=X:\Centro_Piaggio\QB\my_github\hand_firmware\firmware.cydsn\firmware.cyprj -dcpsoc3 -verilog firmware.v
 ======================================================================
 
 topld V6.3 IR 41:  Synthesis and optimization
-Mon May 19 19:28:24 2014
+Wed May 28 16:21:13 2014
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -173,9 +173,9 @@ Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\warp\lib\c
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
-Linking 'X:\Centro Piaggio\QB\my_github\hand_firmware\firmware.cydsn\codegentemp\firmware.ctl'.
+Linking 'X:\Centro_Piaggio\QB\my_github\hand_firmware\firmware.cydsn\codegentemp\firmware.ctl'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\and_v1_0\and_v1_0.v'.
-Linking 'X:\Centro Piaggio\QB\my_github\hand_firmware\firmware.cydsn\codegentemp\firmware.v'.
+Linking 'X:\Centro_Piaggio\QB\my_github\hand_firmware\firmware.cydsn\codegentemp\firmware.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_UART_v2_30\B_UART_v2_30.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\warp\lib\common\cypress.v'.
@@ -1219,16 +1219,16 @@ topld:  No errors.
 
 CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\warp
 Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\warp\bin/warp.exe
-Warp Arguments : -yv2 -v3 -ygs -q10 -o2 -.fftcfgtype=BE -ya "-.fftprj=X:\Centro Piaggio\QB\my_github\hand_firmware\firmware.cydsn\firmware.cyprj" -dcpsoc3 firmware.v -verilog
+Warp Arguments : -yv2 -v3 -ygs -q10 -o2 -.fftcfgtype=BE -ya -.fftprj=X:\Centro_Piaggio\QB\my_github\hand_firmware\firmware.cydsn\firmware.cyprj -dcpsoc3 firmware.v -verilog
 </CYPRESSTAG>
-Warp synthesis phase: Elapsed time ==> 6s.318ms
+Warp synthesis phase: Elapsed time ==> 5s.834ms
 <CYPRESSTAG name="Fitter results...">
 <CYPRESSTAG name="Fitter startup details...">
-cyp3fit: V3.0.0.3023, Family: PSoC3, Started at: Monday, 19 May 2014 19:28:25
-Options: -yv2 -v3 -ygs -q10 -o2 -.fftcfgtype=BE -ya -.fftprj=X:\Centro Piaggio\QB\my_github\hand_firmware\firmware.cydsn\firmware.cyprj -d CY8C3246PVI-147 firmware.v -verilog
+cyp3fit: V3.0.0.3023, Family: PSoC3, Started at: Wednesday, 28 May 2014 16:21:14
+Options: -yv2 -v3 -ygs -q10 -o2 -.fftcfgtype=BE -ya -.fftprj=X:\Centro_Piaggio\QB\my_github\hand_firmware\firmware.cydsn\firmware.cyprj -d CY8C3246PVI-147 firmware.v -verilog
 </CYPRESSTAG>
 <CYPRESSTAG name="Design parsing">
-Design parsing phase: Elapsed time ==> 0s.109ms
+Design parsing phase: Elapsed time ==> 0s.046ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Tech mapping">
 <CYPRESSTAG name="Initial Mapping" icon="FILE_RPT_TECHM">
@@ -4136,9 +4136,9 @@ LCD Fixed Blocks              :    0 :    1 :    1 :   0.00%
 EMIF Fixed Blocks             :    0 :    1 :    1 :   0.00%
 LPF Fixed Blocks              :    0 :    2 :    2 :   0.00%
 </CYPRESSTAG>
-Technology Mapping: Elapsed time ==> 0s.452ms
+Technology Mapping: Elapsed time ==> 0s.468ms
 Info: mpr.M0037: Unused pieces of the design have been optimized out. See the Tech mapping section of the report file for details. (App=cydsfit)
-Tech mapping phase: Elapsed time ==> 0s.748ms
+Tech mapping phase: Elapsed time ==> 0s.561ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Placement">
 Info: apr.M0002: Analog signal "\ADC:Net_690\" is connected to one terminal only. (App=cydsfit)
@@ -4201,7 +4201,7 @@ IO_5@[IOP=(0)][IoId=(5)] : VOLTAGE_SENSE(0) (fixed)
 DSM[0]@[FFB(DSM,0)] : \ADC:DSM\
 Vref[6]@[FFB(Vref,6)] : \ADC:vRef_2\
 
-Analog Placement phase: Elapsed time ==> 0s.046ms
+Analog Placement phase: Elapsed time ==> 0s.062ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Routing">
 Analog Routing phase: Elapsed time ==> 0s.000ms
@@ -4401,7 +4401,7 @@ Dump of CyP35AnalogRoutingResultsDB
 IsVddaHalfUsedForComp = False
 IsVddaHalfUsedForSar0 = False
 IsVddaHalfUsedForSar1 = False
-Analog Code Generation phase: Elapsed time ==> 0s.592ms
+Analog Code Generation phase: Elapsed time ==> 0s.483ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Placement">
 <CYPRESSTAG name="PLD Packing">
@@ -7561,31 +7561,31 @@ Info: plm.M0038: The pin named EMG_1(0) at location P0[3] prevents usage of spec
 </CYPRESSTAG>
 </CYPRESSTAG>
 Digital component placer commit/Report: Elapsed time ==> 0s.015ms
-Digital Placement phase: Elapsed time ==> 3s.057ms
+Digital Placement phase: Elapsed time ==> 2s.620ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Routing">
 Routing successful.
-Digital Routing phase: Elapsed time ==> 4s.992ms
+Digital Routing phase: Elapsed time ==> 3s.322ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream and API generation">
-Bitstream and API generation phase: Elapsed time ==> 2s.012ms
+Bitstream and API generation phase: Elapsed time ==> 1s.778ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream verification">
 Bitstream verification phase: Elapsed time ==> 0s.093ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Static timing analysis">
 Timing report is in firmware_timing.html.
-Static timing analysis phase: Elapsed time ==> 0s.686ms
+Static timing analysis phase: Elapsed time ==> 0s.655ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Data reporting">
 Data reporting phase: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Database update...">
-Design database save phase: Elapsed time ==> 0s.421ms
+Design database save phase: Elapsed time ==> 0s.390ms
 </CYPRESSTAG>
-cydsfit: Elapsed time ==> 12s.776ms
+cydsfit: Elapsed time ==> 10s.108ms
 </CYPRESSTAG>
-Fitter phase: Elapsed time ==> 12s.823ms
-API generation phase: Elapsed time ==> 3s.494ms
-Dependency generation phase: Elapsed time ==> 0s.000ms
-Cleanup phase: Elapsed time ==> 0s.015ms
+Fitter phase: Elapsed time ==> 10s.155ms
+API generation phase: Elapsed time ==> 2s.121ms
+Dependency generation phase: Elapsed time ==> 0s.031ms
+Cleanup phase: Elapsed time ==> 0s.000ms

@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="firmware\firmware\Source Files\command_processing.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="firmware\firmware\Header Files\globals.h">
 <ExpandedNodeIds>
 <v>firmware</v>
 <v>firmware\firmware</v>
@@ -397,51 +397,6 @@
 <VisibleNodeIds>
 <v>firmware</v>
 <v>firmware\firmware</v>
-<v>firmware\firmware\DP8051</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ADC.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ADC_AMux.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ADC_Ext_CP_Clk.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ADC_INT.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ADC_IRQ.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ADC_PM.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ADC_theACLK.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\AMUXSEQ_MOTORS.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\Bootloadable.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CLOCK_ENCODERS.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CLOCK_MEASUREMENTS.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CLOCK_PWM.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CLOCK_UART.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\command_processing.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\COUNTER_ENC.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\COUNTER_ENC_PM.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CURRENT_SENSE_1.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CURRENT_SENSE_2.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CyBootAsmKeil.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CyDmac.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\cyfitter_cfg.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CyFlash.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CyLib.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\cymem.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\cyPm.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\CySpc.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\cyutils.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\EEPROM.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\EMG_1.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\EMG_2.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\FTDI_ENABLE.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\FTDI_ENABLE_REG.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\globals.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\interruptions.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ISR_MEASUREMENTS.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\ISR_RS485_RX.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\KeilStart.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\LED.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\LED_REG.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\main.lst</v>
-<v>firmware\firmware\DP8051\DP8051_Keil_951\Release\Listing Files\MOTOR_1A.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>

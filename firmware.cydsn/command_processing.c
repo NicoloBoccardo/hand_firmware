@@ -917,15 +917,15 @@ void memInit(void)
         g_mem.pos_lim_sup[i] =  30000;
     }  
  
+    g_mem.res[0] = 3;
+    g_mem.res[1] = 3;
+    g_mem.res[2] = 0;
+    
     for(i = 0; i < NUM_OF_SENSORS; ++i)
     {
         g_mem.m_mult[i] = 1;
-        g_mem.res[i] = 3;
+        g_mem.m_off[i] = (int32)0 << g_mem.res[i];
     }
-    
-    g_mem.m_off[0] = (int32)0 << g_mem.res[0];
-    g_mem.m_off[1] = (int32)0 << g_mem.res[1];
-    g_mem.m_off[2] = (int32)0 << g_mem.res[2];
 
     g_mem.max_step_pos = 0;
     g_mem.max_step_neg = 0;
