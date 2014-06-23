@@ -159,7 +159,6 @@ void control_and_encoder() {
     // -----   encoder variables   -----
     int i;              //iterator
 
-
     static int32 cuff_k_p  =    -0.001 * 65536;
     static int32 cuff_k_i  =    0 * 65536;
     static int32 cuff_k_d  =    -0.002 * 65536;
@@ -169,6 +168,11 @@ void control_and_encoder() {
     int32 aux;
 
     static int32 last_value_encoder[NUM_OF_SENSORS];
+
+    static int only_first_time = 1;
+    static int one_time_execute = 0;
+
+    int calc_turns;
 
 
     // -----   control variables   -----
@@ -189,11 +193,31 @@ void control_and_encoder() {
     if (calib.enabled) {
         calibration_increment();
     }
-    
 
 //==========================================================     reading sensors
 
+    // Discard first reading
+    if (only_first_time) {
+        for (i = 0; i < NUM_OF_SENSORS; i++) {
+            switch(i) {
+                case 0: {
+                    data_encoder[i] = SHIFTREG_ENC_1_ReadData();
+                    break;
+                }
+                case 1: {
+                    data_encoder[i] = SHIFTREG_ENC_2_ReadData();
+                    break;
+                }
+                case 2: {
+                    data_encoder[i] = SHIFTREG_ENC_3_ReadData();
+                    break;
+                }
+            }
+        }
+        only_first_time = 0;
+    }
 
+    // Normal execution
     for (i = 0; i < NUM_OF_SENSORS; i++) {
         switch(i) {
             case 0: {
@@ -233,7 +257,23 @@ void control_and_encoder() {
         }
         
         g_meas.pos[i] = value_encoder[i];
+    }
 
+
+    if (one_time_execute < 10) {
+        if (one_time_execute < 9) {
+            one_time_execute++;
+        } else {
+            calc_turns = my_mod(round(((my_mod((g_meas.pos[0] + g_meas.pos[1]), 65536) * 28) - g_meas.pos[0]) / 65536.0), 28);
+
+            if (calc_turns == 27) {
+                g_meas.rot[0] = -1;
+            } else {
+                g_meas.rot[0] = calc_turns;
+            }
+
+            one_time_execute = 10;
+        }
     }
 
     //================= control part

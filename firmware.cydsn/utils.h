@@ -31,7 +31,8 @@ int32 filter_i1(int32 value);
 int32 filter_i2(int32 value);
 
 uint8 BITChecksum(uint32);
-
+int round(double x);
+int32 my_mod(int32 val, int32 divisor);
 
 void calibrate(void);
 void calibration_increment(void);
