@@ -1772,6 +1772,9 @@
 <v>.\Generated_Source\PSoC3\PSoC3_8051.h</v>
 <v>.\Generated_Source\PSoC3\PSoC3_8051.inc</v>
 <v>.\Generated_Source\PSoC3\project.h</v>
+<v>.\Generated_Source\PSoC3\VDAC8_1.c</v>
+<v>.\Generated_Source\PSoC3\VDAC8_1.h</v>
+<v>.\Generated_Source\PSoC3\VDAC8_1_PM.c</v>
 </gen_list>
 <warp_dep>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\warp\lib\ieee\work\stdlogic.vif</v>
@@ -1797,7 +1800,7 @@
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif</v>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif</v>
 </warp_dep>
-<deps_time v="130457604872910000" />
+<deps_time v="130474036155168000" />
 <top_block v="TopDesign" />
 <last_generation v="1" />
 </CyGuid_925cc1e1-309e-4e08-b0a1-09a83c35b157>
@@ -4685,6 +4688,30 @@
 <dep name=".\Generated_Source\PSoC3\KeilStart.a51" />
 </file>
 <file name=".\Generated_Source\PSoC3\KeilStart.a51" />
+<file name=".\Generated_Source\PSoC3\VDAC8_1.h" />
+<file name=".\DP8051_Keil_951\Release\VDAC8_1.obj">
+<dep name=".\Generated_Source\PSoC3\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC3\CyLib.h" />
+<dep name=".\Generated_Source\PSoC3\CySpc.h" />
+<dep name=".\Generated_Source\PSoC3\PSoC3_8051.h" />
+<dep name=".\Generated_Source\PSoC3\VDAC8_1.h" />
+<dep name=".\Generated_Source\PSoC3\cyPm.h" />
+<dep name=".\Generated_Source\PSoC3\cydevice.h" />
+<dep name=".\Generated_Source\PSoC3\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC3\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC3\cytypes.h" />
+<dep name=".\Generated_Source\PSoC3\VDAC8_1.c" />
+</file>
+<file name=".\Generated_Source\PSoC3\VDAC8_1.c" />
+<file name=".\DP8051_Keil_951\Release\VDAC8_1_PM.obj">
+<dep name=".\Generated_Source\PSoC3\VDAC8_1.h" />
+<dep name=".\Generated_Source\PSoC3\cydevice.h" />
+<dep name=".\Generated_Source\PSoC3\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC3\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC3\cytypes.h" />
+<dep name=".\Generated_Source\PSoC3\VDAC8_1_PM.c" />
+</file>
+<file name=".\Generated_Source\PSoC3\VDAC8_1_PM.c" />
 <file name=".\DP8051_Keil_951\Release\cymem.obj">
 <dep name=".\Generated_Source\PSoC3\cymem.a51" />
 </file>
@@ -5393,13 +5420,15 @@
 <name_val_pair name=".\Generated_Source\PSoC3\FTDI_ENABLE_REG.c" v="&quot;NOIV &quot;&quot;LARGE &quot;&quot;MODDP2 &quot;&quot;OMF2 &quot;&quot;VB(1) &quot;&quot;PR(${OutputDir}\${CompileFile}.lst) &quot;&quot;CD &quot;&quot;DB &quot;&quot;NOIP &quot;&quot;OT(8, Speed) &quot;&quot;DF (NDEBUG) &quot;&quot;INCDIR(., .\Generated_Source\PSoC3) &quot;" />
 <name_val_pair name="X:\Centro Piaggio\QB\my_github\hand_firmware\firmware.cydsn\DP8051_Keil_951\Release\firmware.hex" v="&quot; TO &quot;&quot;'${OutputDir}\${ProjectShortName}.omf' &quot;&quot;PR(${OutputDir}\${ProjectShortName}.map) &quot;&quot;IX &quot;&quot;CODE &quot;&quot;DW(16) &quot;&quot;RU &quot;&quot;CL(XDATA(X:0x0000-X:0x1FFF)) &quot;&quot;CL(CODE(C:0x2200-C:0xFFBF)) &quot;&quot;CL(CONST(C:0x2200-C:0xFFBF)) &quot;" />
 <name_val_pair name="X:\Centro_Piaggio\QB\my_github\hand_firmware\firmware.cydsn\DP8051_Keil_951\Release\firmware.hex" v="&quot; TO &quot;&quot;'${OutputDir}\${ProjectShortName}.omf' &quot;&quot;PR(${OutputDir}\${ProjectShortName}.map) &quot;&quot;IX &quot;&quot;CODE &quot;&quot;DW(16) &quot;&quot;RU &quot;&quot;CL(XDATA(X:0x0000-X:0x1FFF)) &quot;&quot;CL(CODE(C:0x2200-C:0xFFBF)) &quot;&quot;CL(CONST(C:0x2200-C:0xFFBF)) &quot;" />
+<name_val_pair name=".\Generated_Source\PSoC3\VDAC8_1.c" v="&quot;NOIV &quot;&quot;LARGE &quot;&quot;MODDP2 &quot;&quot;OMF2 &quot;&quot;VB(1) &quot;&quot;PR(${OutputDir}\${CompileFile}.lst) &quot;&quot;CD &quot;&quot;DB &quot;&quot;NOIP &quot;&quot;OT(8, Speed) &quot;&quot;DF (NDEBUG) &quot;&quot;INCDIR(., .\Generated_Source\PSoC3) &quot;" />
+<name_val_pair name=".\Generated_Source\PSoC3\VDAC8_1_PM.c" v="&quot;NOIV &quot;&quot;LARGE &quot;&quot;MODDP2 &quot;&quot;OMF2 &quot;&quot;VB(1) &quot;&quot;PR(${OutputDir}\${CompileFile}.lst) &quot;&quot;CD &quot;&quot;DB &quot;&quot;NOIP &quot;&quot;OT(8, Speed) &quot;&quot;DF (NDEBUG) &quot;&quot;INCDIR(., .\Generated_Source\PSoC3) &quot;" />
 </name>
 </genericCmdLineData>
 <codeGenCmdLineTag v="&quot;-.appdatapath&quot; &quot;C:\Users\laurentio\AppData\Local\Cypress Semiconductor\PSoC Creator\3.0&quot; &quot;-.fdsnotice&quot; &quot;-.fdswarpdepfile=warp_dependencies.txt&quot; &quot;-.fdselabdepfile=elab_dependencies.txt&quot; &quot;-.fdsbldfile=generated_files.txt&quot; &quot;-p&quot; &quot;X:\Centro_Piaggio\QB\my_github\hand_firmware\firmware.cydsn\firmware.cyprj&quot; &quot;-d&quot; &quot;CY8C3246PVI-147&quot; &quot;-s&quot; &quot;X:\Centro_Piaggio\QB\my_github\hand_firmware\firmware.cydsn\Generated_Source\PSoC3&quot; &quot;--&quot; &quot;-yv2&quot; &quot;-v3&quot; &quot;-ygs&quot; &quot;-q10&quot; &quot;-o2&quot; &quot;-.fftcfgtype=BE&quot; " />
 </CyGuid_b0374e30-ce3a-47f2-ad85-821643292c68>
 </dataGuid>
 <dataGuid v="237c8ed1-e161-4c9d-af97-582eda6d6952">
-<CyGuid_d442b0b8-dd66-4eee-b5be-1cb213792b31 type_name="CyDesigner.PSoC.P3Fit.Common.DesignWideResources.DeviceEditor.CyCustomAnalogDevData" version="1" ZoomToPage="False" ZoomScale="1.34926021" ScrollX="0" ScrollY="1095">
+<CyGuid_d442b0b8-dd66-4eee-b5be-1cb213792b31 type_name="CyDesigner.PSoC.P3Fit.Common.DesignWideResources.DeviceEditor.CyCustomAnalogDevData" version="1" ZoomToPage="False" ZoomScale="1.34926021" ScrollX="0" ScrollY="1087">
 <ComponentStates>
 <CyGuid_50eb6c77-9735-4e57-8808-b714f60fbc0d type_name="CyDesigner.PSoC.P3Fit.Common.DesignWideResources.DeviceEditor.CyItemState" version="1" Name="Net_475" Color="-9580801" />
 <CyGuid_50eb6c77-9735-4e57-8808-b714f60fbc0d type_name="CyDesigner.PSoC.P3Fit.Common.DesignWideResources.DeviceEditor.CyItemState" version="1" Name="AmuxNet::AMUXSEQ_MOTORS" Color="-8213505" />
@@ -5416,12 +5445,16 @@
 <CyGuid_50eb6c77-9735-4e57-8808-b714f60fbc0d type_name="CyDesigner.PSoC.P3Fit.Common.DesignWideResources.DeviceEditor.CyItemState" version="1" Name="\ADC:Net_244\" Color="-9580801" />
 <CyGuid_50eb6c77-9735-4e57-8808-b714f60fbc0d type_name="CyDesigner.PSoC.P3Fit.Common.DesignWideResources.DeviceEditor.CyItemState" version="1" Name="\ADC:Net_41\" Color="-8213505" />
 <CyGuid_50eb6c77-9735-4e57-8808-b714f60fbc0d type_name="CyDesigner.PSoC.P3Fit.Common.DesignWideResources.DeviceEditor.CyItemState" version="1" Name="\ADC:Net_109\" Color="-8289793" />
+<CyGuid_50eb6c77-9735-4e57-8808-b714f60fbc0d type_name="CyDesigner.PSoC.P3Fit.Common.DesignWideResources.DeviceEditor.CyItemState" version="1" Name="Net_2799" Color="-9580801" />
+<CyGuid_50eb6c77-9735-4e57-8808-b714f60fbc0d type_name="CyDesigner.PSoC.P3Fit.Common.DesignWideResources.DeviceEditor.CyItemState" version="1" Name="Net_2800" Color="-8213505" />
+<CyGuid_50eb6c77-9735-4e57-8808-b714f60fbc0d type_name="CyDesigner.PSoC.P3Fit.Common.DesignWideResources.DeviceEditor.CyItemState" version="1" Name="Net_3050" Color="-8289793" />
+<CyGuid_50eb6c77-9735-4e57-8808-b714f60fbc0d type_name="CyDesigner.PSoC.P3Fit.Common.DesignWideResources.DeviceEditor.CyItemState" version="1" Name="\VDAC8_1:Net_77\" Color="-4160769" />
 </ComponentStates>
 </CyGuid_d442b0b8-dd66-4eee-b5be-1cb213792b31>
 </dataGuid>
 <dataGuid v="769d31ea-68b1-4f0c-b90a-7c10a43ee563">
 <CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563 type_name="CyDesigner.Common.ProjMgmt.Model.CyLinkCustomData" version="1">
-<deps_time v="130457604885858000" />
+<deps_time v="130474036302120000" />
 </CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563>
 </dataGuid>
 <dataGuid v="504337dd-7d07-4bc7-9057-90e60cf6c469">

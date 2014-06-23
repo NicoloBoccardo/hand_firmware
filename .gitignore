@@ -697,3 +697,10 @@ firmware.cydsn/codegentemp/FTDI_ENABLE_REG.c
 firmware.cydsn/codegentemp/FTDI_ENABLE_REG.h
 Backup/firmware._3.0_Component_Pack_7.zip
 firmware.cydsn/codegentemp/pins_48-SSOP.xml
+firmware.cydsn/DP8051_Keil_951/Release/VDAC8_1.lst
+firmware.cydsn/DP8051_Keil_951/Release/VDAC8_1.obj
+firmware.cydsn/DP8051_Keil_951/Release/VDAC8_1_PM.lst
+firmware.cydsn/DP8051_Keil_951/Release/VDAC8_1_PM.obj
+firmware.cydsn/Generated_Source/PSoC3/VDAC8_1.c
+firmware.cydsn/Generated_Source/PSoC3/VDAC8_1.h
+firmware.cydsn/Generated_Source/PSoC3/VDAC8_1_PM.c

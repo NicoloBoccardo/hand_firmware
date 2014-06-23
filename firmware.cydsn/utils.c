@@ -18,6 +18,7 @@
 //--------------------------------------------------------------     DEFINITIONS
 
 #define ALPHA 10
+#define BETA  50
 
 #define SIGN(A) (((A) > 0) ? (1) : ((((A) < 0) ? (-1) : (0))))
 
@@ -50,7 +51,7 @@ int32 filter_i1(int32 new_value) {
 
 	static int32 old_value, aux;
 
-	aux = (old_value * (1024 - ALPHA) + new_value * (ALPHA)) / 1024;
+	aux = (old_value * (1024 - BETA) + new_value * (BETA)) / 1024;
 
 	old_value = aux;
 
@@ -61,7 +62,7 @@ int32 filter_i2(int32 new_value) {
 
 	static int32 old_value, aux;
 
-	aux = (old_value * (1024 - ALPHA) + new_value * (ALPHA)) / 1024;
+	aux = (old_value * (1024 - BETA) + new_value * (BETA)) / 1024;
 
 	old_value = aux;
 

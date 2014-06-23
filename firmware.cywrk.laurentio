@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="firmware\firmware\Header Files\globals.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="firmware\firmware\TopDesign.cysch">
 <ExpandedNodeIds>
 <v>firmware</v>
 <v>firmware\firmware</v>
@@ -240,55 +240,7 @@
 <v>firmware\firmware\Generated_Source\PSoC3\cyfitterkeil.inc</v>
 <v>firmware\firmware\Generated_Source\PSoC3\project.h</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>firmware</v>
-<v>firmware\firmware</v>
-<v>firmware\firmware\TopDesign.cysch</v>
-<v>firmware\firmware\firmware.cydwr</v>
-<v>firmware\firmware\Header Files</v>
-<v>firmware\firmware\Header Files\command_processing.h</v>
-<v>firmware\firmware\Header Files\commands.h</v>
-<v>firmware\firmware\Header Files\device.h</v>
-<v>firmware\firmware\Header Files\globals.h</v>
-<v>firmware\firmware\Header Files\interruptions.h</v>
-<v>firmware\firmware\Header Files\utils.h</v>
-<v>firmware\firmware\Source Files</v>
-<v>firmware\firmware\Source Files\command_processing.c</v>
-<v>firmware\firmware\Source Files\globals.c</v>
-<v>firmware\firmware\Source Files\interruptions.c</v>
-<v>firmware\firmware\Source Files\main.c</v>
-<v>firmware\firmware\Source Files\utils.c</v>
-<v>firmware\firmware\Generated_Source</v>
-<v>firmware\firmware\Generated_Source\PSoC3</v>
-<v>firmware\firmware\Generated_Source\PSoC3\ADC</v>
-<v>firmware\firmware\Generated_Source\PSoC3\ADC\ADC.c</v>
-<v>firmware\firmware\Generated_Source\PSoC3\ADC\ADC.h</v>
-<v>firmware\firmware\Generated_Source\PSoC3\ADC\ADC_INT.c</v>
-<v>firmware\firmware\Generated_Source\PSoC3\ADC\ADC_PM.c</v>
-<v>firmware\firmware\Generated_Source\PSoC3\ADC_AMux</v>
-<v>firmware\firmware\Generated_Source\PSoC3\ADC_AMux\ADC_AMux.c</v>
-<v>firmware\firmware\Generated_Source\PSoC3\ADC_AMux\ADC_AMux.h</v>
-<v>firmware\firmware\Generated_Source\PSoC3\ADC_Ext_CP_Clk</v>
-<v>firmware\firmware\Generated_Source\PSoC3\ADC_Ext_CP_Clk\ADC_Ext_CP_Clk.c</v>
-<v>firmware\firmware\Generated_Source\PSoC3\ADC_Ext_CP_Clk\ADC_Ext_CP_Clk.h</v>
-<v>firmware\firmware\Generated_Source\PSoC3\ADC_IRQ</v>
-<v>firmware\firmware\Generated_Source\PSoC3\ADC_IRQ\ADC_IRQ.c</v>
-<v>firmware\firmware\Generated_Source\PSoC3\ADC_IRQ\ADC_IRQ.h</v>
-<v>firmware\firmware\Generated_Source\PSoC3\ADC_theACLK</v>
-<v>firmware\firmware\Generated_Source\PSoC3\ADC_theACLK\ADC_theACLK.c</v>
-<v>firmware\firmware\Generated_Source\PSoC3\ADC_theACLK\ADC_theACLK.h</v>
-<v>firmware\firmware\Generated_Source\PSoC3\AMUXSEQ_MOTORS</v>
-<v>firmware\firmware\Generated_Source\PSoC3\AMUXSEQ_MOTORS\AMUXSEQ_MOTORS.c</v>
-<v>firmware\firmware\Generated_Source\PSoC3\AMUXSEQ_MOTORS\AMUXSEQ_MOTORS.h</v>
-<v>firmware\firmware\Generated_Source\PSoC3\Bootloadable</v>
-<v>firmware\firmware\Generated_Source\PSoC3\Bootloadable\Bootloadable.c</v>
-<v>firmware\firmware\Generated_Source\PSoC3\Bootloadable\Bootloadable.h</v>
-<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_ENCODERS</v>
-<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_ENCODERS\CLOCK_ENCODERS.c</v>
-<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_ENCODERS\CLOCK_ENCODERS.h</v>
-<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_MEASUREMENTS</v>
-<v>firmware\firmware\Generated_Source\PSoC3\CLOCK_MEASUREMENTS\CLOCK_MEASUREMENTS.c</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="firmware\firmware">
 <ExpandedNodeIds>
@@ -298,13 +250,7 @@
 <v>firmware\firmware\TopDesign\TopDesign.cysch</v>
 <v>firmware\firmware\TopDesign\TopDesign.cysym</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>firmware</v>
-<v>firmware\firmware</v>
-<v>firmware\firmware\TopDesign</v>
-<v>firmware\firmware\TopDesign\TopDesign.cysch</v>
-<v>firmware\firmware\TopDesign\TopDesign.cysym</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="firmware\firmware\firmware.rpt">
 <ExpandedNodeIds>
@@ -394,10 +340,7 @@
 <v>firmware\firmware\firmware.rpt</v>
 <v>firmware\firmware\firmware_timing.html</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>firmware</v>
-<v>firmware\firmware</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
 <TreeKeysV2>
@@ -429,30 +372,7 @@
 <v>firmware\firmware\UART_v2_30</v>
 <v>firmware\firmware\ZeroTerminal</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>firmware</v>
-<v>firmware\firmware</v>
-<v>firmware\firmware\PSoC 3 Architecture TRM</v>
-<v>firmware\firmware\CY8C32 Family Datasheet</v>
-<v>firmware\firmware\System Reference Guide v4_10</v>
-<v>firmware\firmware\ADC_DelSig_v3_0</v>
-<v>firmware\firmware\AMuxSeq_v1_80</v>
-<v>firmware\firmware\and_v1_0</v>
-<v>firmware\firmware\Bootloadable_v1_20</v>
-<v>firmware\firmware\Counter_v2_40</v>
-<v>firmware\firmware\cy_clock_v2_20</v>
-<v>firmware\firmware\cy_isr_v1_70</v>
-<v>firmware\firmware\cy_pins_v2_0</v>
-<v>firmware\firmware\CyControlReg_v1_70</v>
-<v>firmware\firmware\cydff_v1_30</v>
-<v>firmware\firmware\EEPROM_v2_10</v>
-<v>firmware\firmware\not_v1_0</v>
-<v>firmware\firmware\or_v1_0</v>
-<v>firmware\firmware\PWM_v3_0</v>
-<v>firmware\firmware\ShiftReg_v2_30</v>
-<v>firmware\firmware\UART_v2_30</v>
-<v>firmware\firmware\ZeroTerminal</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
 </CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
@@ -478,6 +398,8 @@
 <name v=".\firmware.cydsn\utils.h" />
 <name v=".\firmware.cydsn\utils.c" />
 <name v=".\firmware.cydsn\device.h" />
+<name v=".\firmware.cydsn\command_processing.h" />
+<name v=".\firmware.cydsn\commands.h" />
 </OpenDocs>
 <config v="Release" />
 <AutoUpdate v="true" />

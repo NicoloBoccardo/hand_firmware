@@ -484,7 +484,7 @@ CY_ISR(ISR_MEASUREMENTS_ExInterrupt)
                             i_mean_value_1 = i_mean_value_1 / SAMPLES_FOR_MEAN;
                         }
                     } else {
-                        g_meas.curr[0] =  filter_i1(abs(((value - i_mean_value_1) * 5000) / i_mean_value_1));
+                        g_meas.curr[0] =  filter_i1(abs(((value - 1638) * 4000) / (1638)));
                         if ((c_mem.current_limit != 0) && (g_meas.curr[0] > c_mem.current_limit)) {
                             device.overcurrent = 1;
                         } else {
@@ -509,7 +509,7 @@ CY_ISR(ISR_MEASUREMENTS_ExInterrupt)
                         }
                         i_counter--;
                     } else {    
-                        g_meas.curr[1] =  filter_i2(abs(((value - i_mean_value_2) * 5000) / i_mean_value_2));
+                        g_meas.curr[1] =  filter_i2(abs(((value - 1638) * 4000) / (1638)));
                     }
                 } else {
                     g_meas.curr[1] = 0; 
